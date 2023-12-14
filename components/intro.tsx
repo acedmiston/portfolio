@@ -48,7 +48,16 @@ const Intro = () => {
               delay: 0.1,
               duration: 0.7,
             }}
-            className="absolute bottom-0 right-0 text-6xl"
+            whileHover={{
+              scale: 1.1,
+              rotate: 50,
+              transition: {
+                type: "spring",
+                stiffness: 125,
+                duration: 0.2,
+              },
+            }}
+            className="absolute bottom-0 right-0 text-6xl focus:scale-110"
           >
             👋
           </motion.span>
