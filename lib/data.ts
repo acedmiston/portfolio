@@ -42,7 +42,7 @@ export const experiencesData = [
     description:
       "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products.",
     icon: React.createElement(FaReact),
-    date: "June 2021 - present",
+    date: "June 2022 - present",
   },
   {
     title: "Full-Stack Developer",
@@ -51,8 +51,18 @@ export const experiencesData = [
     description:
       "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications.",
     icon: React.createElement(CgWorkAlt),
-    date: "Nov 2020 - July 2021",
+    date: "Oct 2021 - July 2022",
   },
+  {
+    title: "Full-Stack Software Engineer",
+    location: "Remote",
+    company: "Independent Contractor",
+    description:
+      "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
+    icon: React.createElement(CgWorkAlt),
+    date: "June 2021 - current",
+
+  }, 
   {
     title: "Full-Stack Engineering Bootcamp",
     location: "London, UK",
@@ -60,7 +70,7 @@ export const experiencesData = [
     description:
       "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job.",
     icon: React.createElement(LuGraduationCap),
-    date: "Jan 2020 - Aug 2020",
+    date: "Jan 2021 - Aug 2021",
   },
 ] as const;
 
