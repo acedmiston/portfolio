@@ -36,7 +36,7 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Full-Stack Engineer",
+    title: "Full-Stack Software Engineer",
     location: "London, UK && New York, NY",
     company: "Rotaready",
     description:
@@ -45,7 +45,7 @@ export const experiencesData = [
     date: "June 2022 - present",
   },
   {
-    title: "Full-Stack Developer",
+    title: "Full-Stack Software Developer",
     location: "London, UK && New York, NY",
     company: "Absolute Magnitude",
     description:
@@ -60,7 +60,7 @@ export const experiencesData = [
     description:
       "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
     icon: React.createElement(CgWorkAlt),
-    date: "June 2021 - current",
+    date: "June 2021 - present",
 
   }, 
   {
