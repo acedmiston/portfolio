@@ -1,17 +1,18 @@
-import Header from "@/components/header";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import ActiveSectionContextProvider from "@/context/active-section-context";
-import Footer from "@/components/footer";
-import ThemeSwitch from "@/components/theme-switch";
-import ThemeContextProvider from "@/context/theme-context";
+import Header from '@/components/header';
+import './globals.css';
+import { Inter } from 'next/font/google';
+import ActiveSectionContextProvider from '@/context/active-section-context';
+import Footer from '@/components/footer';
+import ThemeSwitch from '@/components/theme-switch';
+import ThemeContextProvider from '@/context/theme-context';
+import ChatWrapper from '@/components/chat/ChatWrapper';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "Aaron | Personal Portfolio",
+  title: 'Aaron | Personal Portfolio',
   description:
-    "Aaron Edmiston is a full-stack engineer with 3 years of experience.",
+    'Aaron Edmiston is a full-stack engineer with 4 years of experience.',
 };
 
 export default function RootLayout({
@@ -32,6 +33,7 @@ export default function RootLayout({
             {children}
             <Footer />
             <ThemeSwitch />
+            <ChatWrapper />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>

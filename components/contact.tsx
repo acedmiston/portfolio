@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React, { FormEvent, useRef } from "react";
-import SectionHeading from "./section-heading";
-import { useSectionInView } from "@/lib/hooks";
-import { motion } from "framer-motion";
-import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./submit-button";
-import toast from "react-hot-toast";
+import React, { FormEvent, useRef } from 'react';
+import SectionHeading from './section-heading';
+import { useSectionInView } from '@/lib/hooks';
+import { motion } from 'framer-motion';
+import { sendEmail } from '@/actions/sendEmail';
+import SubmitBtn from './submit-button';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
-  const { ref } = useSectionInView("Contact");
+  const { ref } = useSectionInView('Contact');
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -25,7 +25,7 @@ const Contact = () => {
     if (formRef.current) {
       formRef.current.reset();
     }
-    toast.success("Message sent!");
+    toast.success('Message sent!');
   };
 
   return (
@@ -40,7 +40,7 @@ const Contact = () => {
     >
       <SectionHeading>Contact me</SectionHeading>
       <p className="text-gray-700 -mt-6 dark:text-white/80">
-        Please reach out to me directly at{" "}
+        Please reach out to me directly at{' '}
         <a
           className="underline"
           href="mailto:aaroncedmistondev@gmail.com"
@@ -48,7 +48,7 @@ const Contact = () => {
           rel="noopener noreferrer"
         >
           aaroncedmistondev@gmail.com
-        </a>{" "}
+        </a>{' '}
         or through this form:
       </p>
       <form

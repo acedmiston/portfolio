@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import Aaron from "@/public/Aaron.jpg";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { HiDownload } from "react-icons/hi";
-import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
-import { useActiveSectionContext, useSectionInView } from "@/lib/hooks";
+import React from 'react';
+import Image from 'next/image';
+import Aaron from '@/public/Aaron.jpg';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { HiDownload } from 'react-icons/hi';
+import { BsArrowRight, BsGithub, BsLinkedin } from 'react-icons/bs';
+import { useActiveSectionContext, useSectionInView } from '@/lib/hooks';
 
 const Intro = () => {
-  const { ref } = useSectionInView("Home", 0.5);
+  const { ref } = useSectionInView('Home', 0.5);
   const { setTimeOfLastClick, setActiveSection } = useActiveSectionContext();
 
   return (
@@ -25,7 +25,7 @@ const Intro = () => {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              type: "tween",
+              type: 'tween',
               duration: 0.2,
             }}
           >
@@ -35,7 +35,7 @@ const Intro = () => {
               width={200}
               height={200}
               quality={100}
-              alt={"Aaron Portrait"}
+              alt={'Aaron Portrait'}
               className="h-26 w-26 rounded-full border-[0.35rem] border-white shadow-xl"
             />
           </motion.div>
@@ -43,7 +43,7 @@ const Intro = () => {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              type: "spring",
+              type: 'spring',
               stiffness: 125,
               delay: 0.1,
               duration: 0.7,
@@ -52,7 +52,7 @@ const Intro = () => {
               scale: 1.1,
               rotate: 50,
               transition: {
-                type: "spring",
+                type: 'spring',
                 stiffness: 125,
                 duration: 0.2,
               },
@@ -70,10 +70,10 @@ const Intro = () => {
       >
         Hey there, I&apos;m <span className="font-bold">Aaron Edmiston</span>, a
         <span className="font-bold"> full-stack software engineer </span>
-        with over<span className="italic"> 3 years</span> of professional
-        experience. My focus is mostly front-end development, using{" "}
+        with over<span className="italic"> 4 years</span> of professional
+        experience. My focus is mostly front-end development, using{' '}
         <span className="underline">
-          React (Next.js), Node, GraphQL, and TypeScript.
+          React (Next.js), TypeScript, Node, GraphQL, and MySQL.
         </span>
       </motion.p>
       <motion.div
@@ -86,7 +86,7 @@ const Intro = () => {
           href="#contact"
           className="flex items-center gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none group px-7 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 curser-pointer"
           onClick={() => {
-            setActiveSection("Contact");
+            setActiveSection('Contact');
             setTimeOfLastClick(Date.now());
           }}
         >

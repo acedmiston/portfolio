@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
-import SectionHeading from "./section-heading";
-import { skillsData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
-import { motion } from "framer-motion";
+import React from 'react';
+import SectionHeading from './section-heading';
+import { skillsData } from '@/lib/data';
+import { useSectionInView } from '@/lib/hooks';
+import { motion } from 'framer-motion';
 
 const Skills = () => {
-  const { ref } = useSectionInView("Skills", 0.5);
+  const { ref } = useSectionInView('Skills', 0.5);
 
   const fadeInVariants = {
     initial: { opacity: 0 },
