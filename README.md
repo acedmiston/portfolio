@@ -1,34 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aaron Edmiston's Portfolio
 
-## Getting Started
+A modern, responsive portfolio website built with Next.js and React that showcases my professional experience, projects, and skills.
 
-First, run the development server:
+![Portfolio Screenshot](/PortfolioScreenshot.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Interactive Chat Assistant:** Chat with a portfolio assistant using a custom-built chat interface
+- **Light/Dark Mode:** Seamless theme switching with persistence
+- **Interactive Timeline:** Visual representation of professional experience
+- **Responsive Design:** Mobile-first approach for all screen sizes
+- **Modern UI:** Clean, minimalist design with smooth animations
+- **Server-Side Rendering:** Fast load times with Next.js
+- **Optimized Images:** Efficient image loading for better performance
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Technology Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Framework:** Next.js 13 with App Router
+- **Frontend:** React 18, TypeScript
+- **Styling:** Tailwind CSS, MUI Components
+- **Animations:** Framer Motion
+- **Icons:** React Icons
+- **State Management:** React Context API
+- **Linting:** ESLint, Prettier
+- **Deployment:** Vercel
 
-## Learn More
+## 📋 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+portfolio/
+├── app/              # Next.js app router files
+│   └── api/          # API routes including chat endpoint
+├── components/       # Reusable UI components
+│   ├── chat/         # Chat interface components
+│   └── ...           # Other UI components
+├── context/          # React Context providers
+├── lib/              # Utility functions and data
+│   └── hooks.ts      # Custom React hooks
+├── public/           # Static assets
+└── styles/           # Global CSS files
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💻 Setup and Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Prerequisites
 
-## Deploy on Vercel
+- Node.js 16.8+
+- Yarn or npm
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Clone the repository, install dependencies, and start the development server.
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+RESEND_API_KEY={YOUR_KEY_HERE}
+OPENAI_API_KEY={YOUR_KEY_HERE}
+
+## 📱 Key Components
+
+- **Interactive Chat:** Custom-built chat interface with personalized assistant avatar
+- **Experience Timeline:** Material UI-based timeline showing professional history
+- **Theme Switch:** Toggle between light and dark mode with theme persistence
+- **Contact Form:** Email contact form using Resend API
+
+## 🚀 Deployment
+
+This project is configured for easy deployment on Vercel:
+
+- Push to GitHub
+- Connect repository to Vercel
+- Configure environment variables
+- Deploy
+
+## 📝 License
+
+MIT © Aaron Edmiston 2025
+
+## 🙏 Acknowledgements
+
+- Next.js Team for the excellent framework
+- Material UI for timeline components
+- Tailwind CSS for styling utilities
+- All open-source contributors of packages used
+
+Designed and developed by Aaron Edmiston © 2024 - 2025
+
+---
