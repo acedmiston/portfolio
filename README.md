@@ -27,6 +27,7 @@ A modern, responsive portfolio website built with Next.js and React that showcas
 
 ## 📋 Project Structure
 
+```
 portfolio/
 ├── app/              # Next.js app router files
 │   └── api/          # API routes including chat endpoint
@@ -38,6 +39,7 @@ portfolio/
 │   └── hooks.ts      # Custom React hooks
 ├── public/           # Static assets
 └── styles/           # Global CSS files
+```
 
 ## 💻 Setup and Development
 
@@ -48,16 +50,37 @@ portfolio/
 
 ### Installation
 
-Clone the repository, install dependencies, and start the development server.
+- Clone the repository
+```
+git clone https://github.com/acedmiston/portfolio
+cd portfolio
+```
+
+- Install dependencies
+```
+yarn install
+# or
+npm install
+```
+
+- Start the development server
+```
+yarn dev
+# or
+npm run dev
+```
+
+- Open http://localhost:3000 in your browser
 
 ## 🔧 Configuration
 
 ### Environment Variables
 
 Create a `.env.local` file in the root directory with the following variables:
-
-RESEND_API_KEY={YOUR_KEY_HERE}
-OPENAI_API_KEY={YOUR_KEY_HERE}
+```
+RESEND_API_KEY=your-resend-api-key
+OPENAI_API_KEY=your-openai-api-key
+```
 
 ## 📱 Key Components
 
