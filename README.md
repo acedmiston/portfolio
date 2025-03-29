@@ -51,12 +51,14 @@ portfolio/
 ### Installation
 
 - Clone the repository
+
 ```
 git clone https://github.com/acedmiston/portfolio
 cd portfolio
 ```
 
 - Install dependencies
+
 ```
 yarn install
 # or
@@ -64,6 +66,7 @@ npm install
 ```
 
 - Start the development server
+
 ```
 yarn dev
 # or
@@ -77,6 +80,7 @@ npm run dev
 ### Environment Variables
 
 Create a `.env.local` file in the root directory with the following variables:
+
 ```
 RESEND_API_KEY=your-resend-api-key
 OPENAI_API_KEY=your-openai-api-key

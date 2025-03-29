@@ -1,42 +1,42 @@
 import { NextResponse } from 'next/server';
+import OpenAI from 'openai';
+
+// Initialize the OpenAI client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 export async function POST(request: Request) {
-  const { messages } = await request.json();
+  try {
+    const { messages } = await request.json();
 
-  const conversation = [
-    {
-      role: 'system',
-      content: `
+    const conversation = [
+      {
+        role: 'system',
+        content: `
 You are an AI assistant embedded on a developer's portfolio website.
 The developer is friendly, curious, and down-to-earth, specializing in JavaScript, React, and Next.js.
 Always respond in a warm, witty tone and provide concise, insightful answers about their work and projects.
 If you don't know something, be honest and add a little humor.
-      `,
-    },
-    ...messages,
-  ];
+        `,
+      },
+      ...messages,
+    ];
 
-  try {
-    const apiResponse = await fetch(
-      'https://api.openai.com/v1/chat/completions',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: 'gpt-4o-mini',
-          messages: conversation,
-        }),
-      }
-    );
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: conversation,
+      temperature: 0.7,
+      max_tokens: 500,
+    });
 
-    const data = await apiResponse.json();
-    const reply = data.choices[0].message;
+    const reply = response.choices[0].message;
     return NextResponse.json({ reply });
-  } catch (error) {
+  } catch (error: any) {
     console.error('OpenAI API error:', error);
-    return NextResponse.error();
+    return NextResponse.json(
+      { error: 'Failed to generate response', details: error.message },
+      { status: 500 }
+    );
   }
 }
