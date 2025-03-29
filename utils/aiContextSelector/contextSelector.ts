@@ -1,5 +1,5 @@
 import { personalInfo } from '@/lib/personalInfo';
-import { conceptMaps } from '@/lib/wordConceptMaps';
+import { conceptMaps } from '@/utils/aiContextSelector/conceptMaps';
 
 export function getRelevantContext(message: string): string {
   // Convert to lowercase for case-insensitive matching

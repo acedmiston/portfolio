@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import { getRelevantContext } from '@/utils/personalInfoSelector';
+import { getRelevantContext } from '@/utils/aiContextSelector/contextSelector';
 import { personalInfo } from '@/lib/personalInfo';
+
+export const runtime = 'nodejs';
 
 // Initialize the OpenAI client
 const openai = new OpenAI({

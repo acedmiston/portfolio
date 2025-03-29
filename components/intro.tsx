@@ -94,9 +94,9 @@ const Intro = () => {
           <BsArrowRight className="transition opacity-70 group-hover:translate-x-1" />
         </Link>
         <a
-          className="flex items-center gap-2 py-3 transition bg-white rounded-full outline-none group px-7 focus:scale-110 hover:scale-110 active:scale-105 curser-pointer borderBlack dark:bg-white/10"
           href="/AaronEdmistonResume.pdf"
-          download
+          download="Aaron_Edmiston_Resume.pdf"
+          className="flex items-center gap-2 py-3 transition bg-white rounded-full outline-none group px-7 focus:scale-110 hover:scale-110 active:scale-105 curser-pointer borderBlack dark:bg-white/10"
         >
           Download résumé
           <HiDownload className="transition opacity-60 group-hover:translate-y-1" />

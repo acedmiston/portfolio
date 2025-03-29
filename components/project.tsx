@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { lazy, useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { projectsData } from '@/lib/data';
@@ -46,7 +46,9 @@ const Project = ({ title, description, tags, imageUrl }: ProjectProps) => {
         <Image
           src={imageUrl}
           alt={title}
-          quality={100}
+          quality={90}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
           className="absolute top-8 hidden sm:block -right-40 w-[28.25rem] rounded-t-lg
              shadow-2xl 
              transition
