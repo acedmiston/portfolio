@@ -26,7 +26,7 @@ If you don't know something, be honest and add a little humor.
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
+          model: 'gpt-4o-mini',
           messages: conversation,
         }),
       }
