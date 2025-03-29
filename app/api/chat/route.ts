@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import { getRelevantContext } from '@/utils/personalInfoSelector';
+import { personalInfo } from '@/lib/personalInfo';
 
 // Initialize the OpenAI client
 const openai = new OpenAI({
@@ -10,14 +12,31 @@ export async function POST(request: Request) {
   try {
     const { messages } = await request.json();
 
+    // Get the latest user message
+    const latestMessage = messages[messages.length - 1].content;
+
+    // Get context relevant to the user's query
+    const relevantContext = getRelevantContext(latestMessage);
+
     const conversation = [
       {
         role: 'system',
         content: `
-You are an AI assistant embedded on a developer's portfolio website.
-The developer is friendly, curious, and down-to-earth, specializing in JavaScript, React, and Next.js.
-Always respond in a warm, witty tone and provide concise, insightful answers about their work and projects.
-If you don't know something, be honest and add a little humor.
+You are an AI assistant embedded on Aaron Edmiston's portfolio website.
+
+ABOUT AARON:
+${personalInfo.basics.summary}
+
+I'll provide you with specific information about Aaron based on the visitor's query:
+
+${relevantContext}
+
+Instructions:
+1. Always respond in a warm, friendly tone with some personality.
+2. Provide specific details about Aaron's experience and skills using the information provided.
+3. If asked about something outside this information, be honest and suggest contacting Aaron directly.
+4. Keep responses concise (2-3 paragraphs maximum) but informative.
+5. Highlight Aaron's achievements and skills appropriately.
         `,
       },
       ...messages,
