@@ -1,103 +1,53 @@
 import { personalInfo } from '@/lib/personalInfo';
+import { conceptMaps } from '@/lib/wordConceptMaps';
 
 export function getRelevantContext(message: string): string {
   // Convert to lowercase for case-insensitive matching
   const query = message.toLowerCase();
 
-  // Work experience queries
-  if (
-    query.includes('experience') ||
-    query.includes('work') ||
-    query.includes('job') ||
-    query.includes('career') ||
-    query.includes('company') ||
-    query.includes('rotaready')
-  ) {
+  // Helper function to check if query contains any word from a concept
+  function matchesConcept(conceptTerms: string[]): boolean {
+    return conceptTerms.some((term) => query.includes(term));
+  }
+
+  // Match against concept maps
+  if (matchesConcept(conceptMaps.workExperience)) {
     return `Work History: ${JSON.stringify(personalInfo.techWorkHistory, null, 2)}`;
   }
 
-  // Project queries
-  if (
-    query.includes('project') ||
-    query.includes('portfolio') ||
-    query.includes('build') ||
-    query.includes('develop') ||
-    query.includes('create') ||
-    query.includes('app') ||
-    query.includes('website')
-  ) {
+  if (matchesConcept(conceptMaps.projects)) {
     return `Projects: ${JSON.stringify(personalInfo.projects, null, 2)}`;
   }
 
-  // Skills queries
-  if (
-    query.includes('skill') ||
-    query.includes('technology') ||
-    query.includes('tech stack') ||
-    query.includes('framework') ||
-    query.includes('language') ||
-    query.includes('react') ||
-    query.includes('javascript') ||
-    query.includes('typescript')
-  ) {
+  if (matchesConcept(conceptMaps.skills)) {
     return `Skills: ${JSON.stringify(personalInfo.skills, null, 2)}`;
   }
 
-  // Education queries
-  if (
-    query.includes('education') ||
-    query.includes('degree') ||
-    query.includes('university') ||
-    query.includes('college') ||
-    query.includes('study') ||
-    query.includes('school')
-  ) {
+  if (matchesConcept(conceptMaps.education)) {
     return `Education: ${JSON.stringify(personalInfo.education, null, 2)}`;
   }
 
-  // Bio/about queries
-  if (
-    query.includes('about') ||
-    query.includes('who') ||
-    query.includes('introduce') ||
-    query.includes('background') ||
-    query.includes('aaron') ||
-    query.includes('tell me about') ||
-    query.includes('bio')
-  ) {
-    return `About: ${JSON.stringify(personalInfo.basics, null, 2)}
-Non-tech experience: ${JSON.stringify(personalInfo.nonTechWorkHistory, null, 2)}`;
+  if (matchesConcept(conceptMaps.interests)) {
+    return `Interests and Hobbies: ${JSON.stringify(personalInfo.interests, null, 2)}`;
   }
 
-  // Interest/hobby queries
+  // Handle potential confusion between programming languages and spoken languages
   if (
-    query.includes('interest') ||
-    query.includes('hobby') ||
-    query.includes('passion') ||
-    query.includes('personal') ||
-    query.includes('free time') ||
-    query.includes('outside of work')
-  ) {
-    return `Interests: ${JSON.stringify(personalInfo.interests, null, 2)}`;
-  }
-
-  // Language queries
-  if (
-    query.includes('language') ||
-    query.includes('speak') ||
-    query.includes('spanish') ||
-    query.includes('portuguese')
+    matchesConcept(conceptMaps.languages) &&
+    !query.includes('programming') &&
+    !query.includes('code') &&
+    !query.includes('coding')
   ) {
     return `Languages: ${JSON.stringify(personalInfo.languages, null, 2)}`;
   }
 
-  // Certification queries
-  if (
-    query.includes('certification') ||
-    query.includes('license') ||
-    query.includes('qualified')
-  ) {
+  if (matchesConcept(conceptMaps.certifications)) {
     return `Certifications: ${JSON.stringify(personalInfo.certifications, null, 2)}`;
+  }
+
+  if (matchesConcept(conceptMaps.about)) {
+    return `About: ${JSON.stringify(personalInfo.basics, null, 2)}
+Non-tech experience: ${JSON.stringify(personalInfo.nonTechWorkHistory, null, 2)}`;
   }
 
   // Default: general info
