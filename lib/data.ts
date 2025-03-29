@@ -132,4 +132,5 @@ export const skillsData = [
   'Docker',
   'HTML',
   'CSS',
+  'Python',
 ] as const;

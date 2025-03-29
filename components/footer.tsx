@@ -9,9 +9,11 @@ const Footer = () => {
       <p className="text-xs">
         <span className="font-semibold">About this website:</span> built with
         React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS,
-        Framer Motion, Material UI, Vercel hosting, and enhanced with dynamic
-        AI-powered chat using OpenAI, semantic query matching, and contextual
-        response generation for personalized interactions.
+        Framer Motion, Material UI, Vercel hosting,
+        <br />
+        and enhanced with dynamicAI-powered chat using OpenAI, semantic query
+        matching, and contextual response generation for personalized
+        interactions.
       </p>
     </footer>
   );
