@@ -101,20 +101,22 @@ const Intro = () => {
           {t('intro.downloadResume')}
           <HiDownload className="transition opacity-60 group-hover:translate-y-1" />
         </a>
-        <a
-          className="curser-pointer borderBlack flex items-center gap-2 rounded-full bg-white p-4 text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/aaronedmiston/"
-          target="_blank"
-        >
-          <BsLinkedin />
-        </a>
-        <a
-          className="curser-pointer borderBlack flex items-center gap-2 rounded-full bg-white p-4 text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
-          href="https://www.github.com/acedmiston"
-          target="_blank"
-        >
-          <BsGithub />
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            className="curser-pointer borderBlack flex items-center gap-2 rounded-full bg-white p-4 text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
+            href="https://www.linkedin.com/in/aaronedmiston/"
+            target="_blank"
+          >
+            <BsLinkedin />
+          </a>
+          <a
+            className="curser-pointer borderBlack flex items-center gap-2 rounded-full bg-white p-4 text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
+            href="https://www.github.com/acedmiston"
+            target="_blank"
+          >
+            <BsGithub />
+          </a>
+        </div>
       </motion.div>
     </section>
   );
