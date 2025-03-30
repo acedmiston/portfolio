@@ -16,15 +16,15 @@
     "name": "Aaron Edmiston",
     "experience": ", un Ingeniero de Software Full-Stack con más de 4 años de experiencia profesional.",
     "focus": "Mi enfoque es principalmente el desarrollo front-end, utilizando",
-    "technologies": "React (Next.js), TypeScript, Node, GraphQL y MySQL",
-    "description": "Construyo experiencias digitales excepcionales con tecnologías web modernas.",
+    "technologies": "React (Next.js), TypeScript, Node, GraphQL y MySQL.",
+    "description": "Mi objetivo es construir experiencias digitales excepcionales con tecnologías web modernas y mantenerme al día con las últimas tendencias.",
     "contactButton": "Contáctame",
     "downloadResume": "Descargar currículum"
   },
   "about": {
     "title": "Acerca de mí",
-    "description1": "Mientras cursaba títulos duales en Marketing y Estudios de Negocios Internacionales en la Universidad Estatal de California Long Beach, me adentré en un mundo de experiencias reales que moldearon mi perspectiva actual. Son estas aventuras las que realmente construyeron mis fundamentos, añadiendo profundidad tanto a mi trabajo como a mi vida fuera del editor de código. Incluso en ese entonces, tenía la intuición de que mezclar la programación con un toque de aventura y creatividad sería mi punto fuerte.",
-    "description2": "Avanzando hasta hoy—soy un Ingeniero de Software Full-Stack prosperando en NYC. La programación es mi fuerte; JavaScript, React y Node mantienen mis días llenos de resolución de problemas e innovación. Pero la vida es más que solo código. Me dedico a fomentar conexiones y crecimiento, ya sea mentoreando a desarrolladores junior o creando experiencias que combinan arte, música e interacción humana genuina. Y cuando no estoy programando, me sumerjo en las profundidades del océano, explorando arrecifes o disfrutando del sol en una playa en Australia. Con experiencias en 60 países y un año viviendo la vida nómada, cada aventura sigue alimentando mi pasión por la tecnología y la creatividad."
+    "description1": "Mientras cursaba títulos duales en Marketing y Estudios de Negocios Internacionales en la Universidad Estatal de California Long Beach, me sumergí en un mundo de experiencias del mundo real que moldearon mi perspectiva actual. Son estas aventuras las que realmente construyeron mis cimientos, añadiendo profundidad tanto a mi trabajo como a mi vida fuera del editor de código. Incluso entonces, tenía la corazonada de que mezclar la programación con un toque de aventura y creatividad sería mi punto ideal.",
+    "description2": "Avancemos hasta hoy: soy un Ingeniero de Software Full-Stack prosperando en NYC. La programación es mi fuerte; JavaScript, React y Node mantienen mis días llenos de resolución de problemas e innovación. Pero la vida es más que solo código. Me dedico a fomentar conexiones y crecimiento, ya sea mentoreando a desarrolladores junior o creando experiencias que combinan arte, música e interacción humana genuina. Y cuando no estoy programando, me sumerjo en las profundidades del océano, explorando arrecifes o disfrutando del sol en una playa en Australia. Con experiencias en 60 países y un año viviendo la vida nómada, cada aventura sigue alimentando mi pasión por la tecnología y la creatividad."
   },
   "projects": {
     "title": "Proyectos",
@@ -44,12 +44,25 @@
       "eventPlanner": {
         "title": "Eventos de Rotaready",
         "description": "Lideré el desarrollo del Planificador de Eventos para Rotaready. Personalicé React Big Calendar y utilicé GraphQL para la recuperación precisa de datos. A través de un manejo diligente de casos extremos, aseguré una experiencia de usuario fluida, resultando en un planificador visualmente atractivo y completamente funcional.",
-        "tags": ["React", "React Big Calendar", "GraphQL", "Storybook", "Redux"]
+        "tags": [
+          "React",
+          "React Big Calendar",
+          "GraphQL",
+          "Storybook",
+          "Redux"
+        ]
       },
       "nomader": {
         "title": "Nomader",
-        "description": "Nomader fue una aplicación web full-stack que permite a los usuarios buscar y guardar sus destinos de viaje favoritos. Utilizó la API de Skyscanner para encontrar los vuelos más baratos y la moneda local de los usuarios a su destino.",
-        "tags": ["React", "Node", "Express", "MySQL", "REST APIs", "Heroku"]
+        "description": "Nomader era una aplicación web full-stack que permite a los usuarios buscar y guardar sus destinos de viaje favoritos. Utilizaba la API de Skyscanner para encontrar los vuelos más baratos y la moneda local de los usuarios a su destino.",
+        "tags": [
+          "React",
+          "Node",
+          "Express",
+          "MySQL",
+          "REST APIs",
+          "Heroku"
+        ]
       },
       "stripe": {
         "title": "Página de inicio de Stripe",
@@ -69,7 +82,7 @@
     "title": "Habilidades"
   },
   "experience": {
-    "title": "Mi trayectoria tecnológica",
+    "title": "Mi viaje tecnológico",
     "entries": [
       {
         "title": "Ingeniero de Software Full-Stack",
@@ -96,7 +109,7 @@
         "title": "Bootcamp de Ingeniería Full-Stack",
         "location": "Londres, Reino Unido",
         "company": "{The Jump} Escuela Digital",
-        "description": "Un viaje intensivo de ocho meses en ingeniería de software full-stack para aprender todo lo que necesitaba saber sobre cómo conseguir mi primer trabajo como ingeniero.",
+        "description": "Un viaje intensivo de ocho meses en ingeniería de software full-stack para aprender todo lo que necesitaba saber sobre cómo conseguir mi primer trabajo de ingeniería.",
         "date": "Ene 2021 - Ago 2021"
       }
     ]
@@ -149,7 +162,7 @@
     },
     "500": {
       "title": "Error del servidor",
-      "message": "Algo salió mal de nuestro lado. Por favor, inténtalo de nuevo más tarde.",
+      "message": "Algo salió mal en nuestro lado. Por favor, inténtalo de nuevo más tarde.",
       "backHome": "Volver a inicio"
     }
   },

@@ -73,9 +73,8 @@ const Intro = () => {
         {t('intro.greeting')}{' '}
         <span className="font-bold">{t('intro.name')}</span>
         {t('intro.experience')} {t('intro.focus')}{' '}
-        <span className="underline">{t('intro.technologies')}</span>.
-        <br />
-        {t('intro.description')}
+        <span className="underline">{t('intro.technologies')}</span>
+        <span> {t('intro.description')}</span>
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -85,22 +84,22 @@ const Intro = () => {
       >
         <Link
           href="#contact"
-          className="curser-pointer group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
+          className="flex items-center gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none curser-pointer group px-7 hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
           onClick={() => {
             setActiveSection('nav.contact');
             setTimeOfLastClick(Date.now());
           }}
         >
           {t('intro.contactButton')}
-          <BsArrowRight className="opacity-70 transition group-hover:translate-x-1" />
+          <BsArrowRight className="transition opacity-70 group-hover:translate-x-1" />
         </Link>
         <a
           href="/AaronEdmistonResume.pdf"
           download="Aaron_Edmiston_Resume.pdf"
-          className="curser-pointer borderBlack group flex items-center gap-2 rounded-full bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
+          className="flex items-center gap-2 py-3 transition bg-white rounded-full outline-none curser-pointer borderBlack group px-7 hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
         >
           {t('intro.downloadResume')}
-          <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
+          <HiDownload className="transition opacity-60 group-hover:translate-y-1" />
         </a>
         <a
           className="curser-pointer borderBlack flex items-center gap-2 rounded-full bg-white p-4 text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"

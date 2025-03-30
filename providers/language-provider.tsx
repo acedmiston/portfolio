@@ -16,6 +16,19 @@ interface LanguageContextType {
   t: (key: string, params?: Record<string, string | number>) => string;
 }
 
+// Version your translations with the MD5 hashes from build time
+interface TranslationHashes {
+  [key: string]: string; // locale: hash
+}
+
+// This will be populated at build time
+const TRANSLATION_HASHES: TranslationHashes = {
+  en: '',
+  fr: '',
+  es: '',
+  pt: '',
+};
+
 const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
@@ -43,10 +56,30 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       setLocaleState(savedLocale);
     }
 
-    // Function to load messages for a given locale, checking localStorage first
+    let hashesLoaded = false;
+
+    // Function to load messages for a given locale
     const loadLocaleMessages = async (loc: Locale) => {
+      // First, try to load hashes if not already loaded
+      if (!hashesLoaded) {
+        try {
+          // Load hashes from a file that's generated during build
+          const hashesResponse = await fetch('/translation-hashes.json');
+          const hashesData = await hashesResponse.json();
+          Object.assign(TRANSLATION_HASHES, hashesData);
+          hashesLoaded = true;
+        } catch (error) {
+          console.warn(
+            'Translation hashes not available, cache validation disabled'
+          );
+        }
+      }
+
       const cached = localStorage.getItem(`messages_${loc}`);
-      if (cached) {
+      const cachedHash = localStorage.getItem(`messages_hash_${loc}`);
+
+      // Use cache only if hash matches or hashes aren't available
+      if (cached && (cachedHash === TRANSLATION_HASHES[loc] || !hashesLoaded)) {
         try {
           messages[loc] = JSON.parse(cached);
           return;
@@ -54,10 +87,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
           console.error(`Failed to parse cached messages for ${loc}`, error);
         }
       }
+
+      // Fetch fresh translations
       try {
         const importedModule = await import(`../messages/${loc}.json`);
         messages[loc] = importedModule.default || importedModule;
         localStorage.setItem(`messages_${loc}`, JSON.stringify(messages[loc]));
+
+        // Store the current hash too
+        if (hashesLoaded) {
+          localStorage.setItem(`messages_hash_${loc}`, TRANSLATION_HASHES[loc]);
+        }
       } catch (error) {
         console.error(`Failed to load messages for ${loc}`, error);
       }
