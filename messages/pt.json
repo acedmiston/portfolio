@@ -15,7 +15,7 @@
     "greeting": "Olá, eu sou",
     "name": "Aaron Edmiston",
     "experience": ", um Engenheiro de Software Full-Stack com mais de 4 anos de experiência profissional.",
-    "focus": "Meu foco é principalmente no desenvolvimento front-end, usando",
+    "focus": "Eu me especializo em desenvolvimento front-end, usando",
     "technologies": "React (Next.js), TypeScript, Node, GraphQL e MySQL.",
     "description": "Meu objetivo é construir experiências digitais excepcionais com tecnologias web modernas e me manter atualizado com as últimas tendências.",
     "contactButton": "Entre em contato",
@@ -23,8 +23,8 @@
   },
   "about": {
     "title": "Sobre mim",
-    "description1": "Enquanto buscava diplomas duplos em Marketing e Estudos de Negócios Internacionais na California State University Long Beach, mergulhei em um mundo de experiências reais que moldaram minha visão atual. São essas aventuras que realmente construíram minhas bases, adicionando profundidade tanto ao meu trabalho quanto à minha vida fora do editor de código. Mesmo naquela época, eu tinha uma intuição de que misturar codificação com uma pitada de aventura e criatividade seria meu ponto ideal.",
-    "description2": "Avançando para hoje—sou um Engenheiro de Software Full-Stack prosperando em NYC. Codificação é meu forte; JavaScript, React e Node mantêm meus dias agitados com resolução de problemas e inovação. Mas a vida é mais do que apenas código. Estou totalmente focado em nutrir conexões e crescimento, seja orientando desenvolvedores juniores ou criando experiências que misturam arte, música e interação humana genuína. E quando não estou codificando, estou mergulhando nas profundezas do oceano, explorando recifes ou aproveitando o sol em uma praia na Austrália. Com experiências em 60 países e um ano vivendo a vida nômade, cada aventura continua a alimentar minha paixão por tecnologia e criatividade."
+    "description1": "Enquanto buscava diplomas duplos em Marketing e Estudos de Negócios Internacionais na California State University Long Beach, mergulhei em um mundo de experiências reais que moldaram minha visão atual. São essas aventuras que realmente construíram minhas bases, adicionando profundidade tanto ao meu trabalho quanto à minha vida fora do editor de código. Mesmo naquela época, eu tinha uma intuição de que misturar codificação com um toque de aventura e criatividade seria meu ponto forte.",
+    "description2": "Avançando para hoje—sou um Engenheiro de Software Full-Stack prosperando em NYC. Codificação é meu forte; JavaScript, React e Node mantêm meus dias agitados com resolução de problemas e inovação. Mas a vida é mais do que apenas código. Estou totalmente focado em cultivar conexões e crescimento, seja orientando desenvolvedores juniores ou criando experiências que misturam arte, música e interação humana genuína. E quando não estou codificando, estou mergulhando nas profundezas do oceano, explorando recifes ou aproveitando o sol em uma praia na Austrália. Com experiências em 60 países e um ano vivendo a vida de nômade, cada aventura continua a alimentar minha paixão por tecnologia e criatividade."
   },
   "projects": {
     "title": "Projetos",
@@ -43,13 +43,26 @@
       },
       "eventPlanner": {
         "title": "Eventos Rotaready",
-        "description": "Liderei o desenvolvimento do Planejador de Eventos para Rotaready. Personalizei o React Big Calendar e usei GraphQL para recuperação precisa de dados. Através do manuseio diligente de casos extremos, garanti uma experiência do usuário perfeita, resultando em um planejador visualmente atraente e totalmente funcional.",
-        "tags": ["React", "React Big Calendar", "GraphQL", "Storybook", "Redux"]
+        "description": "Liderei o desenvolvimento do Planejador de Eventos para a Rotaready. Personalizei o React Big Calendar e usei GraphQL para recuperação precisa de dados. Através de um manuseio diligente de casos extremos, garanti uma experiência de usuário perfeita, resultando em um planejador visualmente atraente e totalmente funcional.",
+        "tags": [
+          "React",
+          "React Big Calendar",
+          "GraphQL",
+          "Storybook",
+          "Redux"
+        ]
       },
       "nomader": {
         "title": "Nomader",
-        "description": "Nomader era uma aplicação web full-stack que permite aos usuários pesquisar e salvar seus destinos de viagem favoritos. Usou a API do Skyscanner para encontrar os voos mais baratos e a moeda local dos usuários para seu destino.",
-        "tags": ["React", "Node", "Express", "MySQL", "REST APIs", "Heroku"]
+        "description": "Nomader era uma aplicação web full-stack que permite aos usuários pesquisar e salvar seus destinos de viagem favoritos. Usava a API do Skyscanner para encontrar os voos mais baratos e a moeda local dos usuários para seu destino.",
+        "tags": [
+          "React",
+          "Node",
+          "Express",
+          "MySQL",
+          "REST APIs",
+          "Heroku"
+        ]
       },
       "stripe": {
         "title": "Página Inicial do Stripe",
@@ -73,31 +86,31 @@
     "entries": [
       {
         "title": "Engenheiro de Software Full-Stack",
-        "location": "Londres, Reino Unido && Nova Iorque, NY",
+        "location": "Londres, Reino Unido && Nova York, NY",
         "company": "Rotaready",
         "description": "Atualmente trabalho como engenheiro full-stack para a Rotaready, uma empresa SaaS. Meu dia a dia inclui construir novos produtos e recursos para nossos clientes, além de manter e melhorar nossos produtos existentes.",
-        "date": "Junho de 2022 - presente"
+        "date": "Junho 2022 - presente"
       },
       {
         "title": "Desenvolvedor de Software Full-Stack",
-        "location": "Londres, Reino Unido && Nova Iorque, NY",
+        "location": "Londres, Reino Unido && Nova York, NY",
         "company": "Absolute Magnitude",
-        "description": "Trabalhei como desenvolvedor full-stack para uma startup chamada Absolute Magnitude por cerca de um ano. Fui responsável pela gestão de projetos, trabalhando diretamente com clientes e construindo aplicações web full-stack.",
-        "date": "Outubro de 2021 - Julho de 2022"
+        "description": "Trabalhei como desenvolvedor full-stack para uma empresa startup chamada Absolute Magnitude por cerca de um ano. Fui responsável pela gestão de projetos, trabalhando diretamente com clientes e construindo aplicações web full-stack.",
+        "date": "Out 2021 - Jul 2022"
       },
       {
         "title": "Engenheiro de Software Full-Stack",
         "location": "Remoto",
-        "company": "Contratante Independente",
+        "company": "Contratado Independente",
         "description": "Trabalho como engenheiro de software full-stack entregando aplicações web personalizadas, sites e outros produtos de software para clientes.",
-        "date": "Junho de 2021 - presente"
+        "date": "Junho 2021 - presente"
       },
       {
         "title": "Bootcamp de Engenharia Full-Stack",
         "location": "Londres, Reino Unido",
         "company": "{The Jump} Digital School",
         "description": "Uma jornada intensiva de oito meses em engenharia de software full-stack para aprender tudo que eu precisava saber sobre como conseguir meu primeiro emprego como engenheiro.",
-        "date": "Janeiro de 2021 - Agosto de 2021"
+        "date": "Jan 2021 - Ago 2021"
       }
     ]
   },
@@ -115,7 +128,7 @@
     "validEmail": "Por favor, insira um e-mail válido"
   },
   "chat": {
-    "title": "Assistente do Portfólio do Aaron",
+    "title": "Assistente de Portfólio do Aaron",
     "placeholder": "Não seja tímido...",
     "initialMessage": "Oi! Pergunte-me qualquer coisa sobre o portfólio do Aaron.",
     "contextualAreas": {

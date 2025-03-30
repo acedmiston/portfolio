@@ -15,7 +15,7 @@
     "greeting": "Salut, je suis",
     "name": "Aaron Edmiston",
     "experience": ", un ingénieur logiciel full-stack avec plus de 4 ans d'expérience professionnelle.",
-    "focus": "Mon domaine de prédilection est principalement le développement front-end, utilisant",
+    "focus": "Je me spécialise dans le développement front-end, en utilisant",
     "technologies": "React (Next.js), TypeScript, Node, GraphQL et MySQL.",
     "description": "Mon objectif est de créer des expériences numériques exceptionnelles avec des technologies web modernes et de rester à jour avec les dernières tendances.",
     "contactButton": "Contactez-moi",
@@ -23,15 +23,15 @@
   },
   "about": {
     "title": "À propos de moi",
-    "description1": "Tout en poursuivant des diplômes doubles en marketing et en études commerciales internationales à l'Université d'État de Californie à Long Beach, je me suis plongé dans un monde d'expériences réelles qui ont façonné ma vision actuelle. Ce sont ces aventures qui ont vraiment construit mes fondations, ajoutant de la profondeur à mon travail et à ma vie en dehors de l'éditeur de code. Même à l'époque, j'avais un pressentiment que mélanger le codage avec une touche d'aventure et de créativité serait mon point fort.",
-    "description2": "Avançons jusqu'à aujourd'hui—je suis un ingénieur logiciel full-stack épanoui à NYC. Le codage est mon fort ; JavaScript, React et Node rendent mes journées dynamiques avec résolution de problèmes et innovation. Mais la vie est plus qu'un simple code. Je suis tout à fait axé sur le développement de connexions et de croissance, que ce soit en mentorant des développeurs juniors ou en créant des expériences qui mélangent art, musique et interaction humaine authentique. Et quand je ne code pas, je plonge dans les profondeurs de l'océan, explore des récifs ou profite du soleil sur une plage en Australie. Avec des expériences dans 60 pays et une année à vivre la vie de nomade, chaque aventure continue d'alimenter ma passion pour la technologie et la créativité."
+    "description1": "Tout en poursuivant des diplômes doubles en marketing et en études commerciales internationales à la California State University Long Beach, je me suis plongé dans un monde d'expériences réelles qui ont façonné ma vision actuelle. Ce sont ces aventures qui ont véritablement construit mes fondations, ajoutant de la profondeur à mon travail et à ma vie en dehors de l'éditeur de code. Même à l'époque, j'avais l'intuition que mélanger le codage avec une touche d'aventure et de créativité serait mon point fort.",
+    "description2": "Avançons jusqu'à aujourd'hui—je suis un ingénieur logiciel full-stack épanoui à NYC. Le codage est mon fort ; JavaScript, React et Node rendent mes journées dynamiques grâce à la résolution de problèmes et à l'innovation. Mais la vie est plus que du code. Je suis passionné par le développement de connexions et de croissance, que ce soit en mentorant des développeurs juniors ou en créant des expériences qui mélangent art, musique et interaction humaine authentique. Et quand je ne code pas, je plonge dans les profondeurs de l'océan, explore des récifs ou profite du soleil sur une plage en Australie. Avec des expériences dans 60 pays et une année à vivre la vie de nomade, chaque aventure continue d'alimenter ma passion pour la technologie et la créativité."
   },
   "projects": {
     "title": "Projets",
     "items": {
       "dashboard": {
         "title": "Tableau de bord Rotaready",
-        "description": "Le tableau de bord nécessitait une planification méticuleuse, une exécution pratique, plusieurs itérations et une courbe d'apprentissage significative, en particulier avec React Grid Layout et d'autres technologies de pointe. Il est devenu un outil puissant pour nos utilisateurs, offrant une interface hautement personnalisable, réactive et visuellement attrayante.",
+        "description": "Le tableau de bord nécessitait une planification minutieuse, une exécution pratique, plusieurs itérations et une courbe d'apprentissage significative, en particulier avec React Grid Layout et d'autres technologies de pointe. Il est devenu un outil puissant pour nos utilisateurs, offrant une interface hautement personnalisable, réactive et visuellement attrayante.",
         "tags": [
           "React",
           "TypeScript",
@@ -43,17 +43,30 @@
       },
       "eventPlanner": {
         "title": "Événements Rotaready",
-        "description": "J'ai dirigé le développement de l'outil de planification d'événements pour Rotaready. J'ai personnalisé React Big Calendar et utilisé GraphQL pour une récupération précise des données. Grâce à une gestion diligente des cas particuliers, j'ai assuré une expérience utilisateur fluide, aboutissant à un planificateur visuellement attrayant et entièrement fonctionnel.",
-        "tags": ["React", "React Big Calendar", "GraphQL", "Storybook", "Redux"]
+        "description": "J'ai dirigé le développement de l'Event Planner pour Rotaready. J'ai personnalisé React Big Calendar et utilisé GraphQL pour une récupération de données précise. Grâce à une gestion diligente des cas particuliers, j'ai assuré une expérience utilisateur fluide, résultant en un planificateur visuellement attrayant et entièrement fonctionnel.",
+        "tags": [
+          "React",
+          "React Big Calendar",
+          "GraphQL",
+          "Storybook",
+          "Redux"
+        ]
       },
       "nomader": {
         "title": "Nomader",
-        "description": "Nomader était une application web full-stack qui permet aux utilisateurs de rechercher et d'enregistrer leurs destinations de voyage préférées. Elle utilisait l'API de Skyscanner pour trouver les vols les moins chers et la devise locale des utilisateurs pour leur destination.",
-        "tags": ["React", "Node", "Express", "MySQL", "REST APIs", "Heroku"]
+        "description": "Nomader était une application web full-stack qui permet aux utilisateurs de rechercher et de sauvegarder leurs destinations de voyage préférées. Elle utilisait l'API de Skyscanner pour trouver les vols les moins chers et la devise locale des utilisateurs pour leur destination.",
+        "tags": [
+          "React",
+          "Node",
+          "Express",
+          "MySQL",
+          "REST APIs",
+          "Heroku"
+        ]
       },
       "stripe": {
         "title": "Page d'accueil Stripe",
-        "description": "Ce projet était un défi pour rendre hommage à l'un de nos sites préférés en utilisant uniquement CSS et HTML. C'était assez difficile car il avait beaucoup de réactivité, d'animations et de CSS avancé.",
+        "description": "Ce projet était un défi pour rendre hommage à l'un de nos sites préférés en utilisant uniquement CSS et HTML. C'était assez difficile car il comportait beaucoup de réactivité, d'animations et de CSS avancé.",
         "tags": [
           "HTML",
           "CSS",
@@ -82,20 +95,20 @@
         "title": "Développeur logiciel full-stack",
         "location": "Londres, Royaume-Uni && New York, NY",
         "company": "Absolute Magnitude",
-        "description": "J'ai travaillé en tant que développeur full-stack pour une start-up appelée Absolute Magnitude pendant environ un an. J'étais responsable de la gestion de projet, travaillant directement avec les clients et construisant des applications web full-stack.",
+        "description": "J'ai travaillé en tant que développeur full-stack pour une startup appelée Absolute Magnitude pendant environ un an. J'étais responsable de la gestion de projet, travaillant directement avec les clients et construisant des applications web full-stack.",
         "date": "Oct 2021 - Juil 2022"
       },
       {
         "title": "Ingénieur logiciel full-stack",
         "location": "À distance",
         "company": "Contractant indépendant",
-        "description": "Je travaille en tant qu'ingénieur logiciel full-stack livrant des applications web personnalisées, des sites web et d'autres produits logiciels pour des clients.",
+        "description": "Je travaille en tant qu'ingénieur logiciel full-stack en livrant des applications web personnalisées, des sites web et d'autres produits logiciels pour des clients.",
         "date": "Juin 2021 - présent"
       },
       {
         "title": "Bootcamp d'ingénierie full-stack",
         "location": "Londres, Royaume-Uni",
-        "company": "{The Jump} École numérique",
+        "company": "{The Jump} Digital School",
         "description": "Un parcours intensif de huit mois en ingénierie logicielle full-stack pour apprendre tout ce que je devais savoir pour obtenir mon premier emploi d'ingénieur.",
         "date": "Jan 2021 - Août 2021"
       }
@@ -110,23 +123,23 @@
     "emailLabel": "Votre email",
     "messageLabel": "Votre message",
     "successMessage": "Message envoyé avec succès !",
-    "errorMessage": "Quelque chose s'est mal passé. Veuillez réessayer.",
+    "errorMessage": "Quelque chose a mal tourné. Veuillez réessayer.",
     "requiredField": "Ce champ est requis",
     "validEmail": "Veuillez entrer un email valide"
   },
   "chat": {
-    "title": "Assistant de portfolio d'Aaron",
+    "title": "Assistant Portfolio d'Aaron",
     "placeholder": "N'hésitez pas...",
-    "initialMessage": "Salut ! Demandez-moi tout sur le portfolio d'Aaron.",
+    "initialMessage": "Salut ! Demandez-moi n'importe quoi sur le portfolio d'Aaron.",
     "contextualAreas": {
       "work": "Expérience professionnelle",
       "skills": "Expertise technique",
-      "projects": "Projets de portfolio",
+      "projects": "Projets du portfolio",
       "education": "Parcours académique",
       "interests": "Intérêts personnels"
     },
     "loadingIndicator": "Réflexion...",
-    "errorMessage": "Oups ! Quelque chose s'est mal passé. Veuillez réessayer."
+    "errorMessage": "Oups ! Quelque chose a mal tourné. Veuillez réessayer."
   },
   "theme": {
     "darkMode": "Mode sombre",
@@ -136,7 +149,7 @@
     "copyright": "© Aaron Edmiston {year} Tous droits réservés.",
     "aboutSite": "À propos de ce site :",
     "techStack": "construit avec React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Material UI, hébergement Vercel,",
-    "aiFeatures": "et amélioré avec un chat dynamique alimenté par l'IA utilisant OpenAI, un appariement de requêtes sémantiques et une génération de réponses contextuelles pour des interactions personnalisées."
+    "aiFeatures": "et amélioré avec un chat dynamique alimenté par l'IA utilisant OpenAI, correspondance de requêtes sémantiques et génération de réponses contextuelles pour des interactions personnalisées."
   },
   "buttons": {
     "send": "Envoyer"
@@ -149,7 +162,7 @@
     },
     "500": {
       "title": "Erreur serveur",
-      "message": "Quelque chose s'est mal passé de notre côté. Veuillez réessayer plus tard.",
+      "message": "Quelque chose a mal tourné de notre côté. Veuillez réessayer plus tard.",
       "backHome": "Retour à l'accueil"
     }
   },

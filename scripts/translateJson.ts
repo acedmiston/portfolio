@@ -193,18 +193,46 @@ async function translateJson(
     }
   }
 
+  function countTextChanges(obj: TranslationObject): number {
+    function traverse(value: TranslationValue): number {
+      if (typeof value === 'string') {
+        // Each string is a translatable change
+        return 1;
+      } else if (isTranslationObject(value)) {
+        // For objects, traverse and count all children
+        let subCount = 0;
+        for (const key in value) {
+          if (value.hasOwnProperty(key)) {
+            subCount += traverse(value[key]);
+          }
+        }
+        return subCount;
+      } else if (Array.isArray(value)) {
+        // For arrays, count each string item
+        let arrayCount = 0;
+        for (const item of value) {
+          arrayCount += traverse(item);
+        }
+        return arrayCount;
+      }
+      // Numbers and booleans don't need translation
+      return 0;
+    }
+
+    return traverse(obj);
+  }
+
   // If doing incremental translation, find what needs to be translated
   if (shouldDoIncrementalTranslation) {
     const differences = findDifferences(sourceJson, targetJson);
+    const actualChanges = countTextChanges(differences);
 
-    if (Object.keys(differences).length === 0) {
+    // Skip translation if no actual text changes
+    if (actualChanges === 0) {
       console.log(
-        chalk.green(
-          `No actual content differences for ${targetLanguage}, but hash changed. Updating cache only.`
-        )
+        chalk.green('No translatable content detected, skipping translation')
       );
-
-      // Update cache with new hash
+      // Update the hash in cache
       cacheData[cacheKey] = {
         hash: contentHash,
         timestamp: Date.now(),
@@ -214,17 +242,17 @@ async function translateJson(
       return;
     }
 
-    if (Object.keys(differences).length > 0) {
-      console.log(chalk.magenta(`\n🔍 Found changes in the following keys:`));
-      logChanges(differences);
-      console.log('');
-    }
+    // Since changes exist, show them once
+    console.log(chalk.magenta(`\n🔍 Found changes in the following keys:`));
+    logChanges(differences);
+    console.log('');
 
     console.log(
-      chalk.magenta(
-        `Found ${Object.keys(differences).length} top-level keys with changes in ${targetLanguage}`
+      chalk.cyan(
+        `Found ${Object.keys(differences).length} top-level keys with changes, containing ${actualChanges} actual text changes`
       )
     );
+
     console.log(
       chalk.magenta('Changed sections:', Object.keys(differences).join(', '))
     );
