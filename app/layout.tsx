@@ -8,8 +8,9 @@ import ThemeContextProvider from '@/context/theme-context';
 import ChatWrapper from '@/components/chat/ChatWrapper';
 import { LanguageProvider } from '@/providers/language-provider';
 import LanguageSelector from '@/components/language-selector';
-import MetaUpdater from '@/components/MetaUpdater';
+import MetaUpdater from '@/components/meta-updater';
 import { cookies } from 'next/headers';
+import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -39,6 +40,7 @@ export default function RootLayout({
               <Footer />
               <ThemeSwitch />
               <ChatWrapper />
+              <Toaster position="top-center" theme="system" />
             </ActiveSectionContextProvider>
           </ThemeContextProvider>
         </LanguageProvider>

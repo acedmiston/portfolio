@@ -112,7 +112,9 @@
     "successMessage": "Message sent successfully!",
     "errorMessage": "Something went wrong. Please try again.",
     "requiredField": "This field is required",
-    "validEmail": "Please enter a valid email"
+    "validEmail": "Please enter a valid email",
+    "sending": "Sending your message...",
+    "responseTime": "I'll respond as soon as possible"
   },
   "chat": {
     "title": "Aaron's Portfolio Assistant",

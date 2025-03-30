@@ -6,22 +6,35 @@ import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
 import { sendEmail } from '@/actions/sendEmail';
 import SubmitBtn from './submit-button';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useLanguage } from '@/providers/language-provider';
 
 const Contact = () => {
   const { ref } = useSectionInView('nav.contact');
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // Show pending toast while sending
+    toast.loading(t('contact.sending'));
+
     const formData = new FormData(event.currentTarget);
+
+    // Track form submission language for analytics
+    formData.append('formLocale', locale);
+
     const { error } = await sendEmail(formData);
 
+    // Dismiss the loading toast
+    toast.dismiss();
+
     if (error) {
-      toast.error(t('contact.errorMessage'));
+      toast.error(t('contact.errorMessage'), {
+        description: error,
+        duration: 5000,
+      });
       console.error('Email send error:', error);
       return;
     }
@@ -29,7 +42,11 @@ const Contact = () => {
     if (formRef.current) {
       formRef.current.reset();
     }
-    toast.success(t('contact.successMessage'));
+
+    toast.success(t('contact.successMessage'), {
+      description: t('contact.responseTime'),
+      duration: 3000,
+    });
   };
 
   return (
@@ -58,11 +75,11 @@ const Contact = () => {
       <form
         ref={formRef}
         id="form"
-        className="mt-10 flex flex-col dark:text-black"
+        className="flex flex-col mt-10 dark:text-black"
         onSubmit={handleSubmit}
       >
         <input
-          className="borderBlack mb-3 h-14 rounded-lg px-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+          className="px-4 mb-3 transition-all rounded-lg borderBlack h-14 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
           name="senderName"
           id="senderName"
           type="name"
@@ -70,7 +87,7 @@ const Contact = () => {
           placeholder={t('contact.nameLabel')}
         />
         <input
-          className="borderBlack h-14 rounded-lg px-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+          className="px-4 transition-all rounded-lg borderBlack h-14 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
           name="senderEmail"
           id="senderEmail"
           type="email"
@@ -79,7 +96,7 @@ const Contact = () => {
           placeholder={t('contact.emailLabel')}
         />
         <textarea
-          className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+          className="p-4 my-3 transition-all rounded-lg borderBlack h-52 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
           name="message"
           id="message"
           placeholder={t('contact.messageLabel')}
