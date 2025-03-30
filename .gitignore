@@ -8,6 +8,8 @@
 
 # testing
 /coverage
+.vscode
+messages/pre
 
 # next.js
 /.next/

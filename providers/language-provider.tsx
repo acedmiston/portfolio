@@ -10,7 +10,13 @@ import {
 
 type Locale = 'en' | 'fr' | 'es' | 'pt';
 
-type TranslationValue = string | number | boolean | TranslationObject;
+type TranslationValue =
+  | string
+  | number
+  | boolean
+  | TranslationObject
+  | Array<TranslationValue>;
+
 interface TranslationObject {
   [key: string]: TranslationValue;
 }
@@ -20,19 +26,6 @@ interface LanguageContextType {
   setLocale: (locale: Locale) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
 }
-
-// Version of translations with the MD5 hashes from build time
-interface TranslationHashes {
-  [key: string]: string;
-}
-
-// Populated at build time
-const TRANSLATION_HASHES: TranslationHashes = {
-  en: '',
-  fr: '',
-  es: '',
-  pt: '',
-};
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
@@ -53,58 +46,43 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Check for a saved locale
-    const savedLocale = localStorage.getItem(
-      'preferredLocale'
-    ) as Locale | null;
-    if (savedLocale && AVAILABLE_LOCALES.includes(savedLocale)) {
-      setLocaleState(savedLocale);
+    // Check for a saved locale with safe localStorage access
+    let savedLocale: Locale | null = null;
+
+    // Safely access localStorage (only available in browser environment)
+    if (typeof window !== 'undefined') {
+      savedLocale = localStorage.getItem('preferredLocale') as Locale | null;
+
+      if (savedLocale && AVAILABLE_LOCALES.includes(savedLocale)) {
+        setLocaleState(savedLocale);
+      }
     }
 
-    let hashesLoaded = false;
-
-    // Function to load messages for a given locale
     const loadLocaleMessages = async (loc: Locale) => {
-      // First, try to load hashes if not already loaded
-      if (!hashesLoaded) {
-        try {
-          // Load hashes from a file that's generated during build
-          const hashesResponse = await fetch('/translation-hashes.json');
-          const hashesData = await hashesResponse.json();
-          Object.assign(TRANSLATION_HASHES, hashesData);
-          hashesLoaded = true;
-        } catch (error) {
-          console.warn(
-            'Translation hashes not available, cache validation disabled'
-          );
-        }
-      }
-
-      const cached = localStorage.getItem(`messages_${loc}`);
-      const cachedHash = localStorage.getItem(`messages_hash_${loc}`);
-
-      // Use cache only if hash matches or hashes aren't available
-      if (cached && (cachedHash === TRANSLATION_HASHES[loc] || !hashesLoaded)) {
-        try {
-          messages[loc] = JSON.parse(cached);
-          return;
-        } catch (error) {
-          console.error(`Failed to parse cached messages for ${loc}`, error);
-        }
-      }
-
-      // Fetch fresh translations
       try {
+        // Always load fresh translations directly from files
         const importedModule = await import(`../messages/${loc}.json`);
         messages[loc] = importedModule.default || importedModule;
-        localStorage.setItem(`messages_${loc}`, JSON.stringify(messages[loc]));
-
-        // Store the current hash too
-        if (hashesLoaded) {
-          localStorage.setItem(`messages_hash_${loc}`, TRANSLATION_HASHES[loc]);
-        }
       } catch (error) {
         console.error(`Failed to load messages for ${loc}`, error);
+
+        // Try to use English as fallback when a translation file fails to load
+        if (loc !== 'en') {
+          console.warn(`Falling back to English for failed locale: ${loc}`);
+          // Make sure English is loaded first
+          if (Object.keys(messages.en).length === 0) {
+            try {
+              const enModule = await import('../messages/en.json');
+              messages.en = enModule.default || enModule;
+            } catch (enError) {
+              console.error(
+                'Failed to load English fallback messages',
+                enError
+              );
+            }
+          }
+          messages[loc] = messages.en;
+        }
       }
     };
 
@@ -119,12 +97,20 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLocale = async (newLocale: Locale) => {
     if (newLocale === locale) return;
+
+    // Update state
     setLocaleState(newLocale);
-    localStorage.setItem('preferredLocale', newLocale);
-    // Since all languages are preloaded, no reload or dynamic import is needed here.
+
+    // Safely store in localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferredLocale', newLocale);
+
+      // Set a cookie for server components
+      document.cookie = `locale=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+    }
   };
 
-  // Translation function that looks up keys; falls back to English if necessary.
+  // Translation function that looks up keys; falls back to English if necessary
   const t = (key: string, params: Record<string, string | number> = {}) => {
     const lookup = (loc: Locale): TranslationValue | undefined => {
       const keys = key.split('.');
@@ -139,7 +125,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       return value;
     };
 
-    // If translations haven't loaded yet, fall back to English.
+    // If translations haven't loaded yet, fall back to English
     let translation = isLoaded ? lookup(locale) : lookup('en');
     if (translation === undefined) translation = lookup('en');
     if (typeof translation !== 'string') return key;

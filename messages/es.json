@@ -1,179 +1,460 @@
 {
   "meta": {
-    "title": "Aaron Edmiston | Portafolio",
-    "description": "Ingeniero de software especializado en desarrollo full-stack"
+    "title": {
+      "defaultMessage": "Aaron Edmiston | Portafolio",
+      "sourceMessage": "Aaron Edmiston | Portfolio"
+    },
+    "description": {
+      "defaultMessage": "Ingeniero de Software especializado en desarrollo full-stack",
+      "sourceMessage": "Software Engineer specializing in full-stack development"
+    }
   },
   "nav": {
-    "home": "Inicio",
-    "about": "Acerca de",
-    "projects": "Proyectos",
-    "skills": "Habilidades",
-    "experience": "Experiencia",
-    "contact": "Contacto"
+    "home": {
+      "defaultMessage": "Inicio",
+      "sourceMessage": "Home"
+    },
+    "about": {
+      "defaultMessage": "Acerca de",
+      "sourceMessage": "About"
+    },
+    "projects": {
+      "defaultMessage": "Proyectos",
+      "sourceMessage": "Projects"
+    },
+    "skills": {
+      "defaultMessage": "Habilidades",
+      "sourceMessage": "Skills"
+    },
+    "experience": {
+      "defaultMessage": "Experiencia",
+      "sourceMessage": "Experience"
+    },
+    "contact": {
+      "defaultMessage": "Contacto",
+      "sourceMessage": "Contact"
+    }
   },
   "intro": {
-    "greeting": "Hola, soy",
-    "name": "Aaron Edmiston",
-    "experience": ", un Ingeniero de Software Full-Stack con más de 4 años de experiencia profesional.",
-    "focus": "Me especializo en desarrollo front-end, utilizando",
-    "technologies": "React (Next.js), TypeScript, Node, GraphQL y MySQL.",
-    "description": "Mi objetivo es construir experiencias digitales excepcionales con tecnologías web modernas y mantenerme al día con las últimas tendencias.",
-    "contactButton": "Contáctame",
-    "downloadResume": "Descargar currículum"
+    "greeting": {
+      "defaultMessage": "Hola, soy",
+      "sourceMessage": "Hey there, I'm"
+    },
+    "name": {
+      "defaultMessage": "Aaron Edmiston",
+      "sourceMessage": "Aaron Edmiston"
+    },
+    "experience": {
+      "defaultMessage": ", un Ingeniero de Software Full-Stack con más de 4 años de experiencia profesional.",
+      "sourceMessage": ", a Full-Stack Software Engineer with over 4 years of professional experience."
+    },
+    "focus": {
+      "defaultMessage": "Me especializo en desarrollo front-end, utilizando",
+      "sourceMessage": "I specialize in front-end development, using"
+    },
+    "technologies": {
+      "defaultMessage": "React (Next.js), TypeScript, Node, GraphQL y MySQL.",
+      "sourceMessage": "React (Next.js), TypeScript, Node, GraphQL, and MySQL."
+    },
+    "description": {
+      "defaultMessage": "Mi objetivo es construir experiencias digitales excepcionales con tecnologías web modernas y mantenerme al día con las últimas tendencias.",
+      "sourceMessage": "I aim to build exceptional digital experiences with modern web technologies and stay up to date with the latest trends."
+    },
+    "contactButton": {
+      "defaultMessage": "Contáctame",
+      "sourceMessage": "Contact me"
+    },
+    "downloadResume": {
+      "defaultMessage": "Descargar currículum",
+      "sourceMessage": "Download résumé"
+    }
   },
   "about": {
-    "title": "Acerca de mí",
-    "description1": "Mientras cursaba títulos duales en Marketing y Estudios de Negocios Internacionales en la Universidad Estatal de California Long Beach, me adentré en un mundo de experiencias reales que moldearon mi perspectiva actual. Son estas aventuras las que realmente construyeron mis cimientos, añadiendo profundidad tanto a mi trabajo como a mi vida fuera del editor de código. Incluso en ese entonces, tenía la intuición de que mezclar la programación con un toque de aventura y creatividad sería mi punto ideal.",
-    "description2": "Avancemos hasta hoy: soy un Ingeniero de Software Full-Stack prosperando en NYC. La programación es mi fuerte; JavaScript, React y Node mantienen mis días llenos de resolución de problemas e innovación. Pero la vida es más que solo código. Me dedico a fomentar conexiones y crecimiento, ya sea mentoreando a desarrolladores junior o creando experiencias que combinan arte, música e interacción humana genuina. Y cuando no estoy programando, me sumerjo en las profundidades del océano, explorando arrecifes o disfrutando del sol en una playa en Australia. Con experiencias en 60 países y un año viviendo la vida nómada, cada aventura sigue alimentando mi pasión por la tecnología y la creatividad."
+    "title": {
+      "defaultMessage": "Acerca de mí",
+      "sourceMessage": "About me"
+    },
+    "description1": {
+      "defaultMessage": "Mientras cursaba títulos duales en Marketing y Estudios de Negocios Internacionales en la Universidad Estatal de California Long Beach, me adentré en un mundo de experiencias reales que moldearon mi perspectiva actual. Son estas aventuras las que realmente construyeron mis fundamentos, añadiendo profundidad tanto a mi trabajo como a mi vida fuera del editor de código. Incluso en ese entonces, tenía la corazonada de que mezclar la codificación con un toque de aventura y creatividad sería mi punto ideal.",
+      "sourceMessage": "While pursuing dual degrees in Marketing and International Business Studies at California State University Long Beach, I delved into a world of real-world experiences that shaped my current outlook. It's these adventures that truly built my foundations, adding depth to both my work and life outside the code editor. Even back then, I had an inkling that mixing coding with a splash of adventure and creativity would be my sweet spot."
+    },
+    "description2": {
+      "defaultMessage": "Avancemos hasta hoy: soy un Ingeniero de Software Full-Stack prosperando en NYC. La codificación es mi fuerte; JavaScript, React y Node mantienen mis días llenos de resolución de problemas e innovación. Pero la vida es más que solo código. Me apasiona fomentar conexiones y crecimiento, ya sea mentoreando a desarrolladores junior o creando experiencias que combinan arte, música e interacción humana genuina. Y cuando no estoy codificando, me sumerjo en las profundidades del océano, explorando arrecifes o disfrutando del sol en una playa en Australia. Con experiencias en 60 países y un año viviendo la vida nómada, cada aventura sigue alimentando mi pasión por la tecnología y la creatividad.",
+      "sourceMessage": "Fast forward to today—I'm a Full-Stack Software Engineer thriving in NYC. Coding's my forte; JavaScript, React, and Node keep my days buzzing with problem solving and innovation. But life's more than just code. I'm all about nurturing connections and growth, whether it's mentoring junior developers or crafting experiences that blend art, music, and genuine human interaction. And when I'm not coding, I'm plunging into the depths of the ocean, exploring reefs, or soaking up the sun on a beach in Australia. With experiences in 60 countries and a year living the nomad life, each adventure continues to fuel my passion for tech and creativity."
+    }
   },
   "projects": {
-    "title": "Proyectos",
     "items": {
       "dashboard": {
-        "title": "Tablero de Rotaready",
-        "description": "El Tablero requirió una planificación meticulosa, ejecución práctica, múltiples iteraciones y una curva de aprendizaje significativa, particularmente con React Grid Layout y otras tecnologías de vanguardia. Se convirtió en una herramienta poderosa para nuestros usuarios, ofreciendo una interfaz altamente personalizable, receptiva y visualmente atractiva.",
-        "tags": [
-          "React",
-          "TypeScript",
-          "Redux",
-          "GraphQL",
-          "Node",
-          "Grid Layout"
-        ]
+        "title": {
+          "defaultMessage": "Tablero de Rotaready",
+          "sourceMessage": "Rotaready Dashboard"
+        },
+        "description": {
+          "defaultMessage": "El Tablero requirió una planificación meticulosa, ejecución práctica, múltiples iteraciones y una curva de aprendizaje significativa, particularmente con React Grid Layout y otras tecnologías de vanguardia. Se convirtió en una herramienta poderosa para nuestros usuarios, ofreciendo una interfaz altamente personalizable, receptiva y visualmente atractiva.",
+          "sourceMessage": "The Dashboard required meticulous planning, hands-on execution, multiple iterations, and a significant learning curve, particularly with React Grid Layout and other cutting-edge technologies. It became a powerful tool for our users, offering a highly customizable, responsive, and visually appealing interface."
+        },
+        "tags": {
+          "defaultMessage": [
+            "React",
+            "TypeScript",
+            "Redux",
+            "GraphQL",
+            "Node",
+            "Diseño de cuadrícula"
+          ],
+          "sourceMessage": [
+            "React",
+            "TypeScript",
+            "Redux",
+            "GraphQL",
+            "Node",
+            "Grid Layout"
+          ]
+        }
       },
       "eventPlanner": {
-        "title": "Eventos de Rotaready",
-        "description": "Lideré el desarrollo del Planificador de Eventos para Rotaready. Personalicé React Big Calendar y utilicé GraphQL para una recuperación de datos precisa. A través de un manejo diligente de casos extremos, aseguré una experiencia de usuario fluida, resultando en un planificador visualmente atractivo y completamente funcional.",
-        "tags": [
-          "React",
-          "React Big Calendar",
-          "GraphQL",
-          "Storybook",
-          "Redux"
-        ]
+        "title": {
+          "defaultMessage": "Eventos de Rotaready",
+          "sourceMessage": "Rotaready Events"
+        },
+        "description": {
+          "defaultMessage": "Lideré el desarrollo del Planificador de Eventos para Rotaready. Personalicé React Big Calendar y utilicé GraphQL para la recuperación precisa de datos. A través de un manejo diligente de casos extremos, aseguré una experiencia de usuario fluida, resultando en un planificador visualmente atractivo y completamente funcional.",
+          "sourceMessage": "I spearheaded the development of the Event Planner for Rotaready. I customized React Big Calendar and used GraphQL for precise data retrieval. Through diligent handling of edge cases, I ensured a seamless user experience, resulting in a visually appealing and fully functional planner."
+        },
+        "tags": {
+          "defaultMessage": [
+            "React",
+            "React Big Calendar",
+            "GraphQL",
+            "Storybook",
+            "Redux"
+          ],
+          "sourceMessage": [
+            "React",
+            "React Big Calendar",
+            "GraphQL",
+            "Storybook",
+            "Redux"
+          ]
+        }
       },
       "nomader": {
-        "title": "Nomader",
-        "description": "Nomader era una aplicación web full-stack que permite a los usuarios buscar y guardar sus destinos de viaje favoritos. Utilizaba la API de Skyscanner para encontrar los vuelos más baratos y la moneda local de los usuarios a su destino.",
-        "tags": [
-          "React",
-          "Node",
-          "Express",
-          "MySQL",
-          "REST APIs",
-          "Heroku"
-        ]
+        "title": {
+          "defaultMessage": "Nomader",
+          "sourceMessage": "Nomader"
+        },
+        "description": {
+          "defaultMessage": "Nomader fue una aplicación web full-stack que permite a los usuarios buscar y guardar sus destinos de viaje favoritos. Utilizó la API de Skyscanner para encontrar los vuelos más baratos y la moneda local de los usuarios para su destino.",
+          "sourceMessage": "Nomader was a full-stack web application that allows users to search for and save their favorite travel destinations. It used Skyscanner's API to find the cheapest flights and users local currency to their destination."
+        },
+        "tags": {
+          "defaultMessage": [
+            "React",
+            "Node",
+            "Express",
+            "MySQL",
+            "APIs REST",
+            "Heroku"
+          ],
+          "sourceMessage": [
+            "React",
+            "Node",
+            "Express",
+            "MySQL",
+            "REST APIs",
+            "Heroku"
+          ]
+        }
       },
       "stripe": {
-        "title": "Página de inicio de Stripe",
-        "description": "Este proyecto fue un desafío para hacer un homenaje a uno de nuestros sitios favoritos utilizando solo CSS y HTML. Fue bastante difícil porque tenía mucha responsividad, animaciones y CSS avanzado.",
-        "tags": [
-          "HTML",
-          "CSS",
-          "CSS Grid",
-          "CSS Flexbox",
-          "CSS Animations",
-          "Heroku"
-        ]
+        "title": {
+          "defaultMessage": "Página de inicio de Stripe",
+          "sourceMessage": "Stripe Home Page"
+        },
+        "description": {
+          "defaultMessage": "Este proyecto fue un desafío para hacer un homenaje a uno de nuestros sitios favoritos utilizando solo CSS y HTML. Fue bastante difícil porque tenía mucha responsividad, animaciones y CSS avanzado.",
+          "sourceMessage": "This project was a challenge to make a homage to one of our favorite sites using only CSS and HTML. It was quite difficult because it had a lot of responsiveness, animations, and advanced CSS."
+        },
+        "tags": {
+          "defaultMessage": [
+            "HTML",
+            "CSS",
+            "CSS Grid",
+            "CSS Flexbox",
+            "Animaciones CSS",
+            "Heroku"
+          ],
+          "sourceMessage": [
+            "HTML",
+            "CSS",
+            "CSS Grid",
+            "CSS Flexbox",
+            "CSS Animations",
+            "Heroku"
+          ]
+        }
       }
+    },
+    "title": {
+      "defaultMessage": "Proyectos",
+      "sourceMessage": "Projects"
     }
   },
   "skills": {
-    "title": "Habilidades"
+    "title": {
+      "defaultMessage": "Habilidades",
+      "sourceMessage": "Skills"
+    }
   },
   "experience": {
-    "title": "Mi trayectoria tecnológica",
-    "entries": [
-      {
-        "title": "Ingeniero de Software Full-Stack",
-        "location": "Londres, Reino Unido && Nueva York, NY",
-        "company": "Rotaready",
-        "description": "Actualmente trabajo como ingeniero full-stack para Rotaready, una empresa SaaS. Mi día a día incluye construir nuevos productos y características para nuestros clientes, así como mantener y mejorar nuestros productos existentes.",
-        "date": "Junio 2022 - presente"
-      },
-      {
-        "title": "Desarrollador de Software Full-Stack",
-        "location": "Londres, Reino Unido && Nueva York, NY",
-        "company": "Absolute Magnitude",
-        "description": "Trabajé como desarrollador full-stack para una empresa emergente llamada Absolute Magnitude durante aproximadamente un año. Fui responsable de la gestión de proyectos, trabajando directamente con clientes y construyendo aplicaciones web full-stack.",
-        "date": "Oct 2021 - Julio 2022"
-      },
-      {
-        "title": "Ingeniero de Software Full-Stack",
-        "location": "Remoto",
-        "company": "Contratista Independiente",
-        "description": "Trabajo como ingeniero de software full-stack entregando aplicaciones web personalizadas, sitios web y otros productos de software para clientes.",
-        "date": "Junio 2021 - presente"
-      },
-      {
-        "title": "Bootcamp de Ingeniería Full-Stack",
-        "location": "Londres, Reino Unido",
-        "company": "{The Jump} Escuela Digital",
-        "description": "Un viaje intensivo de ocho meses en ingeniería de software full-stack para aprender todo lo que necesitaba saber sobre cómo conseguir mi primer trabajo como ingeniero.",
-        "date": "Ene 2021 - Ago 2021"
-      }
-    ]
+    "title": {
+      "defaultMessage": "Mi trayectoria técnica",
+      "sourceMessage": "My tech journey"
+    },
+    "entries": {
+      "defaultMessage": [
+        {
+          "title": "Ingeniero de Software Full-Stack",
+          "location": "Londres, Reino Unido && Nueva York, NY",
+          "company": "Rotaready",
+          "description": "Actualmente estoy trabajando como ingeniero full-stack para Rotaready, una empresa SaaS. Mi día a día incluye construir nuevos productos y características para nuestros clientes, así como mantener y mejorar nuestros productos existentes.",
+          "date": "Junio 2022 - presente"
+        },
+        {
+          "title": "Desarrollador de Software Full-Stack",
+          "location": "Londres, Reino Unido && Nueva York, NY",
+          "company": "Absolute Magnitude",
+          "description": "Trabajé como desarrollador full-stack para una empresa emergente llamada Absolute Magnitude durante aproximadamente un año. Fui responsable de la gestión de proyectos, trabajando directamente con los clientes y construyendo aplicaciones web full-stack.",
+          "date": "Octubre 2021 - Julio 2022"
+        },
+        {
+          "title": "Ingeniero de Software Full-Stack",
+          "location": "Remoto",
+          "company": "Contratista Independiente",
+          "description": "Trabajo como ingeniero de software full-stack entregando aplicaciones web personalizadas, sitios web y otros productos de software para clientes.",
+          "date": "Junio 2021 - presente"
+        },
+        {
+          "title": "Bootcamp de Ingeniería Full-Stack",
+          "location": "Londres, Reino Unido",
+          "company": "{The Jump} Escuela Digital",
+          "description": "Un viaje intensivo de ocho meses en ingeniería de software full-stack para aprender todo lo que necesitaba saber sobre cómo conseguir mi primer trabajo de ingeniería.",
+          "date": "Enero 2021 - Agosto 2021"
+        }
+      ],
+      "sourceMessage": [
+        {
+          "title": "Full-Stack Software Engineer",
+          "location": "London, UK && New York, NY",
+          "company": "Rotaready",
+          "description": "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products.",
+          "date": "June 2022 - present"
+        },
+        {
+          "title": "Full-Stack Software Developer",
+          "location": "London, UK && New York, NY",
+          "company": "Absolute Magnitude",
+          "description": "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications.",
+          "date": "Oct 2021 - July 2022"
+        },
+        {
+          "title": "Full-Stack Software Engineer",
+          "location": "Remote",
+          "company": "Independent Contractor",
+          "description": "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
+          "date": "June 2021 - present"
+        },
+        {
+          "title": "Full-Stack Engineering Bootcamp",
+          "location": "London, UK",
+          "company": "{The Jump} Digital School",
+          "description": "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job.",
+          "date": "Jan 2021 - Aug 2021"
+        }
+      ]
+    }
   },
   "contact": {
-    "title": "Contáctame",
-    "subtitle": "Por favor, comunícate conmigo directamente en ",
-    "emailAddress": "aaroncedmistondev@gmail.com",
-    "subtitle2": "o a través de este formulario:",
-    "nameLabel": "Tu nombre",
-    "emailLabel": "Tu correo electrónico",
-    "messageLabel": "Tu mensaje",
-    "successMessage": "¡Mensaje enviado con éxito!",
-    "errorMessage": "Algo salió mal. Por favor, inténtalo de nuevo.",
-    "requiredField": "Este campo es obligatorio",
-    "validEmail": "Por favor, introduce un correo electrónico válido"
+    "title": {
+      "defaultMessage": "Contáctame",
+      "sourceMessage": "Contact me"
+    },
+    "subtitle": {
+      "defaultMessage": "Por favor, contáctame directamente en ",
+      "sourceMessage": "Please reach out to me directly at "
+    },
+    "emailAddress": {
+      "defaultMessage": "aaroncedmistondev@gmail.com",
+      "sourceMessage": "aaroncedmistondev@gmail.com"
+    },
+    "subtitle2": {
+      "defaultMessage": "o a través de este formulario:",
+      "sourceMessage": "or through this form:"
+    },
+    "nameLabel": {
+      "defaultMessage": "Tu nombre",
+      "sourceMessage": "Your name"
+    },
+    "emailLabel": {
+      "defaultMessage": "Tu correo electrónico",
+      "sourceMessage": "Your email"
+    },
+    "messageLabel": {
+      "defaultMessage": "Tu mensaje",
+      "sourceMessage": "Your message"
+    },
+    "successMessage": {
+      "defaultMessage": "¡Mensaje enviado con éxito!",
+      "sourceMessage": "Message sent successfully!"
+    },
+    "errorMessage": {
+      "defaultMessage": "Algo salió mal. Por favor, inténtalo de nuevo.",
+      "sourceMessage": "Something went wrong. Please try again."
+    },
+    "requiredField": {
+      "defaultMessage": "Este campo es obligatorio",
+      "sourceMessage": "This field is required"
+    },
+    "validEmail": {
+      "defaultMessage": "Por favor, introduce un correo electrónico válido",
+      "sourceMessage": "Please enter a valid email"
+    }
   },
   "chat": {
-    "title": "Asistente de Portafolio de Aaron",
-    "placeholder": "No seas tímido...",
-    "initialMessage": "¡Hola! Pregúntame cualquier cosa sobre el portafolio de Aaron.",
     "contextualAreas": {
-      "work": "Experiencia profesional",
-      "skills": "Experiencia técnica",
-      "projects": "Proyectos del portafolio",
-      "education": "Formación académica",
-      "interests": "Intereses personales"
+      "work": {
+        "defaultMessage": "Experiencia profesional",
+        "sourceMessage": "Professional experience"
+      },
+      "skills": {
+        "defaultMessage": "Experiencia técnica",
+        "sourceMessage": "Technical expertise"
+      },
+      "projects": {
+        "defaultMessage": "Proyectos del portafolio",
+        "sourceMessage": "Portfolio projects"
+      },
+      "education": {
+        "defaultMessage": "Formación académica",
+        "sourceMessage": "Academic background"
+      },
+      "interests": {
+        "defaultMessage": "Intereses personales",
+        "sourceMessage": "Personal interests"
+      }
     },
-    "loadingIndicator": "Pensando...",
-    "errorMessage": "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo."
+    "title": {
+      "defaultMessage": "Asistente del Portafolio de Aaron",
+      "sourceMessage": "Aaron's Portfolio Assistant"
+    },
+    "placeholder": {
+      "defaultMessage": "No seas tímido...",
+      "sourceMessage": "Don't be shy..."
+    },
+    "initialMessage": {
+      "defaultMessage": "¡Hola! Pregúntame cualquier cosa sobre el portafolio de Aaron.",
+      "sourceMessage": "Hi! Ask me anything about Aaron's portfolio."
+    },
+    "loadingIndicator": {
+      "defaultMessage": "Pensando...",
+      "sourceMessage": "Thinking..."
+    },
+    "errorMessage": {
+      "defaultMessage": "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo.",
+      "sourceMessage": "Oops! Something went wrong. Please try again."
+    }
   },
   "theme": {
-    "darkMode": "Modo oscuro",
-    "lightMode": "Modo claro"
+    "darkMode": {
+      "defaultMessage": "Modo oscuro",
+      "sourceMessage": "Dark mode"
+    },
+    "lightMode": {
+      "defaultMessage": "Modo claro",
+      "sourceMessage": "Light mode"
+    }
   },
   "footer": {
-    "copyright": "© Aaron Edmiston {year} Todos los derechos reservados.",
-    "aboutSite": "Acerca de este sitio web:",
-    "techStack": "construido con React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Material UI, hosting en Vercel,",
-    "aiFeatures": "y mejorado con chat dinámico impulsado por IA utilizando OpenAI, coincidencia de consultas semánticas y generación de respuestas contextuales para interacciones personalizadas."
+    "copyright": {
+      "defaultMessage": "© Aaron Edmiston {year} Todos los derechos reservados.",
+      "sourceMessage": "© Aaron Edmiston {year} All rights reserved."
+    },
+    "aboutSite": {
+      "defaultMessage": "Acerca de este sitio web:",
+      "sourceMessage": "About this website:"
+    },
+    "techStack": {
+      "defaultMessage": "construido con React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Material UI, alojamiento en Vercel,",
+      "sourceMessage": "built with React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Material UI, Vercel hosting,"
+    },
+    "aiFeatures": {
+      "defaultMessage": "y mejorado con chat dinámico impulsado por IA utilizando OpenAI, coincidencia de consultas semánticas y generación de respuestas contextuales para interacciones personalizadas.",
+      "sourceMessage": "and enhanced with dynamic AI-powered chat using OpenAI, semantic query matching, and contextual response generation for personalized interactions."
+    }
   },
   "buttons": {
-    "send": "Enviar"
+    "send": {
+      "defaultMessage": "Enviar",
+      "sourceMessage": "Send"
+    }
   },
   "errorPages": {
     "404": {
-      "title": "Página no encontrada",
-      "message": "La página que estás buscando no existe o ha sido movida.",
-      "backHome": "Volver a inicio"
+      "title": {
+        "defaultMessage": "Página no encontrada",
+        "sourceMessage": "Page not found"
+      },
+      "message": {
+        "defaultMessage": "La página que buscas no existe o ha sido movida.",
+        "sourceMessage": "The page you're looking for doesn't exist or has been moved."
+      },
+      "backHome": {
+        "defaultMessage": "Volver a inicio",
+        "sourceMessage": "Back to home"
+      }
     },
     "500": {
-      "title": "Error del servidor",
-      "message": "Algo salió mal en nuestro lado. Por favor, inténtalo de nuevo más tarde.",
-      "backHome": "Volver a inicio"
+      "title": {
+        "defaultMessage": "Error del servidor",
+        "sourceMessage": "Server error"
+      },
+      "message": {
+        "defaultMessage": "Algo salió mal de nuestro lado. Por favor, inténtalo de nuevo más tarde.",
+        "sourceMessage": "Something went wrong on our end. Please try again later."
+      },
+      "backHome": {
+        "defaultMessage": "Volver a inicio",
+        "sourceMessage": "Back to home"
+      }
     }
   },
   "common": {
-    "loading": "Cargando..."
+    "loading": {
+      "defaultMessage": "Cargando...",
+      "sourceMessage": "Loading..."
+    }
   },
   "language": {
-    "label": "Idioma",
-    "english": "Inglés",
-    "french": "Francés",
-    "spanish": "Español",
-    "portuguese": "Portugués"
+    "label": {
+      "defaultMessage": "Idioma",
+      "sourceMessage": "Language"
+    },
+    "english": {
+      "defaultMessage": "Inglés",
+      "sourceMessage": "English"
+    },
+    "french": {
+      "defaultMessage": "Francés",
+      "sourceMessage": "French"
+    },
+    "spanish": {
+      "defaultMessage": "Español",
+      "sourceMessage": "Spanish"
+    },
+    "portuguese": {
+      "defaultMessage": "Portugués",
+      "sourceMessage": "Portuguese"
+    }
   }
 }

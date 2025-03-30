@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm run export-hashes",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint . --ext .ts,js",
     "lint:fix": "next lint . --ext .ts,js --fix",
     "format": "prettier --write .",
     "analyze": "ANALYZE=true next build",
     "translate": "ts-node scripts/translateJson.ts",
+    "translate:force": "ts-node scripts/translateJson.ts en --force",
     "export-hashes": "ts-node scripts/translateJson.ts --export-hashes",
     "typecheck": "tsc --noEmit"
   },
