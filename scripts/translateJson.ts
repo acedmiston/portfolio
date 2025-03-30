@@ -520,6 +520,61 @@ function compileCleanTranslation(
   console.log(chalk.green(`✅ Clean translation file saved to ${finalPath}`));
 }
 
+function createSourcePreFile(sourceLanguage: string): void {
+  console.log(
+    chalk.blue(`Creating pre file for source language (${sourceLanguage})...`)
+  );
+
+  try {
+    // Read source language file
+    const sourcePath = path.join(
+      __dirname,
+      '..',
+      'messages',
+      `${sourceLanguage}.json`
+    );
+    const sourceJson = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+
+    // Convert to pre format with defaultMessage/sourceMessage structure
+    function convertToPre(obj: TranslationObject): TranslationObject {
+      const result: TranslationObject = {};
+
+      for (const key in obj) {
+        const value = obj[key];
+
+        if (typeof value === 'string') {
+          // Convert string values to TranslationEntry format
+          result[key] = {
+            defaultMessage: value,
+            sourceMessage: value,
+          };
+        } else if (Array.isArray(value)) {
+          // Keep arrays as-is
+          result[key] = value;
+        } else if (isTranslationObject(value)) {
+          // Recursively process nested objects
+          result[key] = convertToPre(value as TranslationObject);
+        } else {
+          // Keep other types (numbers, booleans) as-is
+          result[key] = value;
+        }
+      }
+
+      return result;
+    }
+
+    const preJson = convertToPre(sourceJson);
+
+    // Save to pre folder
+    const preFilePath = path.join(PRE_FOLDER, `${sourceLanguage}.json`);
+    fs.writeFileSync(preFilePath, JSON.stringify(preJson, null, 2));
+
+    console.log(chalk.green(`✅ Source pre file created at ${preFilePath}`));
+  } catch (error) {
+    console.error(chalk.red(`Error creating source pre file:`), error);
+  }
+}
+
 // Main execution code
 async function main() {
   // Get command line arguments
@@ -527,6 +582,14 @@ async function main() {
   const sourceLanguage = args[0] || 'en';
   const targetLanguages = args[1] ? args[1].split(',') : ['fr', 'es', 'pt'];
   const forceUpdate = args.includes('--force');
+
+  // Create pre directory if it doesn't exist
+  if (!fs.existsSync(PRE_FOLDER)) {
+    fs.mkdirSync(PRE_FOLDER, { recursive: true });
+  }
+
+  // First, create pre file for source language (usually English)
+  createSourcePreFile(sourceLanguage);
 
   console.log(
     `No target language provided. Translating from ${sourceLanguage} to all available languages: ${targetLanguages.join(', ')}`

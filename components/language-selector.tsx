@@ -12,7 +12,7 @@ const localeOptions: LocaleOption[] = [
   { code: 'en', flag: '🇺🇸' },
   { code: 'fr', flag: '🇫🇷' },
   { code: 'es', flag: '🇪🇸' },
-  { code: 'pt', flag: '🇵🇹' },
+  { code: 'pt', flag: '🇧🇷' },
 ];
 
 export default function LanguageSelector() {

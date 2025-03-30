@@ -75,11 +75,11 @@
       "sourceMessage": "About me"
     },
     "description1": {
-      "defaultMessage": "Enquanto cursava duplas graduações em Marketing e Estudos de Negócios Internacionais na California State University Long Beach, mergulhei em um mundo de experiências reais que moldaram minha visão atual. São essas aventuras que realmente construíram minhas bases, adicionando profundidade tanto ao meu trabalho quanto à minha vida fora do editor de código. Mesmo naquela época, eu tinha uma intuição de que misturar codificação com um toque de aventura e criatividade seria meu ponto forte.",
+      "defaultMessage": "Enquanto buscava diplomas duplos em Marketing e Estudos de Negócios Internacionais na California State University Long Beach, mergulhei em um mundo de experiências do mundo real que moldaram minha perspectiva atual. São essas aventuras que realmente construíram minhas bases, adicionando profundidade tanto ao meu trabalho quanto à minha vida fora do editor de código. Mesmo naquela época, eu tinha uma intuição de que misturar codificação com um toque de aventura e criatividade seria meu ponto forte.",
       "sourceMessage": "While pursuing dual degrees in Marketing and International Business Studies at California State University Long Beach, I delved into a world of real-world experiences that shaped my current outlook. It's these adventures that truly built my foundations, adding depth to both my work and life outside the code editor. Even back then, I had an inkling that mixing coding with a splash of adventure and creativity would be my sweet spot."
     },
     "description2": {
-      "defaultMessage": "Avançando para hoje—sou um Engenheiro de Software Full-Stack prosperando em NYC. Codificação é meu forte; JavaScript, React e Node mantêm meus dias cheios de resolução de problemas e inovação. Mas a vida é mais do que apenas código. Estou totalmente focado em nutrir conexões e crescimento, seja mentorando desenvolvedores juniores ou criando experiências que misturam arte, música e interação humana genuína. E quando não estou codificando, estou mergulhando nas profundezas do oceano, explorando recifes ou aproveitando o sol em uma praia na Austrália. Com experiências em 60 países e um ano vivendo a vida nômade, cada aventura continua a alimentar minha paixão por tecnologia e criatividade.",
+      "defaultMessage": "Avançando para hoje—sou um Engenheiro de Software Full-Stack prosperando em NYC. Codificação é meu forte; JavaScript, React e Node mantêm meus dias vibrantes com resolução de problemas e inovação. Mas a vida é mais do que apenas código. Estou totalmente focado em nutrir conexões e crescimento, seja mentorando desenvolvedores juniores ou criando experiências que misturam arte, música e interação humana genuína. E quando não estou codificando, estou mergulhando nas profundezas do oceano, explorando recifes ou aproveitando o sol em uma praia na Austrália. Com experiências em 60 países e um ano vivendo a vida nômade, cada aventura continua a alimentar minha paixão por tecnologia e criatividade.",
       "sourceMessage": "Fast forward to today—I'm a Full-Stack Software Engineer thriving in NYC. Coding's my forte; JavaScript, React, and Node keep my days buzzing with problem solving and innovation. But life's more than just code. I'm all about nurturing connections and growth, whether it's mentoring junior developers or crafting experiences that blend art, music, and genuine human interaction. And when I'm not coding, I'm plunging into the depths of the ocean, exploring reefs, or soaking up the sun on a beach in Australia. With experiences in 60 countries and a year living the nomad life, each adventure continues to fuel my passion for tech and creativity."
     }
   },
@@ -87,11 +87,11 @@
     "items": {
       "dashboard": {
         "title": {
-          "defaultMessage": "Painel Rotaready",
+          "defaultMessage": "Rotaready Dashboard",
           "sourceMessage": "Rotaready Dashboard"
         },
         "description": {
-          "defaultMessage": "O Painel exigiu planejamento meticuloso, execução prática, múltiplas iterações e uma curva de aprendizado significativa, particularmente com React Grid Layout e outras tecnologias de ponta. Tornou-se uma ferramenta poderosa para nossos usuários, oferecendo uma interface altamente personalizável, responsiva e visualmente atraente.",
+          "defaultMessage": "O Dashboard exigiu planejamento meticuloso, execução prática, múltiplas iterações e uma curva de aprendizado significativa, particularmente com React Grid Layout e outras tecnologias de ponta. Tornou-se uma ferramenta poderosa para nossos usuários, oferecendo uma interface altamente personalizável, responsiva e visualmente atraente.",
           "sourceMessage": "The Dashboard required meticulous planning, hands-on execution, multiple iterations, and a significant learning curve, particularly with React Grid Layout and other cutting-edge technologies. It became a powerful tool for our users, offering a highly customizable, responsive, and visually appealing interface."
         },
         "tags": {
@@ -101,7 +101,7 @@
             "Redux",
             "GraphQL",
             "Node",
-            "Layout de Grade"
+            "Grid Layout"
           ],
           "sourceMessage": [
             "React",
@@ -115,11 +115,11 @@
       },
       "eventPlanner": {
         "title": {
-          "defaultMessage": "Eventos Rotaready",
+          "defaultMessage": "Rotaready Events",
           "sourceMessage": "Rotaready Events"
         },
         "description": {
-          "defaultMessage": "Liderei o desenvolvimento do Planejador de Eventos para a Rotaready. Personalizei o React Big Calendar e usei GraphQL para recuperação precisa de dados. Através de um manuseio diligente de casos extremos, garanti uma experiência de usuário perfeita, resultando em um planejador visualmente atraente e totalmente funcional.",
+          "defaultMessage": "Liderei o desenvolvimento do Planejador de Eventos para a Rotaready. Personalizei o React Big Calendar e usei GraphQL para recuperação precisa de dados. Através de um manuseio diligente de casos extremos, garanti uma experiência do usuário perfeita, resultando em um planejador visualmente atraente e totalmente funcional.",
           "sourceMessage": "I spearheaded the development of the Event Planner for Rotaready. I customized React Big Calendar and used GraphQL for precise data retrieval. Through diligent handling of edge cases, I ensured a seamless user experience, resulting in a visually appealing and fully functional planner."
         },
         "tags": {
@@ -145,7 +145,7 @@
           "sourceMessage": "Nomader"
         },
         "description": {
-          "defaultMessage": "Nomader era uma aplicação web full-stack que permite aos usuários pesquisar e salvar seus destinos de viagem favoritos. Usou a API do Skyscanner para encontrar os voos mais baratos e a moeda local dos usuários para seu destino.",
+          "defaultMessage": "Nomader era uma aplicação web full-stack que permite aos usuários pesquisar e salvar seus destinos de viagem favoritos. Usava a API do Skyscanner para encontrar os voos mais baratos e a moeda local dos usuários para seu destino.",
           "sourceMessage": "Nomader was a full-stack web application that allows users to search for and save their favorite travel destinations. It used Skyscanner's API to find the cheapest flights and users local currency to their destination."
         },
         "tags": {
@@ -154,7 +154,7 @@
             "Node",
             "Express",
             "MySQL",
-            "APIs REST",
+            "REST APIs",
             "Heroku"
           ],
           "sourceMessage": [
@@ -180,9 +180,9 @@
           "defaultMessage": [
             "HTML",
             "CSS",
-            "Grid CSS",
-            "Flexbox CSS",
-            "Animações CSS",
+            "CSS Grid",
+            "CSS Flexbox",
+            "CSS Animations",
             "Heroku"
           ],
           "sourceMessage": [
@@ -208,71 +208,97 @@
     }
   },
   "experience": {
+    "rotaready": {
+      "title": {
+        "defaultMessage": "Engenheiro de Software Full-Stack",
+        "sourceMessage": "Full-Stack Software Engineer"
+      },
+      "location": {
+        "defaultMessage": "Londres, Reino Unido && Nova York, NY",
+        "sourceMessage": "London, UK && New York, NY"
+      },
+      "company": {
+        "defaultMessage": "Rotaready",
+        "sourceMessage": "Rotaready"
+      },
+      "description": {
+        "defaultMessage": "Atualmente trabalho como engenheiro full-stack para a Rotaready, uma empresa SaaS. Meu dia a dia inclui construir novos produtos e recursos para nossos clientes, bem como manter e melhorar nossos produtos existentes.",
+        "sourceMessage": "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products."
+      },
+      "date": {
+        "defaultMessage": "Junho 2022 - presente",
+        "sourceMessage": "June 2022 - present"
+      }
+    },
+    "absoluteMagnitude": {
+      "title": {
+        "defaultMessage": "Desenvolvedor de Software Full-Stack",
+        "sourceMessage": "Full-Stack Software Developer"
+      },
+      "location": {
+        "defaultMessage": "Londres, Reino Unido && Nova York, NY",
+        "sourceMessage": "London, UK && New York, NY"
+      },
+      "company": {
+        "defaultMessage": "Absolute Magnitude",
+        "sourceMessage": "Absolute Magnitude"
+      },
+      "description": {
+        "defaultMessage": "Trabalhei como desenvolvedor full-stack para uma startup chamada Absolute Magnitude por cerca de um ano. Fui responsável pela gestão de projetos, trabalhando diretamente com clientes e construindo aplicações web full-stack.",
+        "sourceMessage": "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications."
+      },
+      "date": {
+        "defaultMessage": "Out 2021 - Jul 2022",
+        "sourceMessage": "Oct 2021 - July 2022"
+      }
+    },
+    "contractor": {
+      "title": {
+        "defaultMessage": "Engenheiro de Software Full-Stack",
+        "sourceMessage": "Full-Stack Software Engineer"
+      },
+      "location": {
+        "defaultMessage": "Remoto",
+        "sourceMessage": "Remote"
+      },
+      "company": {
+        "defaultMessage": "Contratado Independente",
+        "sourceMessage": "Independent Contractor"
+      },
+      "description": {
+        "defaultMessage": "Trabalho como engenheiro de software full-stack entregando aplicações web personalizadas, sites e outros produtos de software para clientes.",
+        "sourceMessage": "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients."
+      },
+      "date": {
+        "defaultMessage": "Junho 2021 - presente",
+        "sourceMessage": "June 2021 - present"
+      }
+    },
+    "bootcamp": {
+      "title": {
+        "defaultMessage": "Bootcamp de Engenharia Full-Stack",
+        "sourceMessage": "Full-Stack Engineering Bootcamp"
+      },
+      "location": {
+        "defaultMessage": "Londres, Reino Unido",
+        "sourceMessage": "London, UK"
+      },
+      "company": {
+        "defaultMessage": "{The Jump} Digital School",
+        "sourceMessage": "{The Jump} Digital School"
+      },
+      "description": {
+        "defaultMessage": "Uma jornada intensiva de oito meses em engenharia de software full-stack para aprender tudo que eu precisava saber sobre como conseguir meu primeiro emprego como engenheiro.",
+        "sourceMessage": "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job."
+      },
+      "date": {
+        "defaultMessage": "Jan 2021 - Ago 2021",
+        "sourceMessage": "Jan 2021 - Aug 2021"
+      }
+    },
     "title": {
       "defaultMessage": "Minha jornada tecnológica",
       "sourceMessage": "My tech journey"
-    },
-    "entries": {
-      "defaultMessage": [
-        {
-          "title": "Engenheiro de Software Full-Stack",
-          "location": "Londres, Reino Unido && Nova Iorque, NY",
-          "company": "Rotaready",
-          "description": "Atualmente estou trabalhando como engenheiro full-stack para a Rotaready, uma empresa de SaaS. Meu dia a dia inclui construir novos produtos e recursos para nossos clientes, além de manter e melhorar nossos produtos existentes.",
-          "date": "Junho de 2022 - presente"
-        },
-        {
-          "title": "Desenvolvedor de Software Full-Stack",
-          "location": "Londres, Reino Unido && Nova Iorque, NY",
-          "company": "Absolute Magnitude",
-          "description": "Trabalhei como desenvolvedor full-stack para uma empresa startup chamada Absolute Magnitude por cerca de um ano. Eu era responsável pela gestão de projetos, trabalhando diretamente com clientes e construindo aplicações web full-stack.",
-          "date": "Out 2021 - Jul 2022"
-        },
-        {
-          "title": "Engenheiro de Software Full-Stack",
-          "location": "Remoto",
-          "company": "Contratante Independente",
-          "description": "Trabalho como engenheiro de software full-stack entregando aplicações web personalizadas, sites e outros produtos de software para clientes.",
-          "date": "Junho de 2021 - presente"
-        },
-        {
-          "title": "Bootcamp de Engenharia Full-Stack",
-          "location": "Londres, Reino Unido",
-          "company": "{The Jump} Escola Digital",
-          "description": "Uma jornada intensiva de oito meses em engenharia de software full-stack para aprender tudo que eu precisava saber sobre como conseguir meu primeiro emprego como engenheiro.",
-          "date": "Jan 2021 - Ago 2021"
-        }
-      ],
-      "sourceMessage": [
-        {
-          "title": "Full-Stack Software Engineer",
-          "location": "London, UK && New York, NY",
-          "company": "Rotaready",
-          "description": "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products.",
-          "date": "June 2022 - present"
-        },
-        {
-          "title": "Full-Stack Software Developer",
-          "location": "London, UK && New York, NY",
-          "company": "Absolute Magnitude",
-          "description": "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications.",
-          "date": "Oct 2021 - July 2022"
-        },
-        {
-          "title": "Full-Stack Software Engineer",
-          "location": "Remote",
-          "company": "Independent Contractor",
-          "description": "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
-          "date": "June 2021 - present"
-        },
-        {
-          "title": "Full-Stack Engineering Bootcamp",
-          "location": "London, UK",
-          "company": "{The Jump} Digital School",
-          "description": "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job.",
-          "date": "Jan 2021 - Aug 2021"
-        }
-      ]
     }
   },
   "contact": {
@@ -297,7 +323,7 @@
       "sourceMessage": "Your name"
     },
     "emailLabel": {
-      "defaultMessage": "Seu e-mail",
+      "defaultMessage": "Seu email",
       "sourceMessage": "Your email"
     },
     "messageLabel": {
@@ -317,8 +343,16 @@
       "sourceMessage": "This field is required"
     },
     "validEmail": {
-      "defaultMessage": "Por favor, insira um e-mail válido",
+      "defaultMessage": "Por favor, insira um email válido",
       "sourceMessage": "Please enter a valid email"
+    },
+    "sending": {
+      "defaultMessage": "Enviando sua mensagem...",
+      "sourceMessage": "Sending your message..."
+    },
+    "responseTime": {
+      "defaultMessage": "Eu responderei o mais rápido possível",
+      "sourceMessage": "I'll respond as soon as possible"
     }
   },
   "chat": {
@@ -389,7 +423,7 @@
       "sourceMessage": "built with React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Material UI, Vercel hosting,"
     },
     "aiFeatures": {
-      "defaultMessage": "e aprimorado com chat dinâmico alimentado por IA usando OpenAI, correspondência semântica de consultas e geração de respostas contextuais para interações personalizadas.",
+      "defaultMessage": "e aprimorado com chat dinâmico impulsionado por IA usando OpenAI, correspondência de consulta semântica e geração de respostas contextuais para interações personalizadas.",
       "sourceMessage": "and enhanced with dynamic AI-powered chat using OpenAI, semantic query matching, and contextual response generation for personalized interactions."
     }
   },

@@ -12,7 +12,6 @@
     "analyze": "ANALYZE=true next build",
     "translate": "ts-node scripts/translateJson.ts",
     "translate:force": "ts-node scripts/translateJson.ts en --force",
-    "export-hashes": "ts-node scripts/translateJson.ts --export-hashes",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

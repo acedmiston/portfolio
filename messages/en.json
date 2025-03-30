@@ -70,36 +70,34 @@
   },
   "experience": {
     "title": "My tech journey",
-    "entries": [
-      {
-        "title": "Full-Stack Software Engineer",
-        "location": "London, UK && New York, NY",
-        "company": "Rotaready",
-        "description": "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products.",
-        "date": "June 2022 - present"
-      },
-      {
-        "title": "Full-Stack Software Developer",
-        "location": "London, UK && New York, NY",
-        "company": "Absolute Magnitude",
-        "description": "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications.",
-        "date": "Oct 2021 - July 2022"
-      },
-      {
-        "title": "Full-Stack Software Engineer",
-        "location": "Remote",
-        "company": "Independent Contractor",
-        "description": "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
-        "date": "June 2021 - present"
-      },
-      {
-        "title": "Full-Stack Engineering Bootcamp",
-        "location": "London, UK",
-        "company": "{The Jump} Digital School",
-        "description": "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job.",
-        "date": "Jan 2021 - Aug 2021"
-      }
-    ]
+    "rotaready": {
+      "title": "Full-Stack Software Engineer",
+      "location": "London, UK && New York, NY",
+      "company": "Rotaready",
+      "description": "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products.",
+      "date": "June 2022 - present"
+    },
+    "absoluteMagnitude": {
+      "title": "Full-Stack Software Developer",
+      "location": "London, UK && New York, NY",
+      "company": "Absolute Magnitude",
+      "description": "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications.",
+      "date": "Oct 2021 - July 2022"
+    },
+    "contractor": {
+      "title": "Full-Stack Software Engineer",
+      "location": "Remote",
+      "company": "Independent Contractor",
+      "description": "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
+      "date": "June 2021 - present"
+    },
+    "bootcamp": {
+      "title": "Full-Stack Engineering Bootcamp",
+      "location": "London, UK",
+      "company": "{The Jump} Digital School",
+      "description": "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job.",
+      "date": "Jan 2021 - Aug 2021"
+    }
   },
   "contact": {
     "title": "Contact me",
