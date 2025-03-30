@@ -7,25 +7,29 @@ import { motion } from 'framer-motion';
 import { sendEmail } from '@/actions/sendEmail';
 import SubmitBtn from './submit-button';
 import toast from 'react-hot-toast';
+import { useLanguage } from '@/providers/language-provider';
 
 const Contact = () => {
-  const { ref } = useSectionInView('Contact');
+  const { ref } = useSectionInView('nav.contact');
+  const { t } = useLanguage();
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const { data, error } = await sendEmail(formData);
+    const { error } = await sendEmail(formData);
 
     if (error) {
-      toast.error(error);
+      toast.error(t('contact.errorMessage'));
+      console.error('Email send error:', error);
       return;
     }
+
     if (formRef.current) {
       formRef.current.reset();
     }
-    toast.success('Message sent!');
+    toast.success(t('contact.successMessage'));
   };
 
   return (
@@ -36,20 +40,20 @@ const Contact = () => {
       viewport={{ once: true }}
       id="contact"
       ref={ref}
-      className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
+      className="mb-20 w-[min(100%,38rem)] text-center sm:mb-28"
     >
-      <SectionHeading>Contact me</SectionHeading>
-      <p className="text-gray-700 -mt-6 dark:text-white/80">
-        Please reach out to me directly at{' '}
+      <SectionHeading>{t('contact.title')}</SectionHeading>
+      <p className="-mt-6 text-gray-700 dark:text-white/80">
+        {t('contact.subtitle')}
         <a
           className="underline"
           href="mailto:aaroncedmistondev@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          aaroncedmistondev@gmail.com
+          {t('contact.emailAddress')}
         </a>{' '}
-        or through this form:
+        {t('contact.subtitle2')}
       </p>
       <form
         ref={formRef}
@@ -58,27 +62,27 @@ const Contact = () => {
         onSubmit={handleSubmit}
       >
         <input
-          className="h-14 px-4 mb-3 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="borderBlack mb-3 h-14 rounded-lg px-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
           name="senderName"
           id="senderName"
           type="name"
           required
-          placeholder="Your name"
+          placeholder={t('contact.nameLabel')}
         />
         <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="borderBlack h-14 rounded-lg px-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
           name="senderEmail"
           id="senderEmail"
           type="email"
           required
           maxLength={500}
-          placeholder="Your email"
+          placeholder={t('contact.emailLabel')}
         />
         <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
           name="message"
           id="message"
-          placeholder="Your message"
+          placeholder={t('contact.messageLabel')}
           required
           maxLength={5000}
         />

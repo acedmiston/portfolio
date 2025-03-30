@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Aaron Edmiston | Portafolio",
+    "description": "Ingeniero de software especializado en desarrollo full-stack"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "contact": "Contacto"
+  },
+  "intro": {
+    "greeting": "Hola, soy",
+    "name": "Aaron Edmiston",
+    "experience": ", un Ingeniero de Software Full-Stack con más de 4 años de experiencia profesional.",
+    "focus": "Mi enfoque es principalmente el desarrollo front-end, utilizando",
+    "technologies": "React (Next.js), TypeScript, Node, GraphQL y MySQL",
+    "description": "Construyo experiencias digitales excepcionales con tecnologías web modernas.",
+    "contactButton": "Contáctame",
+    "downloadResume": "Descargar currículum"
+  },
+  "about": {
+    "title": "Acerca de mí",
+    "description1": "Mientras cursaba títulos duales en Marketing y Estudios de Negocios Internacionales en la Universidad Estatal de California Long Beach, me adentré en un mundo de experiencias reales que moldearon mi perspectiva actual. Son estas aventuras las que realmente construyeron mis fundamentos, añadiendo profundidad tanto a mi trabajo como a mi vida fuera del editor de código. Incluso en ese entonces, tenía la intuición de que mezclar la programación con un toque de aventura y creatividad sería mi punto fuerte.",
+    "description2": "Avanzando hasta hoy—soy un Ingeniero de Software Full-Stack prosperando en NYC. La programación es mi fuerte; JavaScript, React y Node mantienen mis días llenos de resolución de problemas e innovación. Pero la vida es más que solo código. Me dedico a fomentar conexiones y crecimiento, ya sea mentoreando a desarrolladores junior o creando experiencias que combinan arte, música e interacción humana genuina. Y cuando no estoy programando, me sumerjo en las profundidades del océano, explorando arrecifes o disfrutando del sol en una playa en Australia. Con experiencias en 60 países y un año viviendo la vida nómada, cada aventura sigue alimentando mi pasión por la tecnología y la creatividad."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "items": {
+      "dashboard": {
+        "title": "Tablero de Rotaready",
+        "description": "El Tablero requirió una planificación meticulosa, ejecución práctica, múltiples iteraciones y una curva de aprendizaje significativa, particularmente con React Grid Layout y otras tecnologías de vanguardia. Se convirtió en una herramienta poderosa para nuestros usuarios, ofreciendo una interfaz altamente personalizable, receptiva y visualmente atractiva.",
+        "tags": [
+          "React",
+          "TypeScript",
+          "Redux",
+          "GraphQL",
+          "Node",
+          "Grid Layout"
+        ]
+      },
+      "eventPlanner": {
+        "title": "Eventos de Rotaready",
+        "description": "Lideré el desarrollo del Planificador de Eventos para Rotaready. Personalicé React Big Calendar y utilicé GraphQL para la recuperación precisa de datos. A través de un manejo diligente de casos extremos, aseguré una experiencia de usuario fluida, resultando en un planificador visualmente atractivo y completamente funcional.",
+        "tags": ["React", "React Big Calendar", "GraphQL", "Storybook", "Redux"]
+      },
+      "nomader": {
+        "title": "Nomader",
+        "description": "Nomader fue una aplicación web full-stack que permite a los usuarios buscar y guardar sus destinos de viaje favoritos. Utilizó la API de Skyscanner para encontrar los vuelos más baratos y la moneda local de los usuarios a su destino.",
+        "tags": ["React", "Node", "Express", "MySQL", "REST APIs", "Heroku"]
+      },
+      "stripe": {
+        "title": "Página de inicio de Stripe",
+        "description": "Este proyecto fue un desafío para hacer un homenaje a uno de nuestros sitios favoritos utilizando solo CSS y HTML. Fue bastante difícil porque tenía mucha responsividad, animaciones y CSS avanzado.",
+        "tags": [
+          "HTML",
+          "CSS",
+          "CSS Grid",
+          "CSS Flexbox",
+          "CSS Animations",
+          "Heroku"
+        ]
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades"
+  },
+  "experience": {
+    "title": "Mi trayectoria tecnológica",
+    "entries": [
+      {
+        "title": "Ingeniero de Software Full-Stack",
+        "location": "Londres, Reino Unido && Nueva York, NY",
+        "company": "Rotaready",
+        "description": "Actualmente trabajo como ingeniero full-stack para Rotaready, una empresa SaaS. Mi día a día incluye construir nuevos productos y características para nuestros clientes, así como mantener y mejorar nuestros productos existentes.",
+        "date": "Junio 2022 - presente"
+      },
+      {
+        "title": "Desarrollador de Software Full-Stack",
+        "location": "Londres, Reino Unido && Nueva York, NY",
+        "company": "Absolute Magnitude",
+        "description": "Trabajé como desarrollador full-stack para una empresa emergente llamada Absolute Magnitude durante aproximadamente un año. Fui responsable de la gestión de proyectos, trabajando directamente con los clientes y construyendo aplicaciones web full-stack.",
+        "date": "Oct 2021 - Julio 2022"
+      },
+      {
+        "title": "Ingeniero de Software Full-Stack",
+        "location": "Remoto",
+        "company": "Contratista Independiente",
+        "description": "Trabajo como ingeniero de software full-stack entregando aplicaciones web personalizadas, sitios web y otros productos de software para clientes.",
+        "date": "Junio 2021 - presente"
+      },
+      {
+        "title": "Bootcamp de Ingeniería Full-Stack",
+        "location": "Londres, Reino Unido",
+        "company": "{The Jump} Escuela Digital",
+        "description": "Un viaje intensivo de ocho meses en ingeniería de software full-stack para aprender todo lo que necesitaba saber sobre cómo conseguir mi primer trabajo como ingeniero.",
+        "date": "Ene 2021 - Ago 2021"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "Por favor, contáctame directamente en ",
+    "emailAddress": "aaroncedmistondev@gmail.com",
+    "subtitle2": "o a través de este formulario:",
+    "nameLabel": "Tu nombre",
+    "emailLabel": "Tu correo electrónico",
+    "messageLabel": "Tu mensaje",
+    "successMessage": "¡Mensaje enviado con éxito!",
+    "errorMessage": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "requiredField": "Este campo es obligatorio",
+    "validEmail": "Por favor, introduce un correo electrónico válido"
+  },
+  "chat": {
+    "title": "Asistente del Portafolio de Aaron",
+    "placeholder": "No seas tímido...",
+    "initialMessage": "¡Hola! Pregúntame cualquier cosa sobre el portafolio de Aaron.",
+    "contextualAreas": {
+      "work": "Experiencia profesional",
+      "skills": "Experiencia técnica",
+      "projects": "Proyectos del portafolio",
+      "education": "Formación académica",
+      "interests": "Intereses personales"
+    },
+    "loadingIndicator": "Pensando...",
+    "errorMessage": "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo."
+  },
+  "theme": {
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo claro"
+  },
+  "footer": {
+    "copyright": "© Aaron Edmiston {year} Todos los derechos reservados.",
+    "aboutSite": "Acerca de este sitio web:",
+    "techStack": "construido con React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Material UI, hosting en Vercel,",
+    "aiFeatures": "y mejorado con chat dinámico impulsado por IA utilizando OpenAI, coincidencia de consultas semánticas y generación de respuestas contextuales para interacciones personalizadas."
+  },
+  "buttons": {
+    "send": "Enviar"
+  },
+  "errorPages": {
+    "404": {
+      "title": "Página no encontrada",
+      "message": "La página que estás buscando no existe o ha sido movida.",
+      "backHome": "Volver a inicio"
+    },
+    "500": {
+      "title": "Error del servidor",
+      "message": "Algo salió mal de nuestro lado. Por favor, inténtalo de nuevo más tarde.",
+      "backHome": "Volver a inicio"
+    }
+  },
+  "common": {
+    "loading": "Cargando..."
+  },
+  "language": {
+    "label": "Idioma",
+    "english": "Inglés",
+    "french": "Francés",
+    "spanish": "Español",
+    "portuguese": "Portugués"
+  }
+}

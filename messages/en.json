@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Aaron Edmiston | Portfolio",
+    "description": "Software Engineer specializing in full-stack development"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "intro": {
+    "greeting": "Hey there, I'm",
+    "name": "Aaron Edmiston",
+    "experience": ",a Full-Stack Software Engineer with over 4 years of professional experience.",
+    "focus": "My focus is mostly front-end development, using",
+    "technologies": "React (Next.js), TypeScript, Node, GraphQL, and MySQL",
+    "description": "I build exceptional digital experiences with modern web technologies.",
+    "contactButton": "Contact me",
+    "downloadResume": "Download résumé"
+  },
+  "about": {
+    "title": "About me",
+    "description1": "While pursuing dual degrees in Marketing and International Business Studies at California State University Long Beach, I delved into a world of real-world experiences that shaped my current outlook. It's these adventures that truly built my foundations, adding depth to both my work and life outside the code editor. Even back then, I had an inkling that mixing coding with a splash of adventure and creativity would be my sweet spot.",
+    "description2": "Fast forward to today—I'm a Full-Stack Software Engineer thriving in NYC. Coding's my forte; JavaScript, React, and Node keep my days buzzing with problem solving and innovation. But life's more than just code. I'm all about nurturing connections and growth, whether it's mentoring junior developers or crafting experiences that blend art, music, and genuine human interaction. And when I'm not coding, I'm plunging into the depths of the ocean, exploring reefs, or soaking up the sun on a beach in Australia. With experiences in 60 countries and a year living the nomad life, each adventure continues to fuel my passion for tech and creativity."
+  },
+  "projects": {
+    "title": "Projects",
+    "items": {
+      "dashboard": {
+        "title": "Rotaready Dashboard",
+        "description": "The Dashboard required meticulous planning, hands-on execution, multiple iterations, and a significant learning curve, particularly with React Grid Layout and other cutting-edge technologies. It became a powerful tool for our users, offering a highly customizable, responsive, and visually appealing interface.",
+        "tags": [
+          "React",
+          "TypeScript",
+          "Redux",
+          "GraphQL",
+          "Node",
+          "Grid Layout"
+        ]
+      },
+      "eventPlanner": {
+        "title": "Rotaready Events",
+        "description": "I spearheaded the development of the Event Planner for Rotaready. I customized React Big Calendar and used GraphQL for precise data retrieval. Through diligent handling of edge cases, I ensured a seamless user experience, resulting in a visually appealing and fully functional planner.",
+        "tags": ["React", "React Big Calendar", "GraphQL", "Storybook", "Redux"]
+      },
+      "nomader": {
+        "title": "Nomader",
+        "description": "Nomader was a full-stack web application that allows users to search for and save their favorite travel destinations. It used Skyscanner's API to find the cheapest flights and users local currency to their destination.",
+        "tags": ["React", "Node", "Express", "MySQL", "REST APIs", "Heroku"]
+      },
+      "stripe": {
+        "title": "Stripe Home Page",
+        "description": "This project was a challenge to make a homage to one of our favorite sites using only CSS and HTML. It was quite difficult because it had a lot of responsiveness, animations, and advanced CSS.",
+        "tags": [
+          "HTML",
+          "CSS",
+          "CSS Grid",
+          "CSS Flexbox",
+          "CSS Animations",
+          "Heroku"
+        ]
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "experience": {
+    "title": "My tech journey",
+    "entries": [
+      {
+        "title": "Full-Stack Software Engineer",
+        "location": "London, UK && New York, NY",
+        "company": "Rotaready",
+        "description": "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products.",
+        "date": "June 2022 - present"
+      },
+      {
+        "title": "Full-Stack Software Developer",
+        "location": "London, UK && New York, NY",
+        "company": "Absolute Magnitude",
+        "description": "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications.",
+        "date": "Oct 2021 - July 2022"
+      },
+      {
+        "title": "Full-Stack Software Engineer",
+        "location": "Remote",
+        "company": "Independent Contractor",
+        "description": "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
+        "date": "June 2021 - present"
+      },
+      {
+        "title": "Full-Stack Engineering Bootcamp",
+        "location": "London, UK",
+        "company": "{The Jump} Digital School",
+        "description": "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job.",
+        "date": "Jan 2021 - Aug 2021"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact me",
+    "subtitle": "Please reach out to me directly at ",
+    "emailAddress": "aaroncedmistondev@gmail.com",
+    "subtitle2": "or through this form:",
+    "nameLabel": "Your name",
+    "emailLabel": "Your email",
+    "messageLabel": "Your message",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "Something went wrong. Please try again.",
+    "requiredField": "This field is required",
+    "validEmail": "Please enter a valid email"
+  },
+  "chat": {
+    "title": "Aaron's Portfolio Assistant",
+    "placeholder": "Don't be shy...",
+    "initialMessage": "Hi! Ask me anything about Aaron's portfolio.",
+    "contextualAreas": {
+      "work": "Professional experience",
+      "skills": "Technical expertise",
+      "projects": "Portfolio projects",
+      "education": "Academic background",
+      "interests": "Personal interests"
+    },
+    "loadingIndicator": "Thinking...",
+    "errorMessage": "Oops! Something went wrong. Please try again."
+  },
+  "theme": {
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode"
+  },
+  "footer": {
+    "copyright": "© Aaron Edmiston {year} All rights reserved.",
+    "aboutSite": "About this website:",
+    "techStack": "built with React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Material UI, Vercel hosting,",
+    "aiFeatures": "and enhanced with dynamic AI-powered chat using OpenAI, semantic query matching, and contextual response generation for personalized interactions."
+  },
+  "buttons": {
+    "send": "Send"
+  },
+  "errorPages": {
+    "404": {
+      "title": "Page not found",
+      "message": "The page you're looking for doesn't exist or has been moved.",
+      "backHome": "Back to home"
+    },
+    "500": {
+      "title": "Server error",
+      "message": "Something went wrong on our end. Please try again later.",
+      "backHome": "Back to home"
+    }
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "french": "French",
+    "spanish": "Spanish",
+    "portuguese": "Portuguese"
+  }
+}

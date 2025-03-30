@@ -7,22 +7,23 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import Slide from '@mui/material/Slide';
-
 import SectionHeading from './section-heading';
 import { experiencesData } from '@/lib/data';
 import { useSectionInView } from '@/lib/hooks';
 import { Typography } from '@mui/material';
+import { useLanguage } from '@/providers/language-provider';
 
 export default function Experience() {
-  const { ref } = useSectionInView('Experience');
+  const { ref } = useSectionInView('nav.experience');
+  const { t } = useLanguage();
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
-      <SectionHeading>My Experience</SectionHeading>
+    <section id="experience" ref={ref} className="mb-28 scroll-mt-28 sm:mb-40">
+      <SectionHeading>{t('experience.title')}</SectionHeading>
       <Timeline position="alternate-reverse">
         {experiencesData.map((item, index) => (
           <Slide key={index} in={true} direction="up" timeout={500}>
-            <TimelineItem key={index}>
+            <TimelineItem>
               <TimelineSeparator>
                 <TimelineConnector />
                 <TimelineDot
@@ -33,34 +34,25 @@ export default function Experience() {
                     height: '46px',
                   }}
                 >
-                  <div className="flex items-center justify-center w-full h-full">
+                  <div className="flex h-full w-full items-center justify-center">
                     {React.cloneElement(item.icon, {
-                      style: {
-                        width: '24px',
-                        height: '24px',
-                      },
+                      style: { width: '24px', height: '24px' },
                     })}
                   </div>
                 </TimelineDot>
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent sx={{ py: '12px', px: 2, border: '' }}>
+              <TimelineContent sx={{ py: '12px', px: 2 }}>
                 <Typography variant="h6" component="div">
-                  {item.company}
+                  {t(item.companyKey)}
                 </Typography>
-                <Typography variant="subtitle2">{item.title}</Typography>
-                <Typography variant="body2">{item.location}</Typography>
+                <Typography variant="subtitle2">{t(item.titleKey)}</Typography>
+                <Typography variant="body2">{t(item.locationKey)}</Typography>
                 <Typography variant="body1" sx={{ mt: 1 }}>
-                  {item.description}
+                  {t(item.descriptionKey)}
                 </Typography>
-                <Typography
-                  variant="caption"
-                  sx={{
-                    display: 'block',
-                    mt: 1,
-                  }}
-                >
-                  {item.date}
+                <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>
+                  {t(item.dateKey)}
                 </Typography>
               </TimelineContent>
             </TimelineItem>

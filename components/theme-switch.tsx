@@ -9,10 +9,7 @@ export default function ThemeSwitch() {
 
   return (
     <button
-      className="fixed top-5 right-5 bg-white w-[3rem] h-[3rem] bg-opacity-80 
-      backdrop-blur-[0.5rem] border border-gray-600 border-opacity-50 shadow-2xl 
-      rounded-full flex items-center justify-center hover:scale-[1.15] 
-      active:scale-105 transition-all dark:bg-gray-950 dark:border-gray-100"
+      className="fixed right-5 top-5 flex h-[3rem] w-[3rem] items-center justify-center rounded-full border border-gray-600 border-opacity-50 bg-white bg-opacity-80 shadow-2xl backdrop-blur-[0.5rem] transition-all hover:scale-[1.15] active:scale-105 dark:border-gray-100 dark:bg-gray-950"
       onClick={toggleTheme}
     >
       {theme === 'light' ? <BsSun /> : <BsMoon />}
