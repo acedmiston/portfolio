@@ -44,25 +44,12 @@
       "eventPlanner": {
         "title": "Eventos de Rotaready",
         "description": "Lideré el desarrollo del Planificador de Eventos para Rotaready. Personalicé React Big Calendar y utilicé GraphQL para la recuperación precisa de datos. A través de un manejo diligente de casos extremos, aseguré una experiencia de usuario fluida, resultando en un planificador visualmente atractivo y completamente funcional.",
-        "tags": [
-          "React",
-          "React Big Calendar",
-          "GraphQL",
-          "Storybook",
-          "Redux"
-        ]
+        "tags": ["React", "React Big Calendar", "GraphQL", "Storybook", "Redux"]
       },
       "nomader": {
         "title": "Nomader",
         "description": "Nomader era una aplicación web full-stack que permite a los usuarios buscar y guardar sus destinos de viaje favoritos. Utilizaba la API de Skyscanner para encontrar los vuelos más baratos y la moneda local de los usuarios a su destino.",
-        "tags": [
-          "React",
-          "Node",
-          "Express",
-          "MySQL",
-          "REST APIs",
-          "Heroku"
-        ]
+        "tags": ["React", "Node", "Express", "MySQL", "REST APIs", "Heroku"]
       },
       "stripe": {
         "title": "Página de inicio de Stripe",

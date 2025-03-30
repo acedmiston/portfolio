@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const OpenAI = require('openai');
 const { createHash } = require('crypto');
+const chalk = require('chalk');
 
 dotenv.config({ path: '.env.local' });
 
@@ -28,94 +29,80 @@ interface CacheData {
   [key: string]: CacheEntry;
 }
 
-// Add helper function to extract differences between objects
-function findDifferences(source: any, target: any): any {
-  const differences: any = {};
+type JsonPrimitive = string | number | boolean | null;
+type JsonArray = JsonValue[];
+type JsonObject = { [key: string]: JsonValue };
+type JsonValue = JsonPrimitive | JsonObject | JsonArray;
 
-  // Handle case where target doesn't exist yet
-  if (!target) {
-    return source;
-  }
+// For translation-specific JSON objects
+interface TranslationObject {
+  [key: string]: TranslationValue;
+}
+type TranslationValue =
+  | string
+  | number
+  | boolean
+  | TranslationObject
+  | TranslationArray;
+type TranslationArray = TranslationValue[];
 
-  // Compare each key in the source object
-  for (const key in source) {
-    // If key doesn't exist in target, add it
-    if (!(key in target)) {
-      differences[key] = source[key];
-      continue;
-    }
-
-    // If it's a string value that differs
-    if (typeof source[key] === 'string' && source[key] !== target[key]) {
-      differences[key] = source[key];
-    }
-    // If it's an array
-    else if (Array.isArray(source[key])) {
-      // Deep compare arrays
-      if (JSON.stringify(source[key]) !== JSON.stringify(target[key])) {
-        differences[key] = source[key];
-      }
-    }
-    // If it's a nested object
-    else if (typeof source[key] === 'object' && source[key] !== null) {
-      const nestedDiffs = findDifferences(source[key], target[key]);
-      if (Object.keys(nestedDiffs).length > 0) {
-        differences[key] = nestedDiffs;
-      }
-    }
-  }
-
-  return differences;
+// Type guard: check if a value is a TranslationObject (plain object)
+function isTranslationObject(
+  value: TranslationValue
+): value is TranslationObject {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-// Add helper function for deep merging
-function deepMerge(target: any, source: any): any {
-  const output = { ...target };
-
-  for (const key in source) {
-    if (
-      typeof source[key] === 'object' &&
-      source[key] !== null &&
-      !Array.isArray(source[key])
-    ) {
-      if (
-        key in target &&
-        typeof target[key] === 'object' &&
-        !Array.isArray(target[key])
-      ) {
-        output[key] = deepMerge(target[key], source[key]);
-      } else {
-        output[key] = source[key];
+// Deep merge two TranslationObjects. If either value is not an object, return source.
+function deepMerge(
+  target: TranslationValue,
+  source: TranslationValue
+): TranslationValue {
+  if (isTranslationObject(target) && isTranslationObject(source)) {
+    const output: TranslationObject = { ...target };
+    for (const key in source) {
+      if (source.hasOwnProperty(key)) {
+        if (key in target) {
+          output[key] = deepMerge(target[key], source[key]);
+        } else {
+          output[key] = source[key];
+        }
       }
-    } else {
-      output[key] = source[key];
     }
+    return output;
   }
-
-  return output;
+  // If either is not an object, return source
+  return source;
 }
 
-// Helper function to log changes in a nested structure
-function logChanges(obj: any, prefix = '') {
+// Helper function to log changes in a nested structure.
+// It checks if a value is an object, array, or string before performing operations.
+function logChanges(obj: TranslationObject, prefix = ''): void {
   for (const key in obj) {
-    if (
-      typeof obj[key] === 'object' &&
-      !Array.isArray(obj[key]) &&
-      obj[key] !== null
-    ) {
-      logChanges(obj[key], prefix ? `${prefix}.${key}` : key);
-    } else if (Array.isArray(obj[key])) {
-      console.log(
-        `📝 ${prefix ? `${prefix}.${key}` : key}: [array with ${obj[key].length} items]`
-      );
-    } else {
-      const preview =
-        typeof obj[key] === 'string'
-          ? obj[key].length > 40
-            ? `${obj[key].substring(0, 40)}...`
-            : obj[key]
-          : obj[key];
-      console.log(`📝 ${prefix ? `${prefix}.${key}` : key}: "${preview}"`);
+    if (obj.hasOwnProperty(key)) {
+      const value = obj[key];
+
+      // Handle different types with proper type checking
+      if (isTranslationObject(value)) {
+        logChanges(value, prefix ? `${prefix}.${key}` : key);
+      } else if (Array.isArray(value)) {
+        console.log(
+          chalk.yellow(
+            `📝 ${prefix ? `${prefix}.${key}` : key}: [array with ${value.length} items]`
+          )
+        );
+      } else if (typeof value === 'string') {
+        const preview =
+          value.length > 40 ? `${value.substring(0, 40)}...` : value;
+        console.log(
+          chalk.yellow(`📝 ${prefix ? `${prefix}.${key}` : key}: "${preview}"`)
+        );
+      } else {
+        // For numbers or booleans, just log the value directly
+        console.log(
+          chalk.yellow(`📝 ${prefix ? `${prefix}.${key}` : key}: ${value}`)
+        );
+      }
     }
   }
 }
@@ -126,7 +113,9 @@ async function translateJson(
   forceUpdate: boolean = false
 ): Promise<void> {
   console.log(
-    `\n${'-'.repeat(50)}\nProcessing ${targetLanguage.toUpperCase()} translations\n${'-'.repeat(50)}`
+    `\n${'-'.repeat(50)}\n${chalk.blue(
+      `Processing ${targetLanguage.toUpperCase()} translations`
+    )}\n${'-'.repeat(50)}`
   );
   // Read the source language file
   const sourcePath: string = path.join(
@@ -136,7 +125,7 @@ async function translateJson(
     `${sourceLanguage}.json`
   );
   const sourceContent: string = fs.readFileSync(sourcePath, 'utf8');
-  const sourceJson = JSON.parse(sourceContent);
+  const sourceJson: TranslationObject = JSON.parse(sourceContent);
 
   // Calculate hash of source content for cache invalidation
   const contentHash = createHash('md5').update(sourceContent).digest('hex');
@@ -154,7 +143,9 @@ async function translateJson(
     try {
       cacheData = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
     } catch (e) {
-      console.warn('Failed to read cache file. Creating a new one.');
+      console.warn(
+        chalk.yellow('⚠️ Failed to read cache file. Creating a new one.')
+      );
     }
   }
 
@@ -167,7 +158,7 @@ async function translateJson(
     `${targetLanguage}.json`
   );
 
-  // Check if we can use cached translation - no changes at all
+  // Check if we can use cached translation
   if (
     !forceUpdate &&
     cacheEntry &&
@@ -175,13 +166,17 @@ async function translateJson(
     fs.existsSync(targetPath)
   ) {
     console.log(
-      `Using cached translation for ${targetLanguage}. Last updated: ${new Date(cacheEntry.timestamp).toLocaleString()}`
+      chalk.green(
+        `Using cached translation for ${targetLanguage}. Last updated: ${new Date(
+          cacheEntry.timestamp
+        ).toLocaleString()}`
+      )
     );
     return;
   }
 
-  // If target file exists, we can do incremental translation
-  let targetJson: any = {};
+  // If target file exists, do incremental translation
+  let targetJson: TranslationObject = {};
   let shouldDoIncrementalTranslation = false;
 
   if (!forceUpdate && fs.existsSync(targetPath)) {
@@ -191,7 +186,9 @@ async function translateJson(
       shouldDoIncrementalTranslation = true;
     } catch (e) {
       console.warn(
-        `Failed to parse target file ${targetPath}. Will do full translation.`
+        chalk.yellow(
+          `Failed to parse target file ${targetPath}. Will do full translation.`
+        )
       );
     }
   }
@@ -202,7 +199,9 @@ async function translateJson(
 
     if (Object.keys(differences).length === 0) {
       console.log(
-        `No actual content differences for ${targetLanguage}, but hash changed. Updating cache only.`
+        chalk.green(
+          `No actual content differences for ${targetLanguage}, but hash changed. Updating cache only.`
+        )
       );
 
       // Update cache with new hash
@@ -216,21 +215,27 @@ async function translateJson(
     }
 
     if (Object.keys(differences).length > 0) {
-      console.log(`\n🔍 Found changes in the following keys:`);
+      console.log(chalk.magenta(`\n🔍 Found changes in the following keys:`));
       logChanges(differences);
       console.log('');
     }
 
     console.log(
-      `Found ${Object.keys(differences).length} top-level keys with changes in ${targetLanguage}`
+      chalk.magenta(
+        `Found ${Object.keys(differences).length} top-level keys with changes in ${targetLanguage}`
+      )
     );
-    console.log('Changed sections:', Object.keys(differences).join(', '));
+    console.log(
+      chalk.magenta('Changed sections:', Object.keys(differences).join(', '))
+    );
 
     // Only translate the differences
     const differencesString = JSON.stringify(differences, null, 2);
-    console.log(`Translating only changed content for ${targetLanguage}...`);
+    console.log(
+      chalk.blue(`Translating only changed content for ${targetLanguage}...`)
+    );
 
-    console.log(`\n🔄 Translating to ${targetLanguage}...`);
+    console.log(chalk.blue(`\n🔄 Translating to ${targetLanguage}...`));
     const startTime = Date.now();
 
     // Send only differences to OpenAI for translation
@@ -261,22 +266,24 @@ async function translateJson(
     }
 
     const translationTime = ((Date.now() - startTime) / 1000).toFixed(2);
-    console.log(`✅ Translation completed in ${translationTime}s`);
+    console.log(chalk.green(`✅ Translation completed in ${translationTime}s`));
 
     // Validate and merge the partial translation
     try {
-      const translatedPartial: Record<string, unknown> =
-        JSON.parse(jsonContent);
-
-      // Merge with existing translation
-      const mergedTranslation = deepMerge(targetJson, translatedPartial);
+      const translatedPartial: TranslationObject = JSON.parse(jsonContent);
+      const mergedTranslation = deepMerge(
+        targetJson,
+        translatedPartial
+      ) as TranslationObject;
       const formattedJson: string = JSON.stringify(mergedTranslation, null, 2);
 
       // Write merged translation to target language file
       fs.writeFileSync(targetPath, formattedJson);
 
       console.log(
-        `✅ File saved successfully (${(formattedJson.length / 1024).toFixed(2)} KB)`
+        chalk.green(
+          `✅ File saved successfully (${(formattedJson.length / 1024).toFixed(2)} KB)`
+        )
       );
 
       // Update cache with new hash
@@ -288,19 +295,24 @@ async function translateJson(
       fs.writeFileSync(cachePath, JSON.stringify(cacheData, null, 2));
 
       console.log(
-        `\n${'-'.repeat(50)}\nSummary for ${targetLanguage.toUpperCase()}\n${'-'.repeat(50)}`
+        `\n${'-'.repeat(50)}\n${chalk.blue(
+          `Summary for ${targetLanguage.toUpperCase()}`
+        )}\n${'-'.repeat(50)}`
       );
-      console.log(`• Translation mode: Incremental`);
+      console.log(chalk.blue(`• Translation mode: Incremental`));
       console.log(
-        `• Total changes: ${Object.keys(differences).length} top-level sections`
+        chalk.blue(
+          `• Total changes: ${Object.keys(differences).length} top-level sections`
+        )
       );
-      console.log(`• Translation time: ${translationTime}s`);
-      console.log(`• Cache updated: ${new Date().toLocaleString()}`);
+      console.log(chalk.blue(`• Translation time: ${translationTime}s`));
+      console.log(
+        chalk.blue(`• Cache updated: ${new Date().toLocaleString()}`)
+      );
       console.log(`${'-'.repeat(50)}\n`);
     } catch (e) {
-      console.error('Error parsing incremental translation:', e);
-      console.log('Falling back to full translation...');
-      // Fall back to full translation
+      console.error(chalk.red('Error parsing incremental translation:'), e);
+      console.log(chalk.yellow('Falling back to full translation...'));
       shouldDoIncrementalTranslation = false;
     }
   }
@@ -308,7 +320,9 @@ async function translateJson(
   // If we need to do a full translation (forced or incremental failed)
   if (!shouldDoIncrementalTranslation || forceUpdate) {
     console.log(
-      `Performing full translation from ${sourceLanguage} to ${targetLanguage}...`
+      chalk.blue(
+        `Performing full translation from ${sourceLanguage} to ${targetLanguage}...`
+      )
     );
 
     // Send to OpenAI for translation
@@ -340,7 +354,7 @@ async function translateJson(
 
     // Validate and format the JSON
     try {
-      const translatedJson: Record<string, unknown> = JSON.parse(jsonContent);
+      const translatedJson: TranslationObject = JSON.parse(jsonContent);
       const formattedJson: string = JSON.stringify(translatedJson, null, 2);
 
       // Write to target language file
@@ -354,9 +368,11 @@ async function translateJson(
       };
       fs.writeFileSync(cachePath, JSON.stringify(cacheData, null, 2));
 
-      console.log(`Full translation complete! File saved to ${targetPath}`);
+      console.log(
+        chalk.green(`Full translation complete! File saved to ${targetPath}`)
+      );
     } catch (e) {
-      console.error('Error parsing translated JSON:', e);
+      console.error(chalk.red('Error parsing translated JSON:'), e);
       // Save the raw response for debugging
       const debugPath: string = path.join(
         __dirname,
@@ -365,18 +381,63 @@ async function translateJson(
         `${targetLanguage}_debug.txt`
       );
       fs.writeFileSync(debugPath, translatedContent);
-      console.error(`Raw response saved to ${debugPath} for debugging`);
+      console.error(
+        chalk.red(`Raw response saved to ${debugPath} for debugging`)
+      );
     }
   }
+}
+
+// Helper function to find differences between two TranslationObjects
+function findDifferences(
+  source: TranslationObject,
+  target: TranslationObject
+): TranslationObject {
+  const differences: TranslationObject = {};
+
+  if (!target) {
+    return source;
+  }
+
+  for (const key in source) {
+    if (!source.hasOwnProperty(key)) continue;
+    const sourceValue = source[key];
+    const targetValue = target[key];
+
+    if (typeof sourceValue === 'string') {
+      if (sourceValue !== targetValue) {
+        differences[key] = sourceValue;
+      }
+    } else if (Array.isArray(sourceValue)) {
+      if (JSON.stringify(sourceValue) !== JSON.stringify(targetValue)) {
+        differences[key] = sourceValue;
+      }
+    } else if (isTranslationObject(sourceValue)) {
+      const nestedDiffs = findDifferences(
+        sourceValue,
+        isTranslationObject(targetValue) ? targetValue : {}
+      );
+      if (Object.keys(nestedDiffs).length > 0) {
+        differences[key] = nestedDiffs;
+      }
+    } else {
+      if (sourceValue !== targetValue) {
+        differences[key] = sourceValue;
+      }
+    }
+  }
+
+  return differences;
 }
 
 // Define the exportHashes function
 function exportHashes(): void {
   console.log(
-    'Exporting translation hashes for client-side cache validation...'
+    chalk.blue(
+      'Exporting translation hashes for client-side cache validation...'
+    )
   );
 
-  // Read the translation cache
   const cachePath = path.join(
     __dirname,
     '..',
@@ -385,7 +446,9 @@ function exportHashes(): void {
   );
 
   if (!fs.existsSync(cachePath)) {
-    console.warn('⚠️ No translation cache found. Run translations first.');
+    console.warn(
+      chalk.yellow('⚠️ No translation cache found. Run translations first.')
+    );
     return;
   }
 
@@ -393,67 +456,64 @@ function exportHashes(): void {
     const cacheData = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
     const hashes: Record<string, string> = {};
 
-    // Extract just the hashes for each language
     const languages = ['fr', 'es', 'pt', 'en'];
     languages.forEach((lang) => {
       if (lang === 'en') {
-        // Calculate hash directly from the English file
         const enPath = path.join(__dirname, '..', 'messages', 'en.json');
         if (fs.existsSync(enPath)) {
           const enContent = fs.readFileSync(enPath, 'utf8');
           hashes[lang] = createHash('md5').update(enContent).digest('hex');
         } else {
-          console.warn('⚠️ English source file not found');
+          console.warn(chalk.yellow('⚠️ English source file not found'));
         }
       } else {
-        // Normal handling for translated languages
         const sourceKey = 'en';
         const cacheKey = `${sourceKey}-${lang}`;
-
         if (cacheData[cacheKey]) {
           hashes[lang] = cacheData[cacheKey].hash;
         } else {
           console.warn(
-            `⚠️ No hash found for ${lang}. Translation may be missing.`
+            chalk.yellow(
+              `⚠️ No hash found for ${lang}. Translation may be missing.`
+            )
           );
         }
       }
     });
 
-    // Ensure public directory exists
     const publicDir = path.join(__dirname, '..', 'public');
     if (!fs.existsSync(publicDir)) {
       fs.mkdirSync(publicDir);
     }
 
-    // Write the hashes to a file in public directory
     fs.writeFileSync(
       path.join(publicDir, 'translation-hashes.json'),
       JSON.stringify(hashes, null, 2)
     );
 
     console.log(
-      '✅ Translation hashes exported successfully to public/translation-hashes.json'
+      chalk.green(
+        '✅ Translation hashes exported successfully to public/translation-hashes.json'
+      )
     );
-    console.log('Hashes:', JSON.stringify(hashes, null, 2));
+    console.log(chalk.green('Hashes:'), JSON.stringify(hashes, null, 2));
   } catch (error) {
-    console.error('❌ Failed to export translation hashes:', error);
+    console.error(chalk.red('❌ Failed to export translation hashes:'), error);
   }
 }
 
 // Define the main translation function
 async function main() {
-  // Get command line arguments for translation
   const sourceLanguage = process.argv[2] || 'en';
   const providedTargetLanguage = process.argv[3];
   const forceUpdate = process.argv.includes('--force');
-
-  // Define your available target languages
   const availableLanguages = ['fr', 'es', 'pt'];
 
   if (!providedTargetLanguage) {
     console.log(
-      `No target language provided. Translating from ${sourceLanguage} to all available languages: ${availableLanguages.join(', ')}`
+      chalk.blue(
+        `No target language provided. Translating from ${sourceLanguage} to all available languages: ${availableLanguages.join(', ')}`
+      )
     );
     for (const lang of availableLanguages) {
       await translateJson(sourceLanguage, lang, forceUpdate);
@@ -463,14 +523,12 @@ async function main() {
   }
 }
 
-// Check for command line arguments to determine what to execute
+// Check command-line arguments
 if (process.argv.includes('--export-hashes')) {
-  // Run hash export function
   exportHashes();
 } else {
-  // Run translation function
-  main().catch((err: any) => {
-    console.error('Translation error:', err);
+  main().catch((err: Error | unknown) => {
+    console.error(chalk.red('Translation error:'), err);
     process.exit(1);
   });
 }

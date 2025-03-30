@@ -4,10 +4,11 @@ import MessageBubble from './MessageBubble';
 import Image from 'next/image';
 import Aaron from '@/public/Aaron.jpg';
 import { IoSend } from 'react-icons/io5';
+import { ChatMessage } from '@/lib/types';
 
 interface ChatWindowProps {
-  messages: any[];
-  onMessagesUpdate: (messages: any[]) => void;
+  messages: ChatMessage[];
+  onMessagesUpdate: (messages: ChatMessage[]) => void;
 }
 
 export default function ChatWindow({
@@ -21,7 +22,7 @@ export default function ChatWindow({
 
   const sendMessage = async () => {
     if (!input.trim()) return;
-    const userMessage = { role: 'user', content: input };
+    const userMessage: ChatMessage = { role: 'user', content: input };
     const newMessages = [...messages, userMessage];
     onMessagesUpdate(newMessages);
     setInput('');
@@ -58,9 +59,9 @@ export default function ChatWindow({
   }, [messages]);
 
   return (
-    <div className="flex h-full w-full flex-col bg-white dark:bg-gray-950">
+    <div className="flex flex-col w-full h-full bg-white dark:bg-gray-950">
       <div
-        className="mb-2 flex-1 space-y-1 overflow-y-auto px-2 py-2"
+        className="flex-1 px-2 py-2 mb-2 space-y-1 overflow-y-auto"
         ref={chatContainerRef}
       >
         {messages.map((msg, i) => (
@@ -68,9 +69,9 @@ export default function ChatWindow({
         ))}
 
         {loading && (
-          <div className="mb-2 flex justify-start">
-            <div className="mr-2 flex-shrink-0">
-              <div className="h-8 w-8 overflow-hidden rounded-full">
+          <div className="flex justify-start mb-2">
+            <div className="flex-shrink-0 mr-2">
+              <div className="w-8 h-8 overflow-hidden rounded-full">
                 <Image
                   src={Aaron}
                   alt="Aaron"
@@ -80,18 +81,18 @@ export default function ChatWindow({
                 />
               </div>
             </div>
-            <div className="rounded-lg bg-gray-200 px-3 py-2 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+            <div className="px-3 py-2 text-gray-800 bg-gray-200 rounded-lg dark:bg-gray-700 dark:text-gray-200">
               <div className="flex items-center space-x-1">
                 <div
-                  className="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
+                  className="w-2 h-2 bg-gray-400 rounded-full animate-bounce dark:bg-gray-500"
                   style={{ animationDelay: '0ms' }}
                 ></div>
                 <div
-                  className="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
+                  className="w-2 h-2 bg-gray-400 rounded-full animate-bounce dark:bg-gray-500"
                   style={{ animationDelay: '150ms' }}
                 ></div>
                 <div
-                  className="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
+                  className="w-2 h-2 bg-gray-400 rounded-full animate-bounce dark:bg-gray-500"
                   style={{ animationDelay: '300ms' }}
                 ></div>
               </div>
@@ -104,7 +105,7 @@ export default function ChatWindow({
         <div className="relative">
           <input
             ref={inputRef}
-            className="w-full rounded-md border border-gray-300 bg-gray-100 p-3 pr-12 text-gray-800 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+            className="w-full p-3 pr-12 text-gray-800 bg-gray-100 border border-gray-300 rounded-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Don't be shy..."
@@ -120,7 +121,7 @@ export default function ChatWindow({
             disabled={!input.trim()}
             aria-label="Send message"
           >
-            <IoSend className="h-5 w-5" />
+            <IoSend className="w-5 h-5" />
           </button>
         </div>
       </div>

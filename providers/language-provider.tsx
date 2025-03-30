@@ -10,18 +10,23 @@ import {
 
 type Locale = 'en' | 'fr' | 'es' | 'pt';
 
+type TranslationValue = string | number | boolean | TranslationObject;
+interface TranslationObject {
+  [key: string]: TranslationValue;
+}
+
 interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
 }
 
-// Version your translations with the MD5 hashes from build time
+// Version of translations with the MD5 hashes from build time
 interface TranslationHashes {
-  [key: string]: string; // locale: hash
+  [key: string]: string;
 }
 
-// This will be populated at build time
+// Populated at build time
 const TRANSLATION_HASHES: TranslationHashes = {
   en: '',
   fr: '',
@@ -33,8 +38,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
 
-// We'll store all messages in this object.
-let messages: Record<Locale, Record<string, any>> = {
+// Store all messages in this object
+let messages: Record<Locale, TranslationObject> = {
   en: {},
   fr: {},
   es: {},
@@ -103,7 +108,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       }
     };
 
-    // Eagerly load all language files concurrently
+    // Load all language files concurrently
     Promise.all(AVAILABLE_LOCALES.map((loc) => loadLocaleMessages(loc)))
       .then(() => setIsLoaded(true))
       .catch((error) => {
@@ -121,11 +126,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // Translation function that looks up keys; falls back to English if necessary.
   const t = (key: string, params: Record<string, string | number> = {}) => {
-    const lookup = (loc: Locale) => {
+    const lookup = (loc: Locale): TranslationValue | undefined => {
       const keys = key.split('.');
-      let value: any = messages[loc];
+      let value: TranslationValue | undefined = messages[loc];
       for (const k of keys) {
-        value = value?.[k];
+        if (typeof value !== 'object' || value === null) {
+          return undefined;
+        }
+        value = (value as TranslationObject)[k];
         if (value === undefined) break;
       }
       return value;
@@ -133,7 +141,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
     // If translations haven't loaded yet, fall back to English.
     let translation = isLoaded ? lookup(locale) : lookup('en');
-    if (!translation) translation = lookup('en');
+    if (translation === undefined) translation = lookup('en');
     if (typeof translation !== 'string') return key;
 
     return translation.replace(/{(\w+)}/g, (_, param) =>

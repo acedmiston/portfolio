@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build && npm run export-hashes",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint . --ext .ts,js",
+    "lint:fix": "next lint . --ext .ts,js --fix",
     "format": "prettier --write .",
     "analyze": "ANALYZE=true next build",
     "translate": "ts-node scripts/translateJson.ts",
-    "export-hashes": "ts-node scripts/translateJson.ts --export-hashes"
+    "export-hashes": "ts-node scripts/translateJson.ts --export-hashes",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -23,6 +25,7 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "chalk": "4.1.2",
     "clsx": "^1.2.1",
     "eslint": "^8.43.0",
     "eslint-config-next": "13.4.7",
