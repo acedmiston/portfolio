@@ -71,8 +71,8 @@
   },
   "about": {
     "title": {
-      "defaultMessage": "Acerca de mí",
-      "sourceMessage": "About me"
+      "defaultMessage": "Acerca de",
+      "sourceMessage": "About"
     },
     "description1": {
       "defaultMessage": "Mientras cursaba títulos duales en Marketing y Estudios de Negocios Internacionales en la Universidad Estatal de California Long Beach, me sumergí en un mundo de experiencias del mundo real que moldearon mi perspectiva actual. Son estas aventuras las que realmente construyeron mis fundamentos, añadiendo profundidad tanto a mi trabajo como a mi vida fuera del editor de código. Incluso en ese entonces, tenía la corazonada de que mezclar la codificación con un toque de aventura y creatividad sería mi punto ideal.",

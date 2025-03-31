@@ -68,7 +68,7 @@ const Intro = () => {
       <motion.p
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-3xl"
+        className="mb-10 mt-4 px-4 text-[1.4rem] !leading-[1.5] font-medium sm:text-2xl md:text-3xl"
       >
         {t('intro.greeting')}{' '}
         <span className="font-bold">{t('intro.name')}</span>

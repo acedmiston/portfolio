@@ -71,8 +71,8 @@
   },
   "about": {
     "title": {
-      "defaultMessage": "À propos de moi",
-      "sourceMessage": "About me"
+      "defaultMessage": "À propos",
+      "sourceMessage": "About"
     },
     "description1": {
       "defaultMessage": "Tout en poursuivant des diplômes doubles en marketing et en études commerciales internationales à l'Université d'État de Californie à Long Beach, je me suis plongé dans un monde d'expériences réelles qui ont façonné ma vision actuelle. Ce sont ces aventures qui ont véritablement construit mes fondations, ajoutant de la profondeur à mon travail et à ma vie en dehors de l'éditeur de code. Même à l'époque, j'avais l'intuition que mélanger le codage avec une touche d'aventure et de créativité serait mon point fort.",

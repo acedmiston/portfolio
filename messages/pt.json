@@ -71,8 +71,8 @@
   },
   "about": {
     "title": {
-      "defaultMessage": "Sobre mim",
-      "sourceMessage": "About me"
+      "defaultMessage": "Sobre",
+      "sourceMessage": "About"
     },
     "description1": {
       "defaultMessage": "Enquanto buscava diplomas duplos em Marketing e Estudos de Negócios Internacionais na California State University Long Beach, mergulhei em um mundo de experiências do mundo real que moldaram minha perspectiva atual. São essas aventuras que realmente construíram minhas bases, adicionando profundidade tanto ao meu trabalho quanto à minha vida fora do editor de código. Mesmo naquela época, eu tinha uma intuição de que misturar codificação com um toque de aventura e criatividade seria meu ponto forte.",
