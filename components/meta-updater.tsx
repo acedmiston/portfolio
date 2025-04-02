@@ -19,6 +19,15 @@ export default function MetaUpdater() {
     }
     metaDesc.setAttribute('content', t('meta.description'));
 
+    // Update Open Graph image
+    let metaOgImage = document.querySelector("meta[property='og:image']");
+    if (!metaOgImage) {
+      metaOgImage = document.createElement('meta');
+      metaOgImage.setAttribute('property', 'og:image');
+      document.head.appendChild(metaOgImage);
+    }
+    metaOgImage.setAttribute('content', '/PortfolioScreenshot.png');
+
     // Update html lang attribute
     document.documentElement.lang = locale;
   }, [locale, t]);
