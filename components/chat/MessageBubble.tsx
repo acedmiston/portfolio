@@ -15,8 +15,8 @@ export default function MessageBubble({ role, content }: MessageBubbleProps) {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-2`}>
       {!isUser && (
-        <div className="flex-shrink-0 mr-2">
-          <div className="w-8 h-8 overflow-hidden rounded-full">
+        <div className="mr-2 flex-shrink-0">
+          <div className="h-8 w-8 overflow-hidden rounded-full">
             <Image
               src={Aaron}
               alt="Aaron"
@@ -34,7 +34,7 @@ export default function MessageBubble({ role, content }: MessageBubbleProps) {
             : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
         } `}
       >
-        <div className="text-sm whitespace-pre-line">{content}</div>
+        <div className="whitespace-pre-line text-sm">{content}</div>
         <div
           className={`absolute top-2 ${isUser ? 'right-[-8px]' : 'left-[-8px]'} h-4 w-4 rotate-45 transform ${
             isUser
@@ -44,8 +44,8 @@ export default function MessageBubble({ role, content }: MessageBubbleProps) {
         />
       </div>
       {isUser && (
-        <div className="flex-shrink-0 ml-2">
-          <FaUserCircle className="w-8 h-8 text-gray-500 dark:text-gray-400" />
+        <div className="ml-2 flex-shrink-0">
+          <FaUserCircle className="h-8 w-8 text-gray-500 dark:text-gray-400" />
         </div>
       )}
     </div>

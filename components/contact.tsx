@@ -75,11 +75,11 @@ const Contact = () => {
       <form
         ref={formRef}
         id="form"
-        className="flex flex-col mt-10 dark:text-black"
+        className="mt-10 flex flex-col dark:text-black"
         onSubmit={handleSubmit}
       >
         <input
-          className="px-4 mb-3 transition-all rounded-lg borderBlack h-14 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+          className="borderBlack dark:bg-opacity/80 dark:focus:bg-opacity/100 mb-3 h-14 rounded-lg px-4 transition-all dark:bg-white dark:outline-none"
           name="senderName"
           id="senderName"
           type="name"
@@ -87,7 +87,7 @@ const Contact = () => {
           placeholder={t('contact.nameLabel')}
         />
         <input
-          className="px-4 transition-all rounded-lg borderBlack h-14 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+          className="borderBlack dark:bg-opacity/80 dark:focus:bg-opacity/100 h-14 rounded-lg px-4 transition-all dark:bg-white dark:outline-none"
           name="senderEmail"
           id="senderEmail"
           type="email"
@@ -96,7 +96,7 @@ const Contact = () => {
           placeholder={t('contact.emailLabel')}
         />
         <textarea
-          className="p-4 my-3 transition-all rounded-lg borderBlack h-52 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+          className="borderBlack dark:bg-opacity/80 dark:focus:bg-opacity/100 my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:outline-none"
           name="message"
           id="message"
           placeholder={t('contact.messageLabel')}

@@ -8,8 +8,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="px-4 mb-10 text-center text-[0.75rem] text-gray-500 leading-relaxed max-w-4xl mx-auto pb-10">
-      <p className="block mb-2">
+    <footer className="mx-auto mb-10 max-w-4xl px-4 pb-10 text-center text-[0.75rem] leading-relaxed text-gray-500">
+      <p className="mb-2 block">
         {t('footer.copyright', { year: currentYear })}
       </p>
       <p className="px-2 sm:px-0">

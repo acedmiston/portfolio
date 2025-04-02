@@ -68,9 +68,9 @@ export default function ContactFormEmail({
       <Head />
       <Preview>{t.preview}</Preview>
       <Tailwind>
-        <Body className="text-black bg-gray-100">
+        <Body className="bg-gray-100 text-black">
           <Container>
-            <Section className="p-6 bg-white border border-gray-200 rounded-lg">
+            <Section className="rounded-lg border border-gray-200 bg-white p-6">
               <div
                 style={{
                   backgroundColor:
@@ -92,7 +92,7 @@ export default function ContactFormEmail({
                 </Text>
               </div>
               <Heading className="text-2xl font-bold">{t.heading}</Heading>
-              <Text className="mt-2 text-gray-700 whitespace-pre-wrap">
+              <Text className="mt-2 whitespace-pre-wrap text-gray-700">
                 {message}
               </Text>
               <Hr />

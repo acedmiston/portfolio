@@ -30,7 +30,7 @@ const Skills = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="px-5 py-3 bg-white borderBlack rounded-xl hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10 dark:text-white/80 dark:hover:bg-gray-950"
+            className="borderBlack rounded-xl bg-white px-5 py-3 hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10 dark:text-white/80 dark:hover:bg-gray-950"
             key={index}
           >
             {skill}

@@ -16,23 +16,11 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-[1000] w-full">
-        <nav className="w-full sm:fixed sm:left-1/2 sm:top-5 sm:-translate-x-1/2 sm:w-auto">
+      <header className="fixed left-0 top-0 z-[1000] w-full">
+        <nav className="w-full sm:fixed sm:left-1/2 sm:top-5 sm:w-auto sm:-translate-x-1/2">
           <div className="relative inline-block w-full px-0 sm:w-auto sm:px-4">
-            <motion.div
-              className="absolute inset-0 
-              border border-gray-600 border-opacity-50 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] 
-              dark:border-black/40 dark:bg-gray-950 dark:bg-opacity-75 
-              mobile:rounded-full rounded-none"
-            />
-            <ul
-              className="relative flex items-center justify-center 
-    gap-x-1 px-1
-    text-[0.65rem] font-medium text-gray-500 
-    md-xs:text-[0.75rem] md-xs:gap-x-3 md-xs:px-2
-    xs:text-[0.9rem] xs:gap-5 xs:px-2
-    whitespace-nowrap overflow-hidden"
-            >
+            <motion.div className="absolute inset-0 rounded-none border border-gray-600 border-opacity-50 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:border-black/40 dark:bg-gray-950 dark:bg-opacity-75 mobile:rounded-full" />
+            <ul className="relative flex items-center justify-center gap-x-1 overflow-hidden whitespace-nowrap px-1 text-[0.65rem] font-medium text-gray-500 xs:gap-5 xs:px-2 xs:text-[0.9rem] md-xs:gap-x-3 md-xs:px-2 md-xs:text-[0.75rem]">
               {links.map((link) => (
                 <motion.li
                   key={link.hash}
@@ -59,7 +47,7 @@ const Header = () => {
                     {link.nameKey === 'nav.home' ? (
                       <>
                         <span className="block sm:hidden">
-                          <AiOutlineHome className="w-4 h-4 text-gray-500 sm:hidden dark:text-gray-500" />
+                          <AiOutlineHome className="h-4 w-4 text-gray-500 dark:text-gray-500 sm:hidden" />
                         </span>
                         <span className="hidden sm:inline">
                           {t(link.nameKey)}
@@ -70,7 +58,7 @@ const Header = () => {
                     )}
                     {activeSection === t(link.nameKey) && (
                       <motion.span
-                        className="absolute inset-0 bg-gray-100 rounded-md -z-10 dark:bg-gray-800 sm:rounded-full"
+                        className="absolute inset-0 -z-10 rounded-md bg-gray-100 dark:bg-gray-800 sm:rounded-full"
                         layoutId="activeSection"
                         transition={{
                           type: 'spring',
@@ -86,7 +74,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      <div className="block mobile:hidden h-[3.5rem]" />
+      <div className="block h-[3.5rem] mobile:hidden" />
     </>
   );
 };

@@ -68,7 +68,7 @@ const Intro = () => {
       <motion.p
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-10 mt-4 px-4 text-[1.4rem] !leading-[1.5] font-medium sm:text-2xl md:text-3xl"
+        className="mb-10 mt-4 px-4 text-[1.4rem] font-medium !leading-[1.5] sm:text-2xl md:text-3xl"
       >
         {t('intro.greeting')}{' '}
         <span className="font-bold">{t('intro.name')}</span>
@@ -84,22 +84,22 @@ const Intro = () => {
       >
         <Link
           href="#contact"
-          className="flex items-center gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none curser-pointer group px-7 hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
+          className="curser-pointer group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
           onClick={() => {
             setActiveSection('nav.contact');
             setTimeOfLastClick(Date.now());
           }}
         >
           {t('intro.contactButton')}
-          <BsArrowRight className="transition opacity-70 group-hover:translate-x-1" />
+          <BsArrowRight className="opacity-70 transition group-hover:translate-x-1" />
         </Link>
         <a
           href="/AaronEdmistonResume.pdf"
           download="Aaron_Edmiston_Resume.pdf"
-          className="flex items-center gap-2 py-3 transition bg-white rounded-full outline-none curser-pointer borderBlack group px-7 hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
+          className="curser-pointer borderBlack group flex items-center gap-2 rounded-full bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
         >
           {t('intro.downloadResume')}
-          <HiDownload className="transition opacity-60 group-hover:translate-y-1" />
+          <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
         </a>
         <div className="flex items-center gap-3">
           <a

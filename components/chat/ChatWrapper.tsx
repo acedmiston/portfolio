@@ -89,7 +89,7 @@ export default function ChatWrapper() {
   };
 
   return (
-    <div className="fixed z-50 flex flex-col items-end bottom-5 right-5">
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
       {!isOpen && (
         <div className="relative">
           <button
@@ -97,7 +97,7 @@ export default function ChatWrapper() {
             className="flex h-[3rem] w-[3rem] items-center justify-center rounded-full border border-gray-600 border-opacity-50 bg-blue-600 text-white shadow-2xl backdrop-blur-[0.5rem] transition-all hover:scale-[1.15] hover:bg-blue-700 active:scale-105 dark:border-gray-100 dark:bg-blue-700 dark:hover:bg-blue-600"
             aria-label="Open chat"
           >
-            <FaCommentDots className="w-5 h-5" />
+            <FaCommentDots className="h-5 w-5" />
           </button>
 
           {unreadCount > 0 && (
@@ -113,16 +113,16 @@ export default function ChatWrapper() {
           className="flex h-[40rem] max-h-[80vh] w-[20rem] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-all duration-300 dark:border-gray-700 dark:bg-gray-950 sm:h-[45rem] sm:w-[24rem]"
           ref={wrapperRef}
         >
-          <div className="flex items-center justify-between p-3 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex items-center justify-between border-b border-gray-200 p-3 dark:border-gray-700">
             <h3 className="font-medium text-gray-800 dark:text-gray-200">
               Aaron&#39;s Portfolio Assistant
             </h3>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 text-gray-500 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="rounded p-1 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
               aria-label="Close chat"
             >
-              <FaTimes className="w-5 h-5" />
+              <FaTimes className="h-5 w-5" />
             </button>
           </div>
 
