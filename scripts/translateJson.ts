@@ -1,38 +1,14 @@
-const dotenv = require('dotenv');
-const fs = require('fs');
-const path = require('path');
-const OpenAI = require('openai');
-const { createHash } = require('crypto');
-const chalk = require('chalk');
+import fs from 'fs';
+import path from 'path';
+import chalk from 'chalk';
+import dotenv from 'dotenv';
+import { OpenAI } from 'openai';
 
 dotenv.config({ path: '.env.local' });
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-interface OpenAIResponse {
-  choices: {
-    message: {
-      content: string | null;
-    };
-  }[];
-}
-
-interface CacheEntry {
-  hash: string;
-  timestamp: number;
-  targetLanguage: string;
-}
-
-interface CacheData {
-  [key: string]: CacheEntry;
-}
-
-type JsonPrimitive = string | number | boolean | null;
-type JsonArray = JsonValue[];
-type JsonObject = { [key: string]: JsonValue };
-type JsonValue = JsonPrimitive | JsonObject | JsonArray;
 
 // For translation-specific JSON objects
 interface TranslationEntry {
@@ -68,7 +44,6 @@ function isTranslationObject(
     typeof value === 'object' &&
     value !== null &&
     !Array.isArray(value) &&
-    // This is the wrong check - change from AND to NOT
     !('defaultMessage' in value && 'sourceMessage' in value)
   );
 }
@@ -125,60 +100,6 @@ function areValuesEqual(
   return a === b;
 }
 
-// Deep merge two TranslationObjects. If either value is not an object, return source.
-function deepMerge(
-  target: TranslationValue,
-  source: TranslationValue
-): TranslationValue {
-  if (isTranslationObject(target) && isTranslationObject(source)) {
-    const output: TranslationObject = { ...target };
-    for (const key in source) {
-      if (source.hasOwnProperty(key)) {
-        if (key in target) {
-          output[key] = deepMerge(target[key], source[key]);
-        } else {
-          output[key] = source[key];
-        }
-      }
-    }
-    return output;
-  }
-  // If either is not an object, return source
-  return source;
-}
-
-// Helper function to log changes in a nested structure.
-// It checks if a value is an object, array, or string before performing operations.
-function logChanges(obj: TranslationObject, prefix = ''): void {
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      const value = obj[key];
-
-      // Handle different types with proper type checking
-      if (isTranslationObject(value)) {
-        logChanges(value, prefix ? `${prefix}.${key}` : key);
-      } else if (Array.isArray(value)) {
-        console.log(
-          chalk.yellow(
-            `📝 ${prefix ? `${prefix}.${key}` : key}: [array with ${value.length} items]`
-          )
-        );
-      } else if (typeof value === 'string') {
-        const preview =
-          value.length > 40 ? `${value.substring(0, 40)}...` : value;
-        console.log(
-          chalk.yellow(`📝 ${prefix ? `${prefix}.${key}` : key}: "${preview}"`)
-        );
-      } else {
-        // For numbers or booleans, just log the value directly
-        console.log(
-          chalk.yellow(`📝 ${prefix ? `${prefix}.${key}` : key}: ${value}`)
-        );
-      }
-    }
-  }
-}
-
 // Get existing translations with metadata
 async function getExistingTranslations(
   locale: string
@@ -199,7 +120,7 @@ async function getExistingTranslations(
 async function translateJson(
   sourceLanguage: string,
   targetLanguage: string,
-  forceUpdate: boolean = false
+  forceUpdate = false
 ): Promise<void> {
   console.log(
     `\n${'-'.repeat(50)}\n${chalk.blue(
@@ -229,7 +150,7 @@ async function translateJson(
   async function processEntries(
     source: TranslationObject,
     existing: TranslationObject,
-    currentPath: string = ''
+    currentPath = ''
   ): Promise<void> {
     for (const key in source) {
       const fullPath = currentPath ? `${currentPath}.${key}` : key;
@@ -237,12 +158,10 @@ async function translateJson(
 
       // If it's a nested object, process recursively
       if (isTranslationObject(sourceValue)) {
-        // Make sure existing[key] is an object before recursion
         if (!isTranslationObject(existing[key])) {
           // Initialize as empty object if it's not an object
           existing[key] = {};
         }
-        // Type assertion to ensure TypeScript knows this is a TranslationObject
         await processEntries(
           sourceValue,
           existing[key] as TranslationObject,
@@ -254,7 +173,6 @@ async function translateJson(
       // Handle string values that need translation
       const existingEntry = existing[key];
 
-      // If no translation exists yet or force update is enabled
       if (!existingEntry || forceUpdate) {
         if (!existingEntry) {
           newCount++;
@@ -267,9 +185,7 @@ async function translateJson(
         continue;
       }
 
-      // If it's already a translation entry with sourceMessage tracking
       if (isTranslationEntry(existingEntry)) {
-        // Check if source text changed or force update
         if (!areValuesEqual(existingEntry.sourceMessage, sourceValue)) {
           updatedCount++;
           console.log(chalk.yellow(`↻ Updated (source changed): ${fullPath}`));
@@ -280,22 +196,17 @@ async function translateJson(
         continue;
       }
 
-      // Simple string value - needs metadata upgrade
       updatedCount++;
       console.log(chalk.blue(`📝 Added source tracking: ${fullPath}`));
       setNestedValue(pendingTranslations, fullPath.split('.'), sourceValue);
     }
   }
-  // Process all entries
+
   await processEntries(sourceJson, existingTranslations);
 
-  // If nothing to translate, we're done
-  if (Object.keys(flattenObject(pendingTranslations)).length === 0) {
+  if (Object.keys(pendingTranslations).length === 0) {
     console.log(chalk.green('✅ No changes to translate'));
-
-    // Write the final clean version
     compileCleanTranslation(existingTranslations, targetLanguage);
-
     console.log(
       `\n${'-'.repeat(50)}\n${chalk.blue(
         `Summary for ${targetLanguage.toUpperCase()}`
@@ -308,7 +219,6 @@ async function translateJson(
     return;
   }
 
-  // Translate pending changes
   console.log(chalk.blue(`\n🔄 Translating to ${targetLanguage}...`));
   const startTime = Date.now();
 
@@ -329,29 +239,24 @@ async function translateJson(
     temperature: 0.3,
   });
 
-  // Process response
   const translatedContent = response.choices[0].message.content || '';
-  let jsonContent = extractJsonFromResponse(translatedContent);
+  const jsonContent = extractJsonFromResponse(translatedContent);
 
-  // Update translations with new content
   try {
     const translatedValues = JSON.parse(jsonContent);
 
-    // Merge translations with metadata
     mergeTranslations(
       translatedValues,
       pendingTranslations,
       existingTranslations
     );
 
-    // Save to pre folder with metadata
     const preFilePath = path.join(PRE_FOLDER, `${targetLanguage}.json`);
     fs.writeFileSync(
       preFilePath,
       JSON.stringify(existingTranslations, null, 2)
     );
 
-    // Create clean version for production use
     compileCleanTranslation(existingTranslations, targetLanguage);
 
     const translationTime = ((Date.now() - startTime) / 1000).toFixed(2);
@@ -372,32 +277,6 @@ async function translateJson(
   }
 }
 
-// Helper function to flatten a nested object
-function flattenObject(
-  obj: TranslationObject,
-  prefix = ''
-): Record<string, string> {
-  const result: Record<string, string> = {};
-
-  for (const key in obj) {
-    if (
-      typeof obj[key] === 'object' &&
-      obj[key] !== null &&
-      !Array.isArray(obj[key])
-    ) {
-      const nestedObj = flattenObject(
-        obj[key] as TranslationObject,
-        prefix ? `${prefix}.${key}` : key
-      );
-      Object.assign(result, nestedObj);
-    } else {
-      result[prefix ? `${prefix}.${key}` : key] = String(obj[key]);
-    }
-  }
-
-  return result;
-}
-
 // Helper to set a value in a nested object structure
 function setNestedValue(
   obj: TranslationObject,
@@ -415,6 +294,27 @@ function setNestedValue(
   }
 
   setNestedValue(obj[key] as TranslationObject, path.slice(1), value);
+}
+
+// Helper to get a value from a nested object structure
+function getNestedValue(
+  obj: TranslationObject,
+  path: string[]
+): TranslationValue | undefined {
+  let current: TranslationValue | undefined = obj;
+  for (const key of path) {
+    if (
+      current &&
+      typeof current === 'object' &&
+      !Array.isArray(current) &&
+      key in current
+    ) {
+      current = (current as TranslationObject)[key];
+    } else {
+      return undefined;
+    }
+  }
+  return current;
 }
 
 // Extract JSON from OpenAI response
@@ -469,20 +369,6 @@ function mergeTranslations(
       };
     }
   }
-}
-
-// Get value from nested path
-function getNestedValue(
-  obj: TranslationObject,
-  path: string[]
-): TranslationValue | undefined {
-  let current: TranslationValue = obj;
-  for (const key of path) {
-    if (!current || typeof current !== 'object' || Array.isArray(current))
-      return undefined;
-    current = (current as TranslationObject)[key];
-  }
-  return current;
 }
 
 // Compile clean version without metadata

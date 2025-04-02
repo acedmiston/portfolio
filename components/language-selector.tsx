@@ -36,7 +36,7 @@ export default function LanguageSelector() {
   const currentOption = localeOptions.find((opt) => opt.code === locale);
 
   return (
-    <div ref={containerRef} className="fixed left-4 top-[2.5rem] z-50 sm:top-5">
+    <div ref={containerRef} className="fixed left-4 top-[3.5rem] z-50 sm:top-5">
       <button
         onClick={() => setOpen(!open)}
         className="flex h-[3rem] w-[3rem] items-center justify-center rounded-full border border-gray-600 border-opacity-50 bg-white text-3xl shadow-2xl backdrop-blur-[0.5rem] transition-all hover:scale-[1.15] active:scale-105 dark:border-black"

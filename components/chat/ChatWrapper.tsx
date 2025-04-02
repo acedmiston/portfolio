@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import ChatWindow from './ChatWindow';
 import { FaCommentDots, FaTimes } from 'react-icons/fa';
 import { ChatMessage } from '@/lib/types';
+import { useLanguage } from '@/providers/language-provider';
 
 export default function ChatWrapper() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ export default function ChatWrapper() {
   const [unreadCount, setUnreadCount] = useState(0);
   const wrapperRef = useRef(null);
   const lastOpenedRef = useRef<number>(Date.now());
+  const { t } = useLanguage();
 
   // Load chat history from localStorage when component mounts
   useEffect(() => {
@@ -35,14 +37,14 @@ export default function ChatWrapper() {
       // Set initial welcome message
       const initialMessage: ChatMessage = {
         role: 'assistant',
-        content: "Hi! Ask me anything about Aaron\'s portfolio.",
+        content: t('chat.initialMessage'),
         timestamp: Date.now(),
       };
       setMessages([initialMessage]);
       localStorage.setItem('chatMessages', JSON.stringify([initialMessage]));
       setUnreadCount(1); // Initial message is unread
     }
-  }, []);
+  }, [t]);
 
   // Count unread messages (after the last time chat was opened)
   const countUnreadMessages = (msgs: ChatMessage[]): number => {
@@ -110,16 +112,16 @@ export default function ChatWrapper() {
 
       {isOpen && (
         <div
-          className="flex h-[40rem] max-h-[80vh] w-[20rem] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-all duration-300 dark:border-gray-700 dark:bg-gray-950 sm:h-[45rem] sm:w-[24rem]"
+          className="flex h-[35rem] max-h-[75vh] w-[18rem] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-all duration-300 dark:border-gray-700 dark:bg-gray-950 sm:h-[45rem] sm:w-[24rem]"
           ref={wrapperRef}
         >
-          <div className="flex items-center justify-between border-b border-gray-200 p-3 dark:border-gray-700">
+          <div className="relative flex items-center justify-between border-b border-gray-200 p-3 dark:border-gray-700">
             <h3 className="font-medium text-gray-800 dark:text-gray-200">
-              Aaron&#39;s Portfolio Assistant
+              {t('chat.title')}
             </h3>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded p-1 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="absolute right-3 top-3 rounded p-1 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
               aria-label="Close chat"
             >
               <FaTimes className="h-5 w-5" />

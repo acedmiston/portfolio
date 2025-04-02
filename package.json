@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "description": "Aaron Edmiston's portfolio website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,8 +11,8 @@
     "lint:fix": "next lint --ext .js,.ts,.tsx . --fix",
     "format": "prettier --write .",
     "analyze": "ANALYZE=true next build",
-    "translate": "ts-node scripts/translateJson.ts",
-    "translate:force": "ts-node scripts/translateJson.ts en --force",
+    "translate": "ts-node scripts/translateJson",
+    "translate:force": "ts-node scripts/translateJson en --force",
     "typecheck": "tsc --noEmit",
     "fix:all": "yarn lint:fix && yarn format"
   },

@@ -20,7 +20,7 @@ const Header = () => {
         <nav className="w-full sm:fixed sm:left-1/2 sm:top-5 sm:w-auto sm:-translate-x-1/2">
           <div className="relative inline-block w-full px-0 sm:w-auto sm:px-4">
             <motion.div className="absolute inset-0 rounded-none border border-gray-600 border-opacity-50 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:border-black/40 dark:bg-gray-950 dark:bg-opacity-75 mobile:rounded-full" />
-            <ul className="relative flex items-center justify-center gap-x-1 overflow-hidden whitespace-nowrap px-1 text-[0.65rem] font-medium text-gray-500 xs:gap-5 xs:px-2 xs:text-[0.9rem] md-xs:gap-x-3 md-xs:px-2 md-xs:text-[0.75rem]">
+            <ul className="relative flex items-center justify-center gap-x-1 overflow-hidden whitespace-nowrap px-1 py-2 text-[0.65rem] font-medium text-gray-500 sm:gap-4 sm:px-3 sm:py-2 sm:text-[0.8rem] md:gap-4 md:px-3 md:py-2 md:text-[0.8rem] xs:gap-5 xs:px-2 xs:py-1 xs:text-[0.9rem] md-xs:gap-x-3 md-xs:px-1.5 md-xs:py-2 md-xs:text-[0.7rem]">
               {links.map((link) => (
                 <motion.li
                   key={link.hash}
@@ -36,7 +36,7 @@ const Header = () => {
                     }}
                     className={clsx(
                       'relative px-1.5 py-2 transition hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300',
-                      'md-xs:px-2.5 md-xs:py-2.5',
+                      'md-xs:px-2 md-xs:py-2',
                       'xs:px-3 xs:py-3',
                       {
                         'text-gray-950 dark:text-white/80':
