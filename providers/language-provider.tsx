@@ -10,6 +10,13 @@ import {
 
 type Locale = 'en' | 'fr' | 'es' | 'pt';
 
+type TranslationEntry = {
+  defaultMessage: string;
+  description?: string;
+  id?: string;
+  values?: Record<string, string | number>;
+};
+
 type TranslationValue =
   | string
   | number
@@ -34,7 +41,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 // Store all messages in this object
-let messages: Record<Locale, TranslationObject> = {
+const messages: Record<Locale, TranslationObject> = {
   en: {},
   fr: {},
   es: {},
