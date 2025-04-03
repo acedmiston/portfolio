@@ -30,7 +30,11 @@ const Header = () => {
                 >
                   <Link
                     href={link.hash}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document
+                        .querySelector(link.hash)
+                        ?.scrollIntoView({ behavior: 'smooth' });
                       setActiveSection(link.nameKey);
                       setTimeOfLastClick(Date.now());
                     }}
