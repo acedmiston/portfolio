@@ -7,7 +7,6 @@ export default function MetaUpdater() {
   const { locale, t } = useLanguage();
 
   useEffect(() => {
-    // Set document title
     document.title = t('meta.title');
 
     // Meta description
@@ -26,7 +25,10 @@ export default function MetaUpdater() {
       metaOgImage.setAttribute('property', 'og:image');
       document.head.appendChild(metaOgImage);
     }
-    metaOgImage.setAttribute('content', '/PortfolioScreenshot.png');
+    metaOgImage.setAttribute(
+      'content',
+      'https://aaroncedmiston.vercel.app/PortfolioScreenshot.png'
+    );
 
     // HTML lang attribute
     document.documentElement.lang = locale;

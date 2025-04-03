@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: enMessages.meta.description,
     images: [
       {
-        url: '/PortfolioScreenshot.png',
+        url: 'https://aaroncedmiston.vercel.app/PortfolioScreenshot.png',
         width: 1200,
         height: 630,
         alt: enMessages.meta.title,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: enMessages.meta.title,
     description: enMessages.meta.description,
-    images: ['/PortfolioScreenshot.png'],
+    images: ['https://aaroncedmiston.vercel.app/PortfolioScreenshot.png'],
   },
 };
 
