@@ -14,6 +14,36 @@ import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const metadata = {
+  title: 'Aaron Edmiston | Full-Stack Engineer',
+  description:
+    'Full-stack engineer portfolio showcasing work with React (Next.js), TypeScript, GraphQL, and more.',
+  openGraph: {
+    title: 'Aaron Edmiston | Full-Stack Engineer',
+    description:
+      'Full-stack engineer portfolio showcasing work with React (Next.js), TypeScript, GraphQL, and more.',
+    url: 'https://aaroncedmiston.vercel.app',
+    siteName: 'Aaron Edmiston Portfolio',
+    images: [
+      {
+        url: '/PortfolioScreenshot.png',
+        width: 1200,
+        height: 630,
+        alt: 'Aaron Edmiston Portfolio Preview',
+      },
+    ],
+    locale: 'en-US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aaron Edmiston | Full-Stack Engineer',
+    description:
+      'Full-stack engineer portfolio showcasing work with React (Next.js), TypeScript, GraphQL, and more.',
+    images: ['/PortfolioScreenshot.png'],
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
