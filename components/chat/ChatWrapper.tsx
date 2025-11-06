@@ -11,7 +11,7 @@ export default function ChatWrapper() {
   const [unreadCount, setUnreadCount] = useState(0);
   const wrapperRef = useRef(null);
   const lastOpenedRef = useRef<number>(Date.now());
-  const { t } = useLanguage();
+  const { t, isLoaded } = useLanguage();
 
   // Load chat history from localStorage when component mounts
   useEffect(() => {
@@ -25,26 +25,61 @@ export default function ChatWrapper() {
     if (savedMessages) {
       try {
         const parsedMessages = JSON.parse(savedMessages);
-        setMessages(parsedMessages);
+
+        // Fix any messages that contain translation keys instead of actual text
+        const fixedMessages = parsedMessages.map((msg: ChatMessage) => {
+          if (
+            msg.content &&
+            typeof msg.content === 'string' &&
+            msg.content.startsWith('chat.')
+          ) {
+            // This is a translation key, replace it with the actual translation
+            return {
+              ...msg,
+              content: t(msg.content),
+            };
+          }
+          return msg;
+        });
+
+        setMessages(fixedMessages);
 
         // Count unread AI messages
-        const count = countUnreadMessages(parsedMessages);
+        const count = countUnreadMessages(fixedMessages);
         setUnreadCount(count);
+
+        // Update localStorage with fixed messages if we fixed any
+        if (JSON.stringify(fixedMessages) !== savedMessages) {
+          localStorage.setItem('chatMessages', JSON.stringify(fixedMessages));
+        }
       } catch (e) {
         console.error('Error parsing saved messages', e);
       }
     } else {
-      // Set initial welcome message
-      const initialMessage: ChatMessage = {
-        role: 'assistant',
-        content: t('chat.initialMessage'),
-        timestamp: Date.now(),
-      };
-      setMessages([initialMessage]);
-      localStorage.setItem('chatMessages', JSON.stringify([initialMessage]));
-      setUnreadCount(1); // Initial message is unread
+      // Set initial welcome message - wait for translations to be ready
+      if (isLoaded) {
+        const initialMessageText = t('chat.initialMessage');
+
+        // Only set if we got an actual translation (not the key itself)
+        if (
+          initialMessageText &&
+          initialMessageText !== 'chat.initialMessage'
+        ) {
+          const initialMessage: ChatMessage = {
+            role: 'assistant',
+            content: initialMessageText,
+            timestamp: Date.now(),
+          };
+          setMessages([initialMessage]);
+          localStorage.setItem(
+            'chatMessages',
+            JSON.stringify([initialMessage])
+          );
+          setUnreadCount(1); // Initial message is unread
+        }
+      }
     }
-  }, [t]);
+  }, [t, isLoaded]);
 
   // Count unread messages (after the last time chat was opened)
   const countUnreadMessages = (msgs: ChatMessage[]): number => {

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Aaron Edmiston's Portfolio",
-    "description": "Software Engineer specializing in full-stack development"
+    "description": "Full-Stack Software Engineer II with 4+ years of experience building scalable SaaS solutions. Led feature development that boosted user retention by 25% and contributed to 165% ARR growth."
   },
   "nav": {
     "home": "Home",
@@ -14,17 +14,17 @@
   "intro": {
     "greeting": "Hey there, I'm",
     "name": "Aaron Edmiston",
-    "experience": ", a Full-Stack Software Engineer with over 4 years of professional experience.",
-    "focus": "I specialize in front-end development, using",
-    "technologies": "React (Next.js), TypeScript, Node, GraphQL, and MySQL.",
-    "description": "I aim to build exceptional digital experiences with modern web technologies and stay up to date with the latest trends.",
+    "experience": ", a Full-Stack Software Engineer with over 4 years of professional experience building scalable SaaS solutions.",
+    "focus": "I specialize in full-stack development, using",
+    "technologies": "React, Next.js, TypeScript, Node.js, GraphQL, and MySQL.",
+    "description": "I've led feature development that boosted user retention by 25%, migrated 8,000+ lines of code to TypeScript, and contributed to 165% ARR growth. I'm passionate about building exceptional digital experiences and mentoring the next generation of developers.",
     "contactButton": "Contact me",
     "downloadResume": "Download résumé"
   },
   "about": {
     "title": "About",
-    "description1": "While pursuing dual degrees in Marketing and International Business Studies at California State University Long Beach, I delved into a world of real-world experiences that shaped my current outlook. It's these adventures that truly built my foundations, adding depth to both my work and life outside the code editor. Even back then, I had an inkling that mixing coding with a splash of adventure and creativity would be my sweet spot.",
-    "description2": "Fast forward to today—I'm a Full-Stack Software Engineer thriving in NYC. Coding's my forte; JavaScript, React, and Node keep my days buzzing with problem solving and innovation. But life's more than just code. I'm all about nurturing connections and growth, whether it's mentoring junior developers or crafting experiences that blend art, music, and genuine human interaction. And when I'm not coding, I'm plunging into the depths of the ocean, exploring reefs, or soaking up the sun on a beach in Australia. With experiences in 60 countries and a year living the nomad life, each adventure continues to fuel my passion for tech and creativity."
+    "description1": "While pursuing dual degrees in Marketing and International Business Studies at California State University Long Beach, I delved into a world of real-world experiences that shaped my current outlook. These adventures truly built my foundations, adding depth to both my work and life outside the code editor. Even back then, I had an inkling that mixing coding with a splash of adventure and creativity would be my sweet spot.",
+    "description2": "Fast forward to today—I'm a Full-Stack Software Engineer II at Rotaready, where I've led critical feature development, migrated our entire front-end codebase to TypeScript, and contributed to 165% ARR growth post-acquisition. Beyond engineering, I've contributed to project management, design, client support, and marketing, demonstrating versatility in startup environments. I'm also currently serving as Board President for a cooperative housing corporation, leading community initiatives and governance. When I'm not coding, I'm plunging into the depths of the ocean exploring reefs, or mentoring developers through programs like Meet a Mentor (MaM). With experiences in 60+ countries and a year living the nomad life, each adventure continues to fuel my passion for tech and creativity."
   },
   "projects": {
     "title": "Projects",
@@ -51,16 +51,21 @@
         "description": "Nomader was a full-stack web application that allows users to search for and save their favorite travel destinations. It used Skyscanner's API to find the cheapest flights and users local currency to their destination.",
         "tags": ["React", "Node", "Express", "MySQL", "REST APIs", "Heroku"]
       },
-      "stripe": {
-        "title": "Stripe Home Page",
-        "description": "This project was a challenge to make a homage to one of our favorite sites using only CSS and HTML. It was quite difficult because it had a lot of responsiveness, animations, and advanced CSS.",
+      "loopai": {
+        "title": "LooP AI",
+        "description": "Built a full-stack AI assistant that helps users plan events, manage guest lists, and send SMS updates. Leveraged LLMs, Supabase, and Twilio to generate structured invitations, automate guest messaging, and support profile/guest search. Designed a fuzzy matching system with PostgreSQL trigram indexing, similar to enterprise-scale name/entity resolution. Iterated rapidly from concept → prototype → working product.",
+        "tags": ["LLMs", "Supabase", "Twilio", "PostgreSQL", "Trigram Indexing"]
+      },
+      "tak": {
+        "title": "Time and Attendance Kiosk",
+        "description": "Developed and shipped a production monorepo for attendance tracking using TurboRepo, Docker, and PostgreSQL. Streamlined development with Husky, lint-staged, Prettier, and standardized tooling for a robust, reproducible workflow.",
         "tags": [
-          "HTML",
-          "CSS",
-          "CSS Grid",
-          "CSS Flexbox",
-          "CSS Animations",
-          "Heroku"
+          "TurboRepo",
+          "Docker",
+          "PostgreSQL",
+          "Husky",
+          "TypeScript",
+          "React"
         ]
       }
     }
@@ -71,32 +76,32 @@
   "experience": {
     "title": "My tech journey",
     "rotaready": {
-      "title": "Full-Stack Software Engineer",
-      "location": "London, UK && New York, NY",
+      "title": "Full-Stack Software Engineer II",
+      "location": "Remote, London, NYC",
       "company": "Rotaready",
-      "description": "I'm currently working as a full-stack engineer for Rotaready, a SaaS company. My day to day includes building new products and features for our customers, as well as maintaining and improving our existing products.",
-      "date": "June 2022 - present"
+      "description": "Led research and development of Time and Attendance Kiosk app using Next.js, reducing startup costs by 5%. Enhanced Client Resource Management with advanced search functionality, expediting customer onboarding. Designed and launched critical features including dashboard, events calendar, HR tables, and rota editor, boosting user retention by 25% and nearly tripling client base. Led front-end TypeScript migration of 8,000+ lines of code, reducing bugs and accelerating development by 8%. Contributed to 165% ARR growth post-acquisition and onboarded five new engineers.",
+      "date": "June 2022 - Present"
     },
     "absoluteMagnitude": {
-      "title": "Full-Stack Software Developer",
-      "location": "London, UK && New York, NY",
+      "title": "Full-Stack Software Engineer & Project Manager",
+      "location": "Remote, London, NYC",
       "company": "Absolute Magnitude",
-      "description": "I worked as a full-stack developer for a startup company called Absolute Magnitude for about a year. I was responsible for project managing, working directly with clients, and building full-stack web applications.",
-      "date": "Oct 2021 - July 2022"
+      "description": "Delivered 5+ high-quality client solutions over 10 months with 100% client satisfaction. Led and coordinated team of backend developer and designer to craft 5 major React-based projects, met all deadlines, and received commendations for exceptional client communication.",
+      "date": "October 2021 - July 2022"
     },
-    "contractor": {
-      "title": "Full-Stack Software Engineer",
-      "location": "Remote",
-      "company": "Independent Contractor",
-      "description": "I work as a full-stack software engineer delivering customized web applications, websites, and other software products for clients.",
-      "date": "June 2021 - present"
+    "nomader": {
+      "title": "Full Stack Software Developer",
+      "location": "London, UK & New York, NY",
+      "company": "Nomader",
+      "description": "Conceptualized, developed, and deployed a travel and booking platform leveraging Amadeus' open-source API, improving booking speeds by 5%. Built full-stack application with React, Node.js, Express, and MySQL.",
+      "date": "June 2021 - Present"
     },
     "bootcamp": {
-      "title": "Full-Stack Engineering Bootcamp",
+      "title": "Full Stack Software Engineering",
       "location": "London, UK",
-      "company": "{The Jump} Digital School",
-      "description": "An eight month intensive full-stack software engineering journey to learn everything I needed to know on how to get my first engineering job.",
-      "date": "Jan 2021 - Aug 2021"
+      "company": "The Jump Digital School",
+      "description": "Eight-month intensive full-stack software engineering bootcamp. Won an 8-hour hackathon by building CubClub, a web app designed to make children's learning interactive and fun. Curated a code-pairing supplemental program using an algorithm to pair students weekly.",
+      "date": "January 2021 - August 2021"
     }
   },
   "contact": {

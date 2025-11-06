@@ -5,7 +5,8 @@ import { LuGraduationCap } from 'react-icons/lu';
 import Dashboard from '@/public/Dashboard.jpg';
 import EventPlanner from '@/public/EventPlanner.jpg';
 import Nomader from '@/public/Nomader.jpg';
-import Stripe from '@/public/Stripe.jpg';
+import LoopAI from '@/public/LoopAI.png';
+import TAK from '@/public/TAK.png';
 
 export const links = [
   {
@@ -52,11 +53,11 @@ export const experiencesData = [
     icon: React.createElement(CgWorkAlt),
   },
   {
-    titleKey: 'experience.contractor.title',
-    companyKey: 'experience.contractor.company',
-    locationKey: 'experience.contractor.location',
-    descriptionKey: 'experience.contractor.description',
-    dateKey: 'experience.contractor.date',
+    titleKey: 'experience.nomader.title',
+    companyKey: 'experience.nomader.company',
+    locationKey: 'experience.nomader.location',
+    descriptionKey: 'experience.nomader.description',
+    dateKey: 'experience.nomader.date',
     icon: React.createElement(CgWorkAlt),
   },
   {
@@ -70,6 +71,18 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+  {
+    titleKey: 'projects.items.loopai.title',
+    descriptionKey: 'projects.items.loopai.description',
+    tags: ['LLMs', 'Supabase', 'Twilio', 'PostgreSQL', 'Trigram Indexing'],
+    imageUrl: LoopAI,
+  },
+  {
+    titleKey: 'projects.items.tak.title',
+    descriptionKey: 'projects.items.tak.description',
+    tags: ['TurboRepo', 'Docker', 'PostgreSQL', 'Husky', 'TypeScript', 'React'],
+    imageUrl: TAK,
+  },
   {
     titleKey: 'projects.items.dashboard.title',
     descriptionKey: 'projects.items.dashboard.description',
@@ -88,40 +101,49 @@ export const projectsData = [
     tags: ['React', 'Node', 'Express', 'MySQL', 'REST APIs', 'Heroku'],
     imageUrl: Nomader,
   },
-  {
-    titleKey: 'projects.items.stripe.title',
-    descriptionKey: 'projects.items.stripe.description',
-    tags: [
-      'HTML',
-      'CSS',
-      'CSS Grid',
-      'CSS Flexbox',
-      'CSS Animations',
-      'Heroku',
-    ],
-    imageUrl: Stripe,
-  },
 ] as const;
 
 export const skillsData = [
+  // Frontend
   'JavaScript',
   'TypeScript',
   'React',
   'Next.js',
-  'Node.js',
-  'Git',
-  'Tailwind',
-  'MongoDB',
+  'HTML5',
+  'CSS3',
+  'Tailwind CSS',
+  'styled-components',
   'Redux',
   'Relay',
   'GraphQL',
-  'Express',
+  'Formik',
+  'Jest',
   'Framer Motion',
+  // Backend
+  'Node.js',
+  'Express',
+  'RESTful APIs',
   'MySQL',
+  'PostgreSQL',
   'DynamoDB',
-  'Jira',
-  'Docker',
-  'HTML',
-  'CSS',
   'Python',
+  'Supabase',
+  // AI/ML
+  'LLMs',
+  'OpenAI API',
+  'Conversational AI',
+  'Natural Language Processing',
+  'Fuzzy Matching',
+  'Entity Resolution',
+  // DevOps & Tools
+  'Git',
+  'GitHub',
+  'AWS',
+  'Docker',
+  'Vercel',
+  'Jira',
+  'Figma',
+  'Storybook',
+  'Postman',
+  'Twilio',
 ] as const;
