@@ -8,15 +8,24 @@ import { cookies } from 'next/headers';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendEmail = async (formData: FormData) => {
+type EmailState = { error?: string; data?: unknown } | null;
+
+export const sendEmail = async (
+  _prevState: EmailState,
+  formData: FormData
+): Promise<EmailState> => {
   const senderEmail = formData.get('senderEmail') as string;
   const message = formData.get('message') as string;
   const senderName = formData.get('senderName') as string;
 
-  // Extract user's locale from cookies
-  const cookieStore = cookies();
-  const locale =
-    (cookieStore.get('locale')?.value as 'en' | 'fr' | 'es' | 'pt') || 'en';
+  // Get locale from form data (passed from client) or fall back to cookies
+  const formLocale = formData.get('formLocale') as string;
+  const cookieStore = await cookies();
+  const locale = (formLocale || cookieStore.get('locale')?.value || 'en') as
+    | 'en'
+    | 'fr'
+    | 'es'
+    | 'pt';
 
   // Validate input with more descriptive errors based on locale
   const errorMessages = {

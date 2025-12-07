@@ -17,7 +17,7 @@ const Project = ({
   const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: ref as React.RefObject<HTMLElement>,
     offset: ['0 1', '1.33 1'],
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);

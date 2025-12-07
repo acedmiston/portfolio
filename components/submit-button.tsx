@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
-import { experimental_useFormStatus as useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import { useLanguage } from '@/providers/language-provider';
 
 const SubmitBtn = () => {

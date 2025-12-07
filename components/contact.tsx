@@ -1,6 +1,7 @@
 'use client';
 
-import React, { FormEvent, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useFormState } from 'react-dom';
 import SectionHeading from './section-heading';
 import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
@@ -13,41 +14,38 @@ const Contact = () => {
   const { ref } = useSectionInView('nav.contact');
   const { t, locale } = useLanguage();
   const formRef = useRef<HTMLFormElement>(null);
+  const [state, formAction] = useFormState(sendEmail, null);
+  const lastProcessedStateRef = useRef<typeof state>(null);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    // Show pending toast while sending
-    toast.loading(t('contact.sending'));
-
-    const formData = new FormData(event.currentTarget);
-
-    // Track form submission language for analytics
-    formData.append('formLocale', locale);
-
-    const { error } = await sendEmail(formData);
-
-    // Dismiss the loading toast
-    toast.dismiss();
-
-    if (error) {
-      toast.error(t('contact.errorMessage'), {
-        description: error,
-        duration: 5000,
-      });
-      console.error('Email send error:', error);
+  useEffect(() => {
+    // Reset tracking when state becomes null (new form submission started)
+    if (!state) {
+      lastProcessedStateRef.current = null;
       return;
     }
 
-    if (formRef.current) {
-      formRef.current.reset();
-    }
+    // Only process if this is a new state (not already processed)
+    if (lastProcessedStateRef.current === state) return;
 
-    toast.success(t('contact.successMessage'), {
-      description: t('contact.responseTime'),
-      duration: 3000,
-    });
-  };
+    // Mark this state as processed
+    lastProcessedStateRef.current = state;
+
+    if (state.error) {
+      toast.error(t('contact.errorMessage'), {
+        description: state.error,
+        duration: 5000,
+      });
+      console.error('Email send error:', state.error);
+    } else if (state.data) {
+      if (formRef.current) {
+        formRef.current.reset();
+      }
+      toast.success(t('contact.successMessage'), {
+        description: t('contact.responseTime'),
+        duration: 3000,
+      });
+    }
+  }, [state, t]);
 
   return (
     <motion.section
@@ -76,7 +74,7 @@ const Contact = () => {
         ref={formRef}
         id="form"
         className="mt-10 flex flex-col dark:text-black"
-        onSubmit={handleSubmit}
+        action={formAction}
       >
         <input
           className="borderBlack dark:bg-opacity/80 dark:focus:bg-opacity/100 mb-3 h-14 rounded-lg px-4 transition-all dark:bg-white dark:outline-none"
@@ -103,6 +101,7 @@ const Contact = () => {
           required
           maxLength={5000}
         />
+        <input type="hidden" name="formLocale" value={locale} />
         <SubmitBtn />
       </form>
     </motion.section>

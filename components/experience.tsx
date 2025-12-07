@@ -53,9 +53,12 @@ export default function Experience() {
                 className="flex items-center justify-center dark:bg-red-500"
                 sx={{ width: '46px', height: '46px' }}
               >
-                {React.cloneElement(item.icon as React.ReactElement, {
-                  style: { width: '24px', height: '24px' },
-                })}
+                {React.cloneElement(
+                  item.icon as React.ReactElement<
+                    React.SVGProps<SVGSVGElement>
+                  >,
+                  { style: { width: '24px', height: '24px' } }
+                )}
               </TimelineDot>
               <TimelineConnector />
             </TimelineSeparator>
