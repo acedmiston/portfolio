@@ -21,7 +21,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/lab": "^6.0.0-dev.240424162023-9968b4889d",
     "@mui/material": "^6.4.8",
-    "@react-email/components": "^0.0.12",
+    "@react-email/components": "^0.0.23",
     "@react-email/render": "^1.4.0",
     "@react-email/tailwind": "^0.0.13",
     "@types/node": "20.3.2",
@@ -64,14 +64,30 @@
   },
   "resolutions": {
     "@react-email/components/react": "^19.0.0",
-    "@react-email/tailwind/react": "^19.0.0"
+    "@react-email/components/react-dom": "^19.0.0",
+    "@react-email/tailwind/react": "^19.0.0",
+    "@react-email/tailwind/react-dom": "^19.0.0",
+    "@react-email/render/react": "^19.0.0",
+    "@react-email/render/react-dom": "^19.0.0",
+    "resend/react": "^19.0.0",
+    "resend/react-dom": "^19.0.0"
   },
   "overrides": {
     "@react-email/components": {
-      "react": "^19.0.0"
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
     },
     "@react-email/tailwind": {
-      "react": "^19.0.0"
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
+    },
+    "@react-email/render": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
+    },
+    "resend": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
     }
   }
 }
