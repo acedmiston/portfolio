@@ -54,6 +54,7 @@ export default async function RootLayout({
     <html lang={initialLocale} className="!scroll-smooth">
       <body
         className={`${inter.className} relative bg-gray-50 pt-0 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 sm:pt-36`}
+        suppressHydrationWarning
       >
         <LanguageProvider>
           <MetaUpdater />

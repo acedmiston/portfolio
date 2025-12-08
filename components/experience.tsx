@@ -16,7 +16,7 @@ import { useSectionInView } from '@/lib/hooks';
 import { Typography, useMediaQuery } from '@mui/material';
 import { useLanguage } from '@/providers/language-provider';
 
-const MotionTimelineItem = motion(TimelineItem);
+const MotionTimelineItem = motion.create(TimelineItem);
 
 export default function Experience() {
   const { ref } = useSectionInView('nav.experience');

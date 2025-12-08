@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import { useFormState } from 'react-dom';
+import React, { useEffect, useRef, useActionState } from 'react';
 import SectionHeading from './section-heading';
 import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
@@ -14,7 +13,7 @@ const Contact = () => {
   const { ref } = useSectionInView('nav.contact');
   const { t, locale } = useLanguage();
   const formRef = useRef<HTMLFormElement>(null);
-  const [state, formAction] = useFormState(sendEmail, null);
+  const [state, formAction] = useActionState(sendEmail, null);
   const lastProcessedStateRef = useRef<typeof state>(null);
 
   useEffect(() => {
