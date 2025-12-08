@@ -1,10 +1,58 @@
-'use client';
-
 import Link from 'next/link';
-import { useLanguage } from '@/providers/language-provider';
+import { cookies } from 'next/headers';
 
-export default function NotFound() {
-  const { t } = useLanguage();
+// Translation helper function
+function getTranslation(messages: any, key: string): string {
+  const keys = key.split('.');
+  let value: any = messages;
+
+  for (const k of keys) {
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+      value = value[k];
+    } else {
+      return key;
+    }
+  }
+
+  // Handle defaultMessage format
+  if (value && typeof value === 'object' && 'defaultMessage' in value) {
+    return value.defaultMessage;
+  }
+
+  return typeof value === 'string' ? value : key;
+}
+
+export default async function NotFound() {
+  const cookieStore = await cookies();
+  const localeCookie = cookieStore.get('locale');
+
+  // Define allowed locales and validate cookie value to prevent path traversal
+  const allowedLocales: readonly string[] = ['en', 'fr', 'es', 'pt'];
+  const cookieValue = localeCookie?.value || 'en';
+  // Validate that the cookie value is one of the allowed locales
+  // This prevents path traversal attacks by ensuring only whitelisted values are used
+  const locale = allowedLocales.includes(cookieValue)
+    ? (cookieValue as 'en' | 'fr' | 'es' | 'pt')
+    : 'en';
+
+  // Load messages for the current locale
+  let messages;
+  try {
+    const messagesModule = await import(`@/messages/${locale}.json`);
+    messages = messagesModule.default || messagesModule;
+  } catch {
+    // Fallback to English if locale file doesn't exist
+    try {
+      const enMessages = await import('@/messages/en.json');
+      messages = enMessages.default || enMessages;
+    } catch {
+      // Final fallback: use empty object to prevent crashes
+      // The getTranslation function will return the key if translation is missing
+      messages = {};
+    }
+  }
+
+  const t = (key: string) => getTranslation(messages, key);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4">
