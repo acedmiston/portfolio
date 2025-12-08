@@ -4,8 +4,8 @@ import React from 'react';
 import { Resend } from 'resend';
 import { render } from '@react-email/render';
 import { validateString, getErrorMessage } from '@/lib/utils';
-import ContactFormEmail from '@/email/contact-form-email';
 import { cookies } from 'next/headers';
+import ContactFormEmail from '@/email/contact-form-email';
 
 // Initialize Resend client - will throw if API key is missing
 const getResendClient = () => {
@@ -98,44 +98,38 @@ export const sendEmail = async (
     // Render the React email component to HTML
     const emailHtml = await render(
       React.createElement(ContactFormEmail, {
-        message: message,
-        senderEmail: senderEmail,
-        senderName: senderName,
-        locale: locale,
-        timestamp: timestamp,
+        message,
+        senderEmail,
+        senderName,
+        locale,
+        timestamp,
       })
     );
 
     // Send email with locale-aware subject and component
-    const result = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: 'aaroncedmistondev@gmail.com',
       subject: `${subjectLines[locale]} (${locale.toUpperCase()})`,
-      reply_to: senderEmail,
+      replyTo: senderEmail,
       html: emailHtml,
     });
 
-    // Resend v2 canary may return { data, error } or just throw errors
-    // Handle both response structures
-    if (
-      result &&
-      typeof result === 'object' &&
-      'error' in result &&
-      result.error
-    ) {
-      console.error('Resend API error:', result.error);
+    // Resend v6 returns { data, error } structure
+    if (error) {
+      console.error('Resend API error:', error);
       const errorMsg =
-        (result.error as { message?: string })?.message ||
-        (typeof result.error === 'string'
-          ? result.error
+        (error as { message?: string })?.message ||
+        (typeof error === 'string'
+          ? error
           : 'Failed to send email. Please try again later.');
       return {
         error: errorMsg,
       };
     }
 
-    // Success - return the data (or the entire result if it's the data)
-    return { data: result.data || result };
+    // Success - return the data
+    return { data: data || null };
   } catch (error: unknown) {
     console.error('Email sending failed:', error);
 
