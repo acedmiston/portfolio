@@ -6,6 +6,9 @@
 .pnp.js
 .pnp.*
 
+# lock files - Yarn only project
+package-lock.json
+
 # testing
 /coverage
 .vscode

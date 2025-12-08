@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Resend } from 'resend';
+import { render } from '@react-email/render';
 import { validateString, getErrorMessage } from '@/lib/utils';
 import ContactFormEmail from '@/email/contact-form-email';
 import { cookies } from 'next/headers';
@@ -82,19 +83,24 @@ export const sendEmail = async (
   );
 
   try {
+    // Render the React email component to HTML
+    const emailHtml = await render(
+      React.createElement(ContactFormEmail, {
+        message: message,
+        senderEmail: senderEmail,
+        senderName: senderName,
+        locale: locale,
+        timestamp: timestamp,
+      })
+    );
+
     // Send email with locale-aware subject and component
     const data = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: 'aaroncedmistondev@gmail.com',
       subject: `${subjectLines[locale]} (${locale.toUpperCase()})`,
       reply_to: senderEmail,
-      react: React.createElement(ContactFormEmail, {
-        message: message,
-        senderEmail: senderEmail,
-        senderName: senderName,
-        locale: locale,
-        timestamp: timestamp,
-      }),
+      html: emailHtml,
     });
 
     return { data };
