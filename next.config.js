@@ -5,6 +5,16 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ['image/webp', 'image/avif'],
   },
+  webpack: (config, { isServer }) => {
+    // Ignore the messages/pre directory during build if it doesn't exist
+    // This prevents build errors when pre files are not present
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;

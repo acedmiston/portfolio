@@ -7,7 +7,16 @@ import { validateString, getErrorMessage } from '@/lib/utils';
 import ContactFormEmail from '@/email/contact-form-email';
 import { cookies } from 'next/headers';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend client - will throw if API key is missing
+const getResendClient = () => {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      'RESEND_API_KEY is not configured. Please set it in your environment variables.'
+    );
+  }
+  return new Resend(apiKey);
+};
 
 type EmailState = { error?: string; data?: unknown } | null;
 
@@ -83,6 +92,9 @@ export const sendEmail = async (
   );
 
   try {
+    // Check if Resend API key is configured
+    const resend = getResendClient();
+
     // Render the React email component to HTML
     const emailHtml = await render(
       React.createElement(ContactFormEmail, {
@@ -95,7 +107,7 @@ export const sendEmail = async (
     );
 
     // Send email with locale-aware subject and component
-    const data = await resend.emails.send({
+    const result = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: 'aaroncedmistondev@gmail.com',
       subject: `${subjectLines[locale]} (${locale.toUpperCase()})`,
@@ -103,11 +115,43 @@ export const sendEmail = async (
       html: emailHtml,
     });
 
-    return { data };
+    // Resend v2 canary may return { data, error } or just throw errors
+    // Handle both response structures
+    if (
+      result &&
+      typeof result === 'object' &&
+      'error' in result &&
+      result.error
+    ) {
+      console.error('Resend API error:', result.error);
+      const errorMsg =
+        (result.error as { message?: string })?.message ||
+        (typeof result.error === 'string'
+          ? result.error
+          : 'Failed to send email. Please try again later.');
+      return {
+        error: errorMsg,
+      };
+    }
+
+    // Success - return the data (or the entire result if it's the data)
+    return { data: result.data || result };
   } catch (error: unknown) {
     console.error('Email sending failed:', error);
+
+    // Provide more specific error messages
+    const errorMessage = getErrorMessage(error);
+
+    // Check if it's an API key error
+    if (errorMessage.includes('RESEND_API_KEY')) {
+      return {
+        error:
+          'Email service is not configured. Please contact the site administrator.',
+      };
+    }
+
     return {
-      error: getErrorMessage(error),
+      error: errorMessage || 'Failed to send email. Please try again later.',
     };
   }
 };

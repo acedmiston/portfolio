@@ -60,13 +60,8 @@ const loadLocaleMessages = async (loc: Locale): Promise<void> => {
     // Just one log statement confirming success
     console.log(`✓ Successfully loaded ${loc} translations`);
 
-    // Check for pre-files
-    try {
-      await import(`../messages/pre/${loc}.json`);
-    } catch (preError) {
-      // Pre files aren't required for display, only for translation script
-      // No need to log this error in normal operation
-    }
+    // Note: Pre-files are only used by translation scripts, not needed at runtime
+    // Removing import to avoid build errors when pre directory doesn't exist
   } catch (error) {
     console.error(`Failed to load messages for ${loc}`, error);
 

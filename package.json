@@ -61,5 +61,17 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
+  },
+  "resolutions": {
+    "@react-email/components/react": "^19.0.0",
+    "@react-email/tailwind/react": "^19.0.0"
+  },
+  "overrides": {
+    "@react-email/components": {
+      "react": "^19.0.0"
+    },
+    "@react-email/tailwind": {
+      "react": "^19.0.0"
+    }
   }
 }
